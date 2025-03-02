@@ -1,0 +1,135 @@
+@extends('Admin.form-base')
+
+@section('title', 'email-check')
+
+@section('content')
+    <style>
+        /* Reset de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="email"]:focus {
+            border-color: #5cb85c;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .error-message {
+            color: #d9534f;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            form {
+                padding: 15px;
+            }
+
+            input, button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .error-message, .success-message {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            form {
+                padding: 10px;
+            }
+
+            input, button {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            .error-message, .success-message {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <form method="POST">
+        @csrf
+
+        <!-- EMAIL -->
+        <div class="form-group">
+            <input type="email" name="email" placeholder="Entrez votre email" required>
+            @error('email')
+            <span class="error-message">{{$message}}</span>
+            @enderror
+        </div>
+
+        <button type="submit">Soumettre</button>
+    </form>
+
+    <!-- MESSAGE -->
+    @if(session('message'))
+        <div class="success-message">
+            {{session('message')}}
+        </div>
+    @endif
+@endsection
