@@ -68,8 +68,12 @@
             <div class="site-footer-bottom mt-5">
                 <div class="row pt-4">
                     <div class="col-lg-6 col-12">
-                        <p class="copyright-text tooplate-link">Copyright © {{date('Y')}} HOPE
-                            <br>Plateforme réalisée par : <a rel="nofollow" href="https://www.linkedin.com/in/marc-aur%C3%A9lien-djiepmo-642051336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Djiepmo Marc</a></p>
+                        <p class="copyright-text tooplate-link">Copyright © {{date('Y')}} HOPE</p>
+
+                        <p class="large-paragraph">
+                            <br><a  href="https://www.linkedin.com/in/marc-aur%C3%A9lien-djiepmo-642051336" >Plateforme réalisée par : Djiepmo Marc</a>
+
+                        </p>
                     </div>
 
                     <div class="col-lg-3 col-12 ms-auto">
