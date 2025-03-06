@@ -155,7 +155,7 @@
 
                                     <div id="accordionGeneralTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionGeneral">
                                         <div class="accordion-body">
-                                            <p class="large-paragraph">Vous pouvez à tout moment faire des<a href=""> dons </a>qui seront mis à contribution de<a href=""> causes nobles.</a></p>
+                                            <p class="large-paragraph"><a href="#section_4">Vous pouvez à tout moment faire des  dons qui seront mis à contribution de causes nobles.</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
 
                                     <div id="accordionGeneralThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionGeneral">
                                         <div class="accordion-body">
-                                            <p class="large-paragraph">Vous pouvez aider grâce à votre expertise dans votre domaine de compétence et par votre disponibilité. Une paire de main n'est jamais de trop</p>
+                                            <p class="large-paragraph"><a href="#section_5">Vous pouvez aider grâce à votre expertise dans votre domaine de compétence et par votre disponibilité. Une paire de main n'est jamais de trop</a> </p>
                                         </div>
                                     </div>
                                 </div>
