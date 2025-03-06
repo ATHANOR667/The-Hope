@@ -74,11 +74,11 @@
 
                     <div class="col-lg-3 col-12 ms-auto">
                         <ul class="social-icon">
-                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+                            <li><a href="https://www.facebook.com/share/15uBaaEqe8/?mibextid=wwXIfr" class="social-icon-link bi-facebook"></a></li>
 
-                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+                          {{--  <li><a href="#" class="social-icon-link bi-instagram"></a></li>
 
-                            <li><a href="#" class="social-icon-link bi-linkedin"></a></li>
+                            <li><a href="#" class="social-icon-link bi-linkedin"></a></li>--}}
 
                             <li><a href="#" class="social-icon-link bi-youtube"></a></li>
                         </ul>

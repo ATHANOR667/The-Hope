@@ -4,7 +4,6 @@
 
     @if(!$causes)
         {{-- Formulaire général pour un don sans cause spécifique --}}
-        <div class="card shadow p-4">
             {{-- Notifications --}}
             @if(session('success_'))
                 <div class="alert alert-success">
@@ -20,20 +19,20 @@
 
             <form class="custom-form" role="form" method="post" action="{{ route('guest.donate') }}">
                 @csrf
-                <div class="row">
+                <div style="max-width: 80%; margin-left: 10%" class="row">
+                    {{-- Email Field --}}
                     <div class="col-lg-6 col-md-6 col-12 mb-4">
-                        <label for="email" class="form-label">Adresse Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="exemple@domaine.com" required aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">Entrez une adresse email valide.</div>
+                        <label class="mb-2" for="email" class="form-label">Adresse Email</label>
+                        <input type="email" name="email" id="email" class="form-control"  required>
                         @error('email')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
 
+                    {{-- Montant Field --}}
                     <div class="col-lg-6 col-md-6 col-12 mb-4">
-                        <label for="montant" class="form-label">Montant du don</label>
-                        <input type="number" class="form-control" id="montant" name="montant" placeholder="Entrez le montant" min="1" step="0.01" required>
-                        <div class="form-text">Indiquez le montant.</div>
+                        <label class="mb-2" for="montant" class="form-label">Montant du Don</label>
+                        <input type="number" class="form-control" id="montant" name="montant" min="1" step="0.01" required>
                         @error('montant')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -41,7 +40,7 @@
 
                     <div class="col-lg-6 col-md-6 col-12 mb-4">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" name="nom" id="nom" class="form-control" placeholder="John" required>
+                        <input type="text" name="nom" id="nom" class="form-control"  required>
                         @error('nom')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -49,17 +48,16 @@
 
                     <div class="col-lg-6 col-md-6 col-12 mb-4">
                         <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" name="prenom" id="prenom" class="form-control" placeholder="John" required>
+                        <input type="text" name="prenom" id="prenom" class="form-control"  required>
                         @error('prenom')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                 </div>
-
-                <div class="d-grid gap-2">
-                    <button type="submit" id="button_general" class="btn btn-primary">
-                        <span id="button_general_text">Soumettre</span>
-                        <span id="button_general_spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                <div class="col-12 mb-4">
+                    <button type="submit" id="button" class="btn btn-success w-100 py-3 rounded-pill shadow-sm transition-all">
+                        <span id="button">Contribuer</span>
+                        <span id="button_spinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                     </button>
                 </div>
             </form>
