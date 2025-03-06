@@ -71,7 +71,7 @@
                         <p class="copyright-text tooplate-link">Copyright © {{date('Y')}} HOPE</p>
 
                         <p class="large-paragraph">
-                            <br><a  href="https://www.linkedin.com/in/marc-aur%C3%A9lien-djiepmo-642051336" >Plateforme réalisée par : Djiepmo Marc</a>
+                            <br><a  style="color: whitesmoke;" onmouseover="this.style.color='skyblue'" onmouseout="this.style.color='whitesmoke'" href="https://www.linkedin.com/in/marc-aur%C3%A9lien-djiepmo-642051336" >Plateforme réalisée par : Djiepmo Marc</a>
 
                         </p>
                     </div>

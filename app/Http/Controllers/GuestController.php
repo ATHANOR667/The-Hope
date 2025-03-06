@@ -19,8 +19,8 @@ class GuestController extends Controller
 {
     public function welcome(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $causes = Cause::where('dateClotureContribution', '>', now()) ;
-        $realisations = Cause::where('dateClotureContribution', '<', now()) ;
+        $causes = Cause::withoutTrashed()->where('dateClotureContribution', '>', now()) ;
+        $realisations = Cause::withoutTrashed()->where('dateClotureContribution', '<', now()) ;
         $causes = $causes->exists() ? $causes->get() : null;
         $realisations = $realisations->exists() ? $realisations->get() : collect();
         return view('Guest.welcome' , compact('causes', 'realisations'));
