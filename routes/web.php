@@ -47,8 +47,11 @@ Route::controller(\App\Http\Controllers\AuthController::class)
          *
          */
 
-        Route::get('/','login')->name('login');
-        Route::post('/','login_process')->name('login_process');
+        Route::get('/','login')
+            ->name('login');
+        Route::post('/','login_process')
+            ->middleware('throttle:super-admin-login')
+            ->name('login_process');
 
 
         /** PASSWORD-RESET-WHILE-IS-NOT-CONNECTED

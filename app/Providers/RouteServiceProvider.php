@@ -12,9 +12,9 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Register services.
      */
-    public function register(): void
+    public function register()
     {
-
+        //
     }
 
     /**
@@ -22,49 +22,50 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loginLimitTry();
-        $this->configureRateLimiting();
+        $this->configureLoginLimiter();
+        $this->configureAdminLimiter();
     }
 
-    protected function loginLimitTry(): void
+    protected function configureLoginLimiter(): void
     {
         RateLimiter::for('login', function (Request $request) {
             return [
-                Limit::perMinute(5)->by($request->ip())->response(function (Request $request, array $headers) {
-                    return response()->json([
-                        'status' => 429,
-                        'message' => 'Limite atteinte . Veuillez réessayer dans '.$headers['Retry-After'].' secondes.' ,
-                    ], 429);
+                Limit::perMinute(3)->by($request->ip())->response(function (Request $request, array $headers) {
+                    $seconds = $headers['Retry-After'] ?? 60;
+                    return back()->with('error',
+                        "Trop de tentatives depuis votre adresse. Veuillez réessayer dans $seconds secondes.");
                 }),
-                Limit::perMinute(5)->by($request->input('email'))->response(function (Request $request, array $headers) {
-                    return response()->json([
-                        'status' => 429,
-                        'message' => 'Limite atteinte . Veuillez réessayer dans '.$headers['Retry-After'].' secondes.' ,
-                    ], 429);
-                }),
+
+                Limit::perMinute(3)->by($request->input('email'))->response(function (Request $request, array $headers) {
+                    $seconds = $headers['Retry-After'] ?? 60;
+                    return back()->with('error',
+                        "Trop de tentatives pour cet email. Veuillez patienter $seconds secondes.");
+                })
             ];
         });
     }
 
-    protected function configureRateLimiting(): void
+    protected function configureAdminLimiter(): void
     {
         RateLimiter::for('super-admin-login', function (Request $request) {
             return [
-                Limit::perMinute(3)->response(function (Request $request, array $headers) {
-                    return response()->json([
-                        'status' => 429,
-                        'message' => 'Limite atteinte . Veuillez réessayer dans '.$headers['Retry-After'].' secondes.' ,
-                        //'retry_after' => $headers['Retry-After'] ?? null,
-                        //'limit' => $headers['X-RateLimit-Limit'] ?? null,
-                        //'remaining' => $headers['X-RateLimit-Remaining'] ?? null,
-                    ], 429);
+                Limit::perMinute(3)->by($request->ip())->response(function (Request $request, array $headers) {
+                    $seconds = $headers['Retry-After'] ?? 60;
+                    return back()->with('error',
+                        "[Sécurité immédiate] Trop de requêtes. Attendez $seconds secondes.");
                 }),
-                Limit::perMinute(5, 5)->response(function (Request $request, array $headers) { // Corrigé : perSecond -> perSeconds
-                    return response()->json([
-                        'status' => 429,
-                        'message' => 'Limite atteinte . Veuillez réessayer dans '.$headers['Retry-After'].' secondes.' ,
-                    ], 429);
+
+                Limit::perMinutes(5, 5)->by($request->ip())->response(function (Request $request, array $headers) {
+                    $seconds = $headers['Retry-After'] ?? 300;
+                    return back()->with('error',
+                        "[Sécurité moyenne] Limite atteinte. Réessayez dans $seconds secondes.");
                 }),
+
+                Limit::perHour(20)->by($request->ip())->response(function (Request $request, array $headers) {
+                    $seconds = $headers['Retry-After'] ?? 3600;
+                    return back()->with('error',
+                        "[Sécurité stricte] Compte bloqué temporairement. Temps restant: $seconds secondes.");
+                })
             ];
         });
     }

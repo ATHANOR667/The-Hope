@@ -30,6 +30,11 @@
                 {{session('message')}}
             </div>
         @endif
+        @if(session('error'))
+            <div class="error-message">
+                {{session('error')}}
+            </div>
+        @endif
     </div>
     <style>
         /* Reset de base */
