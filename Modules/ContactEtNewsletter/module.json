@@ -1,0 +1,11 @@
+{
+    "name": "ContactEtNewsletter",
+    "alias": "contactetnewsletter",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ContactEtNewsletter\\Providers\\ContactEtNewsletterServiceProvider"
+    ],
+    "files": []
+}
