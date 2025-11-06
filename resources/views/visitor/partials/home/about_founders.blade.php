@@ -6,11 +6,11 @@
 
         {{-- En-tête de Section --}}
         <div class="text-center mb-20 max-w-5xl mx-auto">
-            <span class="text-lg font-semibold uppercase tracking-widest text-indigo-700 dark:text-indigo-400 border-b-2 border-indigo-300 dark:border-indigo-600 pb-1">
+            <span class="text-lg font-semibold uppercase tracking-widest text-green-700 dark:text-green-400 border-b-2 border-green-300 dark:border-green-600 pb-1">
                 Notre Gouvernance
             </span>
             <h2 class="text-6xl font-extrabold text-gray-900 dark:text-white sm:text-7xl lg:text-8xl mt-6 leading-none">
-                <span class="text-indigo-600 dark:text-indigo-400">Rencontrez</span> Nos Leaders
+                <span class="text-green-600 dark:text-green-400">Rencontrez</span> Nos Leaders
             </h2>
             <p class="mt-8 text-xl text-gray-600 dark:text-gray-400 font-normal max-w-3xl mx-auto">
                 La transparence et l'intégrité sont au cœur de notre direction. Découvrez les visionnaires qui guident "The Hope Charity" et leur engagement sans faille.
@@ -23,7 +23,7 @@
 
                 {{-- Indication de Scroll PC (Subtile) --}}
                 <p class="absolute -top-10 right-10 text-sm font-semibold text-gray-500 dark:text-gray-400 flex items-center">
-                    <i class="fas fa-arrows-alt-h mr-2 text-indigo-500"></i>
+                    <i class="fas fa-arrows-alt-h mr-2 text-green-500"></i>
                     Défilez pour voir tous les membres
                 </p>
 
@@ -57,7 +57,7 @@
 
             {{-- Indication de Scroll Mobile --}}
             <p class="text-center text-sm font-semibold text-gray-500 dark:text-gray-400 mb-4 flex items-center justify-center">
-                <i class="fas fa-arrows-alt-h mr-2 text-indigo-500"></i>
+                <i class="fas fa-arrows-alt-h mr-2 text-green-500"></i>
                 Faites glisser latéralement pour voir tous les leaders
             </p>
 
@@ -93,12 +93,12 @@
                 {{-- Boutons de navigation Latéraux  --}}
                 <div class="hidden md:flex absolute inset-y-0 w-full justify-between items-center px-4 pointer-events-none">
                     <button @click="$refs.carousel.scrollLeft -= 400" aria-label="Précédent"
-                            class="p-4 rounded-full shadow-lg bg-white/80 dark:bg-gray-800/80 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white transition duration-300 transform hover:scale-110 pointer-events-auto backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/50">
+                            class="p-4 rounded-full shadow-lg bg-white/80 dark:bg-gray-800/80 text-green-600 dark:text-green-400 hover:bg-green-600 hover:text-white transition duration-300 transform hover:scale-110 pointer-events-auto backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-green-500/50">
                         <i class="fas fa-arrow-left text-xl"></i>
                     </button>
 
                     <button @click="$refs.carousel.scrollLeft += 400" aria-label="Suivant"
-                            class="p-4 rounded-full shadow-lg bg-white/80 dark:bg-gray-800/80 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-600 hover:text-white transition duration-300 transform hover:scale-110 pointer-events-auto backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-indigo-500/50">
+                            class="p-4 rounded-full shadow-lg bg-white/80 dark:bg-gray-800/80 text-green-600 dark:text-green-400 hover:bg-green-600 hover:text-white transition duration-300 transform hover:scale-110 pointer-events-auto backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-green-500/50">
                         <i class="fas fa-arrow-right text-xl"></i>
                     </button>
                 </div>
@@ -109,12 +109,12 @@
         <div class="mt-28 text-center">
             <a href="{{route("visitor.galerie")}}"
                class="inline-flex items-center justify-center  px-12 py-5 border border-transparent    text-xl font-extrabold rounded-full
-                text-white bg-indigo-600 hover:bg-indigo-700      transition duration-500 ease-out transform hover:scale-105
+                text-white bg-green-600 hover:bg-green-700      transition duration-500 ease-out transform hover:scale-105
 
-                shadow-3xl shadow-indigo-600/60 hover:shadow-indigo-500/80
-                dark:shadow-indigo-500/60 dark:hover:shadow-indigo-400/80
+                shadow-3xl shadow-green-600/60 hover:shadow-green-500/80
+                dark:shadow-green-500/60 dark:hover:shadow-green-400/80
 
-                ring-4 ring-indigo-500/50 hover:ring-indigo-400
+                ring-4 ring-green-500/50 hover:ring-green-400
                 ring-offset-4 dark:ring-offset-gray-800">
                 <i class="fas fa-hand-holding-heart mr-3 text-2xl"></i>
                 Explorer Nos Actions et Notre Impact

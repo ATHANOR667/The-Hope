@@ -78,7 +78,7 @@
 
         @if (!$isReply || $level < 5)
             <button wire:click="$parent.openReplyComments('{{ $comment->id }}')" title="Répondre"
-                    class="flex items-center justify-center {{ $actionSizeClass }} text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-gray-600 rounded-md sm:rounded-lg transition duration-150">
+                    class="flex items-center justify-center {{ $actionSizeClass }} text-green-600 dark:text-green-400 hover:bg-green-100 dark:hover:bg-gray-600 rounded-md sm:rounded-lg transition duration-150">
                 <svg class="{{ $actionIconSize }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                 @if (!$isReply)<span class="hidden sm:inline ml-1 font-medium">Répondre</span>@endif
             </button>

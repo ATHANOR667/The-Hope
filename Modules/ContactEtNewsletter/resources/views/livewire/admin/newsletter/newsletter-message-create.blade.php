@@ -41,7 +41,7 @@
                     <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 p-5 flex justify-between items-center z-10 rounded-t-2xl">
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Créer une Newsletter</h3>
                         <button wire:click="close"
-                                class="p-2 rounded-full text-gray-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                                class="p-2 rounded-full text-gray-500 hover:text-green-600 dark:hover:text-green-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
@@ -60,7 +60,7 @@
                                    class="block w-full py-3 px-4 rounded-xl border border-gray-200 text-base
                                       bg-gray-50 text-gray-900 placeholder-gray-500
                                       dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100
-                                      focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-200 shadow-inner-sm"
+                                      focus:border-green-500 focus:ring-2 focus:ring-green-500 transition duration-200 shadow-inner-sm"
                                    placeholder="Ex: Mise à jour du mois d'octobre" required />
                             @error('title') <span class="mt-1 text-xs text-red-600 dark:text-red-400">{{ $message }}</span> @enderror
                         </div>
@@ -110,8 +110,8 @@
                             Annuler
                         </button>
                         <button type="submit" form="newsletter-form"
-                                class="px-6 py-2.5 text-sm font-bold text-white bg-indigo-600 rounded-full shadow-lg shadow-indigo-500/50 hover:bg-indigo-700
-                                   focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-150"
+                                class="px-6 py-2.5 text-sm font-bold text-white bg-green-600 rounded-full shadow-lg shadow-green-500/50 hover:bg-green-700
+                                   focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition duration-150"
                                 wire:loading.attr="disabled">
                             <span wire:loading.remove wire:target="save">Envoyer la Newsletter</span>
                             <span wire:loading wire:target="save" class="flex items-center">

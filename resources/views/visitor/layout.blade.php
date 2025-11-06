@@ -68,14 +68,14 @@
 
 <header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl shadow-md sticky top-0 z-50 transition-colors duration-300 ease-in-out border-b border-gray-200/50 dark:border-gray-700/50">
     <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="{{ route('visitor.accueil') }}" class="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md p-1 -m-1">
+        <a href="{{ route('visitor.accueil') }}" class="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-md p-1 -m-1">
             <img src="{{  $layoutContent->meta['og:image']   }}" alt="The Hope Charity Logo" class="h-9 w-auto rounded-full">
             <span class="text-xl font-extrabold text-gray-800 dark:text-gray-100 hidden sm:inline">The Hope Charity</span>
         </a>
 
         <div class="md:hidden">
             <button @click="sidebarOpen = !sidebarOpen"
-                    class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-200"
+                    class="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors duration-200"
                     aria-label="Toggle navigation menu"
                     aria-expanded="false" :aria-expanded="sidebarOpen.toString()">
                 <svg x-show="!sidebarOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
@@ -89,24 +89,24 @@
 
         <div class="hidden md:flex items-center space-x-6">
             <a href="{{ route('visitor.accueil') }}"
-               class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.accueil') ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 font-bold' : '' }}">Accueil</a>
+               class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.accueil') ? 'text-green-600 dark:text-green-400 border-b-2 border-green-500 font-bold' : '' }}">Accueil</a>
 
             <a href="{{ route('visitor.galerie') }}"
-               class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.login') ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 font-bold' : '' }}">Galerie</a>
+               class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.login') ? 'text-green-600 dark:text-green-400 border-b-2 border-green-500 font-bold' : '' }}">Galerie</a>
 
             <a href="{{ route('visitor.contact-us') }}"
-               class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.about-us') ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 font-bold' : '' }}">Nous Contacter</a>
+               class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.about-us') ? 'text-green-600 dark:text-green-400 border-b-2 border-green-500 font-bold' : '' }}">Nous Contacter</a>
 
             {{--  <a href="{{ route('visitor.login') }}"
-               class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.login') ? 'text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-500 font-bold' : '' }}">Connexion</a>
+               class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-all duration-200 pb-1 {{ request()->routeIs('visitor.login') ? 'text-green-600 dark:text-green-400 border-b-2 border-green-500 font-bold' : '' }}">Connexion</a>
 --}}
             <a href="{{route('visitor.donate')}}"
-               class="px-4 py-2 bg-indigo-600 text-white rounded-lg font-bold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300 shadow-lg hover:shadow-xl">
+               class="px-4 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-300 shadow-lg hover:shadow-xl">
                 Faire un Don
             </a>
 
             <button @click="toggleDarkMode()"
-                    class="p-2 rounded-full bg-gray-200/70 dark:bg-gray-700/70 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-indigo-500 transition-colors duration-300 ease-in-out"
+                    class="p-2 rounded-full bg-gray-200/70 dark:bg-gray-700/70 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-green-500 transition-colors duration-300 ease-in-out"
                     aria-label="Toggle dark mode">
                 <svg x-show="!darkMode" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -128,25 +128,25 @@
          class="md:hidden px-4 py-3 space-y-2 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border-t border-gray-200 dark:border-gray-700 absolute w-full shadow-lg"
          x-cloak>
         <a href="{{ route('visitor.accueil') }}"
-           class="block text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.accueil') ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Accueil</a>
+           class="block text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.accueil') ? 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Accueil</a>
 
         <a href="{{ route('visitor.galerie') }}"
-           class="block text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.about-us') ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Galerie</a>
+           class="block text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.about-us') ? 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Galerie</a>
 
         <a href="{{ route('visitor.contact-us') }}"
-           class="block text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.about-us') ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Nous contacter</a>
+           class="block text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.about-us') ? 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Nous contacter</a>
 
         {{-- <a href="{{ route('visitor.login') }}"
-           class="block text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.login') ? 'bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Connexion</a>
+           class="block text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-medium transition-colors duration-200 py-2 px-3 rounded-lg {{ request()->routeIs('visitor.login') ? 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 font-bold' : 'hover:bg-gray-50 dark:hover:bg-gray-800' }}">Connexion</a>
 --}}
         <a href="{{route('visitor.donate')}}"
-           class="w-full flex items-center justify-center p-3 rounded-lg bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition-colors duration-300 mt-4 shadow-lg">
+           class="w-full flex items-center justify-center p-3 rounded-lg bg-green-600 text-white font-bold hover:bg-green-700 transition-colors duration-300 mt-4 shadow-lg">
             Faire un Don
         </a>
 
         <div class="pt-3 border-t border-gray-200 dark:border-gray-700 mt-2">
             <button @click="toggleDarkMode()"
-                    class="w-full flex items-center justify-center p-2 rounded-lg bg-gray-200/70 dark:bg-gray-700/70 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-indigo-500 transition-colors duration-300 ease-in-out">
+                    class="w-full flex items-center justify-center p-2 rounded-lg bg-gray-200/70 dark:bg-gray-700/70 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-green-500 transition-colors duration-300 ease-in-out">
                 <svg x-show="!darkMode" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
                 </svg>
@@ -170,17 +170,17 @@
             <div class="col-span-1">
                 <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Navigation</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="{{ route('visitor.accueil') }}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-200">Accueil</a></li>
-                    {{-- <li><a href="{{ route('visitor.login') }}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-200">Mon espace</a></li> --}}
+                    <li><a href="{{ route('visitor.accueil') }}" class="hover:text-green-600 dark:hover:text-green-400 transition duration-200">Accueil</a></li>
+                    {{-- <li><a href="{{ route('visitor.login') }}" class="hover:text-green-600 dark:hover:text-green-400 transition duration-200">Mon espace</a></li> --}}
                 </ul>
             </div>
 
             <div class="col-span-1">
                 <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">Informations</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="{{route('visitor.donate')}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-200">Faire un don</a></li>
-                    <li><a href="{{route('visitor.contact-us')}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-200">Contact et FAQ</a></li>
-                    <li><a href="{{route('visitor.galerie')}}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-200">Galerie</a></li>
+                    <li><a href="{{route('visitor.donate')}}" class="hover:text-green-600 dark:hover:text-green-400 transition duration-200">Faire un don</a></li>
+                    <li><a href="{{route('visitor.contact-us')}}" class="hover:text-green-600 dark:hover:text-green-400 transition duration-200">Contact et FAQ</a></li>
+                    <li><a href="{{route('visitor.galerie')}}" class="hover:text-green-600 dark:hover:text-green-400 transition duration-200">Galerie</a></li>
                 </ul>
             </div>
 
@@ -198,7 +198,7 @@
                 @if(!empty($layoutContent->social_links['facebook']))
                     <a href="{{ $layoutContent->social_links['facebook'] }}" target="_blank" rel="noopener noreferrer"
                        aria-label="Lien sur facebook"
-                       class="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-full">
+                       class="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-full">
                         <i class="fab fa-facebook text-2xl"></i>
                     </a>
                 @endif
@@ -206,7 +206,7 @@
                 @if(!empty($layoutContent->social_links['twitter']))
                     <a href="{{ $layoutContent->social_links['twitter'] }}" target="_blank" rel="noopener noreferrer"
                        aria-label="Lien sur twitter"
-                       class="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-full">
+                       class="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-full">
                         <i class="fab fa-x-twitter text-2xl"></i>
                     </a>
                 @endif
@@ -214,7 +214,7 @@
                 @if(!empty($layoutContent->social_links['instagram']))
                     <a href="{{ $layoutContent->social_links['instagram'] }}" target="_blank" rel="noopener noreferrer"
                        aria-label="Lien sur instagram"
-                       class="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-full">
+                       class="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-full">
                         <i class="fab fa-instagram text-2xl"></i>
                     </a>
                 @endif
@@ -222,7 +222,7 @@
                 @if(!empty($layoutContent->social_links['linkedin']))
                     <a href="{{ $layoutContent->social_links['linkedin'] }}" target="_blank" rel="noopener noreferrer"
                        aria-label="Lien sur linkedin"
-                       class="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-full">
+                       class="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-full">
                         <i class="fab fa-linkedin text-2xl"></i>
                     </a>
                 @endif

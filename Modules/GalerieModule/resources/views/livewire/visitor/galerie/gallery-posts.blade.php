@@ -75,7 +75,7 @@
                     <p class="text-gray-300 text-sm sm:text-base drop-shadow-md">
                         Publié le {{ $mainMedia->created_at->format('d/m/Y') }}
                     </p>
-                    <button class="mt-4 w-fit px-6 py-2 bg-indigo-600 text-white font-bold rounded-full text-base shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105 flex items-center"
+                    <button class="mt-4 w-fit px-6 py-2 bg-green-600 text-white font-bold rounded-full text-base shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105 flex items-center"
                             @click="$dispatch('open-media-modal', { mediaId: '{{ $mainMedia->id }}' })">
 
                     <i class="fa-solid fa-circle-play mr-2"></i> Voir les détails
@@ -84,7 +84,7 @@
             @else
                 {{-- État Initial/Vide --}}
                 <div class="flex flex-col items-center justify-center h-full bg-gray-800/90 rounded-b-xl md:rounded-b-3xl p-8">
-                    <i class="fa-solid fa-satellite-dish text-6xl text-indigo-500 mb-4 animate-pulse"></i>
+                    <i class="fa-solid fa-satellite-dish text-6xl text-green-500 mb-4 animate-pulse"></i>
                     <h3 class="text-2xl font-semibold text-white mb-2">Bienvenue !</h3>
                     <p class="text-lg text-gray-400 text-center">Découvrez la Galerie de The Hope Charity. Contenu en préparation...</p>
                 </div>
@@ -191,16 +191,16 @@
 
                         {{-- Carte "Voir Tout" (Ajout d'une flèche) --}}
                         <a href="#" class="flex-shrink-0 w-24 sm:w-28 h-32 sm:h-36 md:h-40 flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-gray-600/50 dark:border-gray-700/50
-                                      hover:border-indigo-500 transition-colors duration-300 group bg-gray-800/50 self-center">
-                            <i class="fa-solid fa-arrow-circle-right text-gray-500 dark:text-gray-400 text-3xl group-hover:text-indigo-500 transform group-hover:scale-110 transition-transform"></i>
-                            <p class="text-xs mt-2 text-gray-400 group-hover:text-indigo-400 font-medium"> Voir les détails</p>
+                                      hover:border-green-500 transition-colors duration-300 group bg-gray-800/50 self-center">
+                            <i class="fa-solid fa-arrow-circle-right text-gray-500 dark:text-gray-400 text-3xl group-hover:text-green-500 transform group-hover:scale-110 transition-transform"></i>
+                            <p class="text-xs mt-2 text-gray-400 group-hover:text-green-400 font-medium"> Voir les détails</p>
                         </a>
                     </div>
                 </div>
             @empty
                 {{-- État Vide Global --}}
                 <div class="p-8 sm:p-12 text-center border-4 border-dashed border-gray-700/50 dark:border-gray-700/50 rounded-2xl bg-gray-800/50 backdrop-blur-sm">
-                    <i class="fa-solid fa-ghost text-5xl text-indigo-500 mb-4 animate-bounce"></i>
+                    <i class="fa-solid fa-ghost text-5xl text-green-500 mb-4 animate-bounce"></i>
                     <h3 class="text-2xl font-semibold text-white mb-2">Galerie en Attente !</h3>
                     <p class="text-gray-400 text-lg">Revenez bientôt pour découvrir les dernières actions de l'association. Merci de votre patience.</p>
                 </div>

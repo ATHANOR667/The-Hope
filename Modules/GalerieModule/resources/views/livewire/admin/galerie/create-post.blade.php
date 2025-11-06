@@ -25,13 +25,13 @@
                     <div>
                         <label for="title" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Titre du Post</label>
                         <input wire:model.live.debounce.300ms="title" type="text" id="title" placeholder="Titre accrocheur..."
-                               class="w-full p-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition duration-200">
+                               class="w-full p-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition duration-200">
                         @error('title') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                     </div>
                     <div>
                         <label for="description" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Description (Optionnel)</label>
                         <textarea wire:model="description" id="description" rows="3" placeholder="Détails, contexte..."
-                                  class="w-full p-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition duration-200"></textarea>
+                                  class="w-full p-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition duration-200"></textarea>
                         @error('description') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                     <div class="flex items-center justify-between mb-4">
                         <label class="block text-base font-bold text-gray-900 dark:text-white">Médias (Images/Vidéos)</label>
                         <button type="button" wire:click="addMediaInput"
-                                class="w-full sm:w-auto px-4 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-gray-700/50 border border-indigo-200 dark:border-indigo-800/50 rounded-lg hover:bg-indigo-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm">
+                                class="w-full sm:w-auto px-4 py-2 text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-gray-700/50 border border-green-200 dark:border-green-800/50 rounded-lg hover:bg-green-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm">
                             + Ajouter un média
                         </button>
                     </div>
@@ -58,7 +58,7 @@
                                 <div class="mb-3">
                                     <label for="media-type-{{ $index }}" class="block mb-1 text-xs font-medium text-gray-700 dark:text-gray-300">Sélectionner le Type</label>
                                     <select wire:model.live="mediaInputs.{{ $index }}.type" id="media-type-{{ $index }}"
-                                            class="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition duration-200">
+                                            class="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white transition duration-200">
                                         <option value="file">Fichier (Image/Vidéo)</option>
                                         <option value="url">URL Externe</option>
                                     </select>
@@ -72,9 +72,9 @@
                                         <input type="file" wire:model="mediaInputs.{{ $index }}.value" id="media-file-{{ $index }}"
                                                accept="image/jpeg,image/png,video/mp4,video/mov,video/webm"
                                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white dark:text-gray-400 focus:outline-none dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400
-                                                      file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 dark:file:bg-indigo-900/50 dark:file:text-indigo-300">
-                                        <div wire:loading wire:target="mediaInputs.{{ $index }}.value" class="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400 flex items-center">
-                                            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                      file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 dark:file:bg-green-900/50 dark:file:text-green-300">
+                                        <div wire:loading wire:target="mediaInputs.{{ $index }}.value" class="mt-2 text-xs font-medium text-green-600 dark:text-green-400 flex items-center">
+                                            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
@@ -84,7 +84,7 @@
                                         <label for="media-url-{{ $index }}" class="block mb-1 text-xs font-medium text-gray-700 dark:text-gray-300">URL de Média Externe</label>
                                         <input type="text" wire:model.live.debounce.500ms="mediaInputs.{{ $index }}.value" id="media-url-{{ $index }}"
                                                placeholder="Ex: https://example.com/image.jpg ou https://youtu.be/video"
-                                               class="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition duration-200">
+                                               class="w-full p-2 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white transition duration-200">
                                     @endif
                                     @error('mediaInputs.{$index}.value') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                                 </div>
@@ -113,7 +113,7 @@
                 </div>
                 <div class="flex items-center pt-6 border-t border-gray-200 dark:border-gray-700 space-x-3 rtl:space-x-reverse sticky bottom-0 bg-white dark:bg-gray-800 z-10">
                     <button type="submit" wire:loading.attr="disabled" wire:target="create, mediaInputs.*.value"
-                            class="px-6 py-3 text-sm font-medium rounded-lg text-center transition duration-300 ease-in-out text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-500 dark:hover:bg-indigo-600 dark:focus:ring-indigo-800 disabled:bg-indigo-400 dark:disabled:bg-indigo-700/50 disabled:cursor-not-allowed">
+                            class="px-6 py-3 text-sm font-medium rounded-lg text-center transition duration-300 ease-in-out text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-800 disabled:bg-green-400 dark:disabled:bg-green-700/50 disabled:cursor-not-allowed">
                         <span wire:loading.remove wire:target="create, mediaInputs.*.value">Créer le Post</span>
                         <span wire:loading wire:target="create, mediaInputs.*.value" class="flex items-center">
                             <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@
                         </span>
                     </button>
                     <button type="button" x-on:click="isOpen = false; $wire.resetInputFields()"
-                            class="py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-indigo-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 transition duration-200">
+                            class="py-3 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-green-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 transition duration-200">
                         Annuler
                     </button>
                 </div>

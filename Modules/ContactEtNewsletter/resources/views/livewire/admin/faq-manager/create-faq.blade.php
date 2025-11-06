@@ -47,7 +47,7 @@
                             type="text"
                             id="question"
                             wire:model.blur="question"
-                            class="block w-full py-3 px-4 rounded-xl border border-gray-200 text-base bg-gray-50 text-gray-900 placeholder-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-200 shadow-inner-sm"
+                            class="block w-full py-3 px-4 rounded-xl border border-gray-200 text-base bg-gray-50 text-gray-900 placeholder-gray-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 focus:border-green-500 focus:ring-2 focus:ring-green-500 transition duration-200 shadow-inner-sm"
                             placeholder="Ex: Comment réinitialiser mon mot de passe ?"
                             required
                         />
@@ -103,7 +103,7 @@
                                 id="order"
                                 wire:model="order"
                                 min="0"
-                                class="block w-full py-3 px-4 rounded-xl border border-gray-200 text-base bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 transition duration-200 shadow-inner-sm"
+                                class="block w-full py-3 px-4 rounded-xl border border-gray-200 text-base bg-gray-50 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 focus:border-green-500 focus:ring-2 focus:ring-green-500 transition duration-200 shadow-inner-sm"
                             />
                             @error('order') <span class="mt-1 text-xs text-red-600 dark:text-red-400">{{ $message }}</span> @enderror
                         </div>
@@ -113,7 +113,7 @@
                                 wire:model="is_published"
                                 id="is_published"
                                 type="checkbox"
-                                class="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                class="h-5 w-5 rounded border-gray-300 text-green-600 focus:ring-green-500"
                             />
                             <label for="is_published" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">
                                 Publier immédiatement
@@ -134,7 +134,7 @@
                     <button
                         wire:click="save"
                         form="newsletter-form"
-                        class="px-6 py-2.5 text-sm font-bold text-white bg-indigo-600 rounded-full shadow-lg shadow-indigo-500/50 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-150"
+                        class="px-6 py-2.5 text-sm font-bold text-white bg-green-600 rounded-full shadow-lg shadow-green-500/50 hover:bg-green-700 focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition duration-150"
                         wire:loading.attr="disabled"
                     >
                         <span wire:loading.remove>Créer la FAQ</span>

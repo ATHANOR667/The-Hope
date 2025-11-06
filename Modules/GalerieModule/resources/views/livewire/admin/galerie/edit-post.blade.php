@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 z-10">
             <h3 class="text-2xl font-light text-gray-900 dark:text-gray-100 tracking-wide">Modifier le Post</h3>
             <button type="button" wire:click="resetInputFields"
-                    class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 rounded-full p-1.5 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 rounded-full p-1.5 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -16,14 +16,14 @@
                 <div>
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Titre</label>
                     <input wire:model.live.debounce.300ms="title" type="text" id="title" placeholder="Titre du post galerie..."
-                           class="w-full p-3 text-sm text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 placeholder-gray-400 shadow-inner">
+                           class="w-full p-3 text-sm text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all duration-200 placeholder-gray-400 shadow-inner">
                     @error('title') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Description (Optionnel)</label>
                     <textarea wire:model.live="description" id="description" rows="3" placeholder="Description courte, contexte..."
-                              class="w-full p-3 text-sm text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-200 placeholder-gray-400 shadow-inner resize-y"></textarea>
+                              class="w-full p-3 text-sm text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition-all duration-200 placeholder-gray-400 shadow-inner resize-y"></textarea>
                     @error('description') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                 </div>
 
@@ -31,7 +31,7 @@
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 space-y-3 sm:space-y-0">
                         <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Liste des Médias</h4>
                         <button type="button" wire:click="addMediaInput"
-                                class="w-full sm:w-auto px-4 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-gray-700/50 border border-indigo-200 dark:border-indigo-800/50 rounded-lg hover:bg-indigo-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm">
+                                class="w-full sm:w-auto px-4 py-2 text-sm font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-gray-700/50 border border-green-200 dark:border-green-800/50 rounded-lg hover:bg-green-100 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 shadow-sm">
                             + Ajouter un média
                         </button>
                     </div>
@@ -40,12 +40,12 @@
                         @forelse ($enhancedMediaInputs as $index => $media)
                             <div wire:key="media-{{ isset($media['id']) ? 'existing-'.$media['id'] : 'new-'.$media['input_index'] }}"
                                  class="p-4 rounded-xl transition-all duration-300 shadow-sm
-                                        @if(isset($media['id'])) bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 @else bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-200/50 dark:border-indigo-800/50 @endif
+                                        @if(isset($media['id'])) bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 @else bg-green-50/50 dark:bg-green-900/10 border border-green-200/50 dark:border-green-800/50 @endif
                                         @error('mediaInputs.'.($media['input_index'] ?? $index).'.value') !border-red-400 !bg-red-50/50 dark:!bg-red-900/30 @enderror">
                                 <div class="flex justify-between items-start mb-4 pb-2 border-b border-gray-100 dark:border-gray-700">
                                     <span class="font-medium text-sm text-gray-800 dark:text-gray-200">
                                         Média #{{ $index + 1 }}
-                                        <span class="text-xs font-light text-indigo-600 dark:text-indigo-400">
+                                        <span class="text-xs font-light text-green-600 dark:text-green-400">
                                             ({{ isset($media['id']) ? 'Existant' : 'Nouveau' }})
                                         </span>
                                     </span>
@@ -74,7 +74,7 @@
                                         <div>
                                             <label for="media-type-{{ $media['input_index'] }}" class="block mb-1 text-xs font-medium text-gray-700 dark:text-gray-300">Source</label>
                                             <select wire:model.live="mediaInputs.{{ $media['input_index'] }}.type" id="media-type-{{ $media['input_index'] }}"
-                                                    class="w-full p-2.5 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 shadow-sm">
+                                                    class="w-full p-2.5 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 shadow-sm">
                                                 <option value="file">Téléverser Fichier (Image/Vidéo)</option>
                                                 <option value="url">URL Externe</option>
                                             </select>
@@ -85,9 +85,9 @@
                                                 <label for="media-file-{{ $media['input_index'] }}" class="block mb-1 text-xs font-medium text-gray-700 dark:text-gray-300">Fichier (Max 10MB)</label>
                                                 <input type="file" wire:model="mediaInputs.{{ $media['input_index'] }}.value" id="media-file-{{ $media['input_index'] }}"
                                                        accept="image/jpeg,image/png,video/mp4,video/mov,video/webm"
-                                                       class="block w-full text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer bg-white dark:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 dark:file:bg-indigo-900/50 dark:file:text-indigo-300">
-                                                <div wire:loading wire:target="mediaInputs.{{ $media['input_index'] }}.value" class="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400 flex items-center">
-                                                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                       class="block w-full text-sm text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer bg-white dark:bg-gray-800 focus:outline-none focus:ring-1 focus:ring-green-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 dark:file:bg-green-900/50 dark:file:text-green-300">
+                                                <div wire:loading wire:target="mediaInputs.{{ $media['input_index'] }}.value" class="mt-2 text-xs font-medium text-green-600 dark:text-green-400 flex items-center">
+                                                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                     </svg>
@@ -98,7 +98,7 @@
                                                 <label for="media-url-{{ $media['input_index'] }}" class="block mb-1 text-xs font-medium text-gray-700 dark:text-gray-300">URL du Média Externe</label>
                                                 <input type="text" wire:model.live.debounce.500ms="mediaInputs.{{ $media['input_index'] }}.value" id="media-url-{{ $media['input_index'] }}"
                                                        placeholder="Ex: https://youtube.com/watch?v=..."
-                                                       class="w-full p-2.5 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 shadow-sm">
+                                                       class="w-full p-2.5 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 shadow-sm">
                                                 @error('mediaInputs.'.$media['input_index'].'.value') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                                             @endif
                                         </div>
@@ -134,7 +134,7 @@
 
             <div class="flex flex-col sm:flex-row items-center p-5 border-t border-gray-200 dark:border-gray-700 space-y-3 sm:space-y-0 sm:space-x-3 sticky bottom-0 bg-white dark:bg-gray-800 z-10">
                 <button type="submit" wire:loading.attr="disabled" wire:target="update, mediaInputs.*.value"
-                        class="w-full sm:w-auto flex-1 px-6 py-3 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:bg-indigo-400 dark:disabled:bg-indigo-700/50 disabled:cursor-not-allowed">
+                        class="w-full sm:w-auto flex-1 px-6 py-3 text-sm font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:bg-green-400 dark:disabled:bg-green-700/50 disabled:cursor-not-allowed">
                     <span wire:loading.remove wire:target="update, mediaInputs.*.value">💾 Mettre à jour le Post</span>
                     <span wire:loading wire:target="update, mediaInputs.*.value" class="flex items-center justify-center">
                         <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

@@ -5,19 +5,19 @@
 
         {{-- 1. Total des connexions sur une période (Stat Card Principale) --}}
         {{-- Conservé en col-span-1 --}}
-        <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-2xl dark:shadow-xl dark:shadow-indigo-900/20
-                    transition duration-300 hover:shadow-indigo-500/30 hover:scale-[1.02] cursor-default">
+        <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-2xl dark:shadow-xl dark:shadow-green-900/20
+                    transition duration-300 hover:shadow-green-500/30 hover:scale-[1.02] cursor-default">
             {{-- ... Contenu inchangé ... --}}
             <div class="flex items-center justify-between">
-                <div class="flex-shrink-0 bg-indigo-500/10 rounded-xl p-3">
-                    <svg class="h-7 w-7 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <div class="flex-shrink-0 bg-green-500/10 rounded-xl p-3">
+                    <svg class="h-7 w-7 text-green-600 dark:text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.5a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.58-7.499-1.632Z" />
                     </svg>
                 </div>
                 <dt class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Total Connexions</dt>
             </div>
 
-            <dd class="mt-4 text-5xl font-extrabold text-indigo-700 dark:text-indigo-300">
+            <dd class="mt-4 text-5xl font-extrabold text-green-700 dark:text-green-300">
                 {{ number_format($stats['total_connections']) }}
             </dd>
 

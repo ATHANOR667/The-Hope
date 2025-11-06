@@ -16,7 +16,7 @@
             {{-- Email Reset Section --}}
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 transition-colors duration-300 ease-in-out">
                 <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">Changer l'Email Associé</h2>
-                <button type="button" @click="openEmailReset = !openEmailReset" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200">
+                <button type="button" @click="openEmailReset = !openEmailReset" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200">
                     <span x-text="openEmailReset ? 'Fermer' : 'Changer l\'Email'"></span>
                 </button>
                 <div x-show="openEmailReset" x-transition class="mt-6">
@@ -27,7 +27,7 @@
             {{-- Password Reset Section --}}
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-colors duration-300 ease-in-out">
                 <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">Changer le Mot de Passe</h2>
-                <button type="button" @click="openPasswordReset = !openPasswordReset" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200">
+                <button type="button" @click="openPasswordReset = !openPasswordReset" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200">
                     <span x-text="openPasswordReset ? 'Fermer' : 'Changer le Mot de Passe'"></span>
                 </button>
                 <div x-show="openPasswordReset" x-transition class="mt-6">

@@ -12,7 +12,7 @@
                     rows="4"
                     placeholder="Écrivez votre réponse ici..."
                     class="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm
-                           focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white
+                           focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:text-white
                            min-h-[120px] max-h-[250px] overflow-y-auto resize-none"
                     id="reply-textarea"
                 ></textarea>
@@ -23,7 +23,7 @@
                 <button type="submit"
                         wire:loading.attr="disabled"
                         wire:loading.class="opacity-50"
-                        class="px-5 py-2 text-sm font-medium bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-50 transition ease-in-out duration-150 disabled:opacity-75"
+                        class="px-5 py-2 text-sm font-medium bg-green-600 text-white rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 transition ease-in-out duration-150 disabled:opacity-75"
                 >
                     <span wire:loading.remove>Envoyer le message</span>
                     <span wire:loading>Envoi...</span>

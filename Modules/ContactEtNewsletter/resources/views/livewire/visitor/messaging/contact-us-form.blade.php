@@ -3,7 +3,7 @@
 
         <div class="p-0 sm:p-0 rounded-xl transition duration-500">
 
-            <h2 class="text-4xl sm:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-indigo-800 leading-tight mb-8">
+            <h2 class="text-4xl sm:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800 leading-tight mb-8">
                 Contactez-nous
             </h2>
 
@@ -18,7 +18,7 @@
                         </label>
                         <input type="text" id="name" wire:model.lazy="name" placeholder="Ex: Jean Dupont" required
                                class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400
-                                      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+                                      focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                                       @error('name') border-red-500 dark:border-red-500 @enderror transition duration-500">
                         @error('name')
                         <p class="text-red-500 dark:text-red-400 text-xs italic mt-1">{{ $message }}</p>
@@ -32,7 +32,7 @@
                         </label>
                         <input type="email" id="email" wire:model.lazy="email" placeholder="exemple@domaine.com" required
                                class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400
-                                      focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+                                      focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                                       @error('email') border-red-500 dark:border-red-500 @enderror transition duration-500">
                         @error('email')
                         <p class="text-red-500 dark:text-red-400 text-xs italic mt-1">{{ $message }}</p>
@@ -46,7 +46,7 @@
                     </label>
                     <input type="text" id="subject" wire:model.debounce.500ms="subject" placeholder="Ex: Demande de devis ou Support" required
                            class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400
-                                  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+                                  focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                                   @error('subject') border-red-500 dark:border-red-500 @enderror transition duration-500">
                     @error('subject')
                     <p class="text-red-500 dark:text-red-400 text-xs italic mt-1">{{ $message }}</p>
@@ -60,7 +60,7 @@
                     </label>
                     <textarea id="content" wire:model.lazy="content" rows="6" placeholder="Décrivez votre demande en détail ici..." required
                               class="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400
-                                     focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+                                     focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent
                                      @error('content') border-red-500 dark:border-red-500 @enderror transition duration-500"></textarea>
                     @error('content')
                     <p class="text-red-500 dark:text-red-400 text-xs italic mt-1">{{ $message }}</p>
@@ -69,9 +69,9 @@
 
                 {{-- BOUTON DE SOUMISSION LIVEWIRE --}}
                 <button type="submit"
-                        class="w-full flex justify-center items-center bg-indigo-600 text-white font-semibold py-3 px-4 rounded-lg
-                               hover:bg-indigo-700 dark:hover:bg-indigo-500 transition duration-300 ease-in-out
-                               focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-70 disabled:opacity-75"
+                        class="w-full flex justify-center items-center bg-green-600 text-white font-semibold py-3 px-4 rounded-lg
+                               hover:bg-green-700 dark:hover:bg-green-500 transition duration-300 ease-in-out
+                               focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-70 disabled:opacity-75"
                         wire:loading.attr="disabled"
                         wire:target="submit">
 

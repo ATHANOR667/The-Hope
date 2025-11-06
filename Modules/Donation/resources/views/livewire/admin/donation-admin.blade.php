@@ -2,7 +2,7 @@
     <!-- Conteneur principal avec support Dark Mode -->
     <div class="p-4 md:p-6 bg-gray-50 min-h-screen dark:bg-gray-900 dark:text-gray-100">
         <div class="max-w-7xl mx-auto">
-            <h1 class="text-3xl font-bold text-indigo-800 mb-6 dark:text-indigo-400">Administration des Dons</h1>
+            <h1 class="text-3xl font-bold text-green-800 mb-6 dark:text-green-400">Administration des Dons</h1>
 
             <!-- PSP Toggle -->
             <div class="bg-gradient-to-br from-white to-gray-50 p-6 rounded-3xl shadow-xl mb-10 flex flex-col sm:flex-row gap-5 sm:gap-8 items-start sm:items-center justify-between dark:from-gray-850 dark:to-gray-800 dark:shadow-2xl border border-gray-100 dark:border-gray-750 transition-all duration-500 ease-in-out">
@@ -23,8 +23,8 @@
                 shadow-sm
                 transition-all duration-300 ease-in-out transform
                 group-hover:scale-102 group-hover:shadow-md
-                peer-checked:bg-gradient-to-r peer-checked:from-indigo-500 peer-checked:to-purple-600 peer-checked:text-white peer-checked:border-indigo-600
-                peer-focus:outline-none peer-focus:ring-3 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-700
+                peer-checked:bg-gradient-to-r peer-checked:from-green-500 peer-checked:to-purple-600 peer-checked:text-white peer-checked:border-green-600
+                peer-focus:outline-none peer-focus:ring-3 peer-focus:ring-green-300 dark:peer-focus:ring-green-700
                 flex items-center space-x-2
             ">
                             <span x-data="{stripeEnabled: @entangle('stripeEnabled')}" x-text="stripeEnabled ? '✓ Stripe Activé' : 'Stripe Désactivé'"></span>
@@ -53,15 +53,15 @@
 
             <!-- Filtres -->
             <div class="bg-white p-4 rounded-xl shadow mb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 dark:bg-gray-800">
-                <input type="text" wire:model.debounce.500ms="search" placeholder="Rechercher par email/nom..." class="rounded-lg border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-indigo-500 focus:ring-indigo-500">
-                <select wire:model.live="filterStatus" class="rounded-lg border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-indigo-500 focus:ring-indigo-500">
+                <input type="text" wire:model.debounce.500ms="search" placeholder="Rechercher par email/nom..." class="rounded-lg border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-green-500 focus:ring-green-500">
+                <select wire:model.live="filterStatus" class="rounded-lg border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-green-500 focus:ring-green-500">
                     <option value="">Tous les statuts</option>
                     <option value="completed">Complété</option>
                     <option value="pending">En attente</option>
                     <option value="failed">Échoué</option>
                     <option value="refunded">Remboursé</option>
                 </select>
-                <select wire:model.live="filterPsp" class="rounded-lg border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-indigo-500 focus:ring-indigo-500">
+                <select wire:model.live="filterPsp" class="rounded-lg border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-green-500 focus:ring-green-500">
                     <option value="">Tous les PSP</option>
                     <option value="Stripe">Stripe</option>
                     <option value="NotchPay">NotchPay</option>
@@ -71,19 +71,19 @@
             <!-- TABLEAU DES DONS (DESKTOP) -->
             <div class="hidden md:block overflow-x-auto bg-white rounded-xl shadow dark:bg-gray-800">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead class="bg-indigo-50 dark:bg-indigo-900">
+                    <thead class="bg-green-50 dark:bg-green-900">
                     <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-indigo-700 uppercase dark:text-indigo-300">Donateur</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-indigo-700 uppercase dark:text-indigo-300">Montant</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-indigo-700 uppercase dark:text-indigo-300">PSP</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-indigo-700 uppercase dark:text-indigo-300">Statut</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-indigo-700 uppercase dark:text-indigo-300">Date</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-indigo-700 uppercase dark:text-indigo-300">Actions</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase dark:text-green-300">Donateur</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase dark:text-green-300">Montant</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase dark:text-green-300">PSP</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase dark:text-green-300">Statut</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase dark:text-green-300">Date</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase dark:text-green-300">Actions</th>
                     </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                     @foreach($dons as $don)
-                        <tr class="hover:bg-indigo-50 dark:hover:bg-gray-700 transition duration-150">
+                        <tr class="hover:bg-green-50 dark:hover:bg-gray-700 transition duration-150">
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $don->prenom }} {{ $don->nom }}</div>
                                 <div class="text-xs text-gray-500 dark:text-gray-400">{{ $don->emailDonateur }}</div>
@@ -92,7 +92,7 @@
                                 {{ number_format($don->montant, 2) }} {{ $don->devise }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $don->operateur === 'Stripe' ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100' : 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' }}">
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full {{ $don->operateur === 'Stripe' ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' : 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' }}">
                                     {{ $don->operateur }}
                                 </span>
                             </td>
@@ -115,7 +115,7 @@
                                     </button>
                                 @endif
                                 @if($don->refunds->count())
-                                    <button wire:click="showRefunds({{ $don->id }})" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300 ml-2 transition duration-150">
+                                    <button wire:click="showRefunds({{ $don->id }})" class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300 ml-2 transition duration-150">
                                         ({{ $don->refunds->count() }})
                                     </button>
                                 @endif
@@ -138,7 +138,7 @@
                                 <div class="font-bold text-lg dark:text-white">{{ $don->prenom }} {{ $don->nom }}</div>
                                 <div class="text-sm text-gray-500 dark:text-gray-400">{{ $don->emailDonateur }}</div>
                             </div>
-                            <span class="px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full {{ $don->operateur === 'Stripe' ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-800 dark:text-indigo-100' : 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' }}">
+                            <span class="px-2 py-0.5 inline-flex text-xs leading-5 font-semibold rounded-full {{ $don->operateur === 'Stripe' ? 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' : 'bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-100' }}">
                             {{ $don->operateur }}
                         </span>
                         </div>
@@ -171,7 +171,7 @@
                                 </button>
                             @endif
                             @if($don->refunds->count())
-                                <button wire:click="showRefunds({{ $don->id }})" class="text-sm px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md transition duration-150">
+                                <button wire:click="showRefunds({{ $don->id }})" class="text-sm px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg shadow-md transition duration-150">
                                     Remboursements ({{ $don->refunds->count() }})
                                 </button>
                             @endif
@@ -186,10 +186,10 @@
             @if($showRefundModal)
                 <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-out" x-transition.opacity>
                     <div class="bg-white rounded-xl p-6 max-w-md w-full shadow-2xl dark:bg-gray-800 dark:text-white" x-transition.scale.in>
-                        <h3 class="text-2xl font-bold mb-4 text-indigo-800 dark:text-indigo-400">Rembourser le don</h3>
+                        <h3 class="text-2xl font-bold mb-4 text-green-800 dark:text-green-400">Rembourser le don</h3>
                         <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">Montant maximum remboursable : {{ number_format(Don::find($selectedDon)->montant ?? 0, 2) }} {{ Don::find($selectedDon)->devise ?? 'EUR' }}</p>
 
-                        <input type="number" wire:model="refundAmount" step="0.01" class="w-full rounded-lg border-gray-300 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-indigo-500 focus:ring-indigo-500" placeholder="Montant">
+                        <input type="number" wire:model="refundAmount" step="0.01" class="w-full rounded-lg border-gray-300 mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:border-green-500 focus:ring-green-500" placeholder="Montant">
 
                         @error('refundAmount') <p class="text-red-500 text-xs mt-1 mb-3">{{ $message }}</p> @enderror
 
@@ -209,7 +209,7 @@
             @if($showRefunds)
                 <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-out" x-transition.opacity>
                     <div class="bg-white rounded-xl p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl dark:bg-gray-800 dark:text-white" x-transition.scale.in>
-                        <h3 class="text-2xl font-bold mb-6 text-indigo-800 dark:text-indigo-400">Détails des Remboursements</h3>
+                        <h3 class="text-2xl font-bold mb-6 text-green-800 dark:text-green-400">Détails des Remboursements</h3>
 
                         @forelse($refunds as $refund)
                             <div class="border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
@@ -225,7 +225,7 @@
                             <p class="text-center text-gray-500 dark:text-gray-400">Aucun remboursement trouvé pour ce don.</p>
                         @endforelse
 
-                        <button wire:click="closeModal" class="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold shadow-md transition duration-150">
+                        <button wire:click="closeModal" class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold shadow-md transition duration-150">
                             Fermer
                         </button>
                     </div>

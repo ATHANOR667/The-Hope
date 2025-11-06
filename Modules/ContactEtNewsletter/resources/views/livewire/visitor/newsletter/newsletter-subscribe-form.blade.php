@@ -8,7 +8,7 @@
             <input type="email"
                    id="email"
                    placeholder="votre.email@exemple.com"
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-indigo-500 focus:border-indigo-500
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500
                       bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
                       border-gray-300 dark:border-gray-600
                       @error('email') border-red-500 @enderror"
@@ -26,7 +26,7 @@
             <input type="tel"
                    id="phone"
                    placeholder="+33 6 XX XX XX XX"
-                   class="w-full px-4 py-2 border rounded-lg focus:ring-indigo-500 focus:border-indigo-500
+                   class="w-full px-4 py-2 border rounded-lg focus:ring-green-500 focus:border-green-500
                       bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100
                       border-gray-300 dark:border-gray-600
                       @error('phone') border-red-500 @enderror"
@@ -58,9 +58,9 @@
                               text-gray-700 dark:text-gray-300
                               transition-all duration-200 ease-in-out
                               @if($selectedChannel === $channelKey)
-                                  bg-indigo-50 dark:bg-indigo-800/30 border-indigo-500 ring-2 ring-indigo-500
+                                  bg-green-50 dark:bg-green-800/30 border-green-500 ring-2 ring-green-500
                               @else
-                                  bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:border-indigo-400 dark:hover:border-indigo-500
+                                  bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:border-green-400 dark:hover:border-green-500
                               @endif">
                         {{-- CORRECTION: Remplacement du checkbox par radio --}}
                         <input id="{{ $channelKey }}-channel"
@@ -69,13 +69,13 @@
                                value="{{ $channelKey }}"
                                wire:model.live="selectedChannel"
                                class="sr-only">
-                        <svg class="h-5 w-5 mb-1 {{ $selectedChannel === $channelKey ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500' }}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg class="h-5 w-5 mb-1 {{ $selectedChannel === $channelKey ? 'text-green-600 dark:text-green-400' : 'text-gray-400 dark:text-gray-500' }}" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             {!! $channelData['icon'] !!}
                         </svg>
                         <span class="text-xs font-medium">{{ $channelData['name'] }}</span>
                         @if($selectedChannel === $channelKey)
                             {{-- Affichage du cercle de sélection pour le canal radio --}}
-                            <svg class="h-3 w-3 text-indigo-600 dark:text-indigo-400 absolute top-1 right-1" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="h-3 w-3 text-green-600 dark:text-green-400 absolute top-1 right-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586 8.707 9.293z" clip-rule="evenodd" />
                             </svg>
                         @endif
@@ -90,8 +90,8 @@
 
         <button type="submit"
                 class="w-full flex justify-center py-2 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white
-                   bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500
-                   dark:bg-indigo-700 dark:hover:bg-indigo-600 dark:focus:ring-offset-gray-900 transition duration-150 ease-in-out"
+                   bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500
+                   dark:bg-green-700 dark:hover:bg-green-600 dark:focus:ring-offset-gray-900 transition duration-150 ease-in-out"
                 wire:loading.attr="disabled"
                 wire:target="subscribe">
 

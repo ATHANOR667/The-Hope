@@ -9,7 +9,7 @@
             <nav class="-mb-px flex space-x-8" aria-label="Tabs">
                 <button
                     @click="activeTab = 1"
-                    :class="activeTab === 1 ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+                    :class="activeTab === 1 ? 'border-green-500 text-green-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
                     class="whitespace-nowrap py-2 px-1 border-b-2 font-medium text-lg" {{-- J'ai mis 'text-lg' pour les boutons des onglets --}}
                 >
                     FAQ
@@ -17,7 +17,7 @@
 
                 <button
                     @click="activeTab = 2"
-                    :class="activeTab === 2 ? 'border-indigo-500 text-indigo-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
+                    :class="activeTab === 2 ? 'border-green-500 text-green-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'"
                     class="whitespace-nowrap py-2 px-1 border-b-2 font-medium text-lg" {{-- J'ai mis 'text-lg' pour les boutons des onglets --}}
                 >
                     Nous Contacter
@@ -39,7 +39,7 @@
         <div class="mt-8 pt-4 border-t border-gray-200 flex justify-end space-x-4 container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <button
                 @click="activeTab = (activeTab === 1 ? 2 : 1)"
-                class="px-4 py-2 text-sm font-medium text-indigo-600 border border-indigo-600 rounded-md hover:bg-indigo-50 transition duration-150 ease-in-out"
+                class="px-4 py-2 text-sm font-medium text-green-600 border border-green-600 rounded-md hover:bg-green-50 transition duration-150 ease-in-out"
             >
                 <span x-text="activeTab === 1 ? 'Aller à Contact' : 'Aller à FAQ'"></span>
             </button>

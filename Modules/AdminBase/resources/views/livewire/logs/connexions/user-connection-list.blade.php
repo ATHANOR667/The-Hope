@@ -14,7 +14,7 @@
                 {{-- Message d'absence de données (Identique) --}}
                 <div class="col-span-full text-center py-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                         stroke="currentColor" class="w-16 h-16 text-indigo-400/70 mx-auto mb-6">
+                         stroke="currentColor" class="w-16 h-16 text-green-400/70 mx-auto mb-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
                               d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.944-1.5a4.5 4.5 0 1 0-2.614-2.614zM21 12a9 9 0 1 0-2.639 6.36m-2.672-6.69c.677 0 1.25.573 1.25 1.25s-.573 1.25-1.25 1.25-1.25-.573-1.25-1.25.573-1.25 1.25-1.25z"/>
                     </svg>
@@ -33,7 +33,7 @@
                     <div wire:key="user-{{ $user->id }}-{{ $user->user_type }}"
                          wire:click="selectUser('{{ $user->id }}', '{{ $morphAlias }}')"
                          class="bg-white dark:bg-gray-800 rounded-xl shadow-xl border-t-4
-                                {{ $isSuspicious ? 'border-red-500 hover:border-red-600' : 'border-indigo-500 hover:border-indigo-600' }}
+                                {{ $isSuspicious ? 'border-red-500 hover:border-red-600' : 'border-green-500 hover:border-green-600' }}
                                 hover:shadow-2xl transition-all duration-300 p-6 cursor-pointer transform hover:-translate-y-1
                                 flex flex-col h-full">
 
@@ -41,8 +41,8 @@
                         <div class="flex items-center space-x-4 mb-4">
                             <div class="flex-shrink-0">
                                 {{-- Avatar Cercle --}}
-                                <div class="h-14 w-14 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center
-                                            text-indigo-600 dark:text-indigo-400 font-bold text-2xl border-2 border-indigo-300 dark:border-indigo-700">
+                                <div class="h-14 w-14 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center
+                                            text-green-600 dark:text-green-400 font-bold text-2xl border-2 border-green-300 dark:border-green-700">
                                     {{ strtoupper(substr($user->prenom ?? '', 0, 1) . substr($user->nom ?? '', 0, 1)) }}
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                     {{ $user->prenom }} {{ $user->nom }}
                                 </h3>
                                 <p class="text-sm font-semibold
-                                          {{ $isSuspicious ? 'text-red-500 dark:text-red-400' : 'text-indigo-600 dark:text-indigo-400' }}">
+                                          {{ $isSuspicious ? 'text-red-500 dark:text-red-400' : 'text-green-600 dark:text-green-400' }}">
                                     {{ ucfirst($morphAlias) }}
                                 </p>
                             </div>
@@ -68,7 +68,7 @@
                                 <dt class="flex items-center">
                                     <span class="font-medium">Connexions ({{ $periodOptions[$filters['period']] }}) :</span>
                                 </dt>
-                                <dd class="font-bold text-indigo-600 dark:text-indigo-400 text-lg">
+                                <dd class="font-bold text-green-600 dark:text-green-400 text-lg">
                                     {{ number_format($user->connections_count) }}
                                 </dd>
                             </div>
@@ -123,7 +123,7 @@
                         {{-- Message d'absence de données (Adapté pour la version tableau) --}}
                         <div class="text-center py-16 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-100 dark:border-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                 stroke="currentColor" class="w-12 h-12 text-indigo-400/70 mx-auto mb-4">
+                                 stroke="currentColor" class="w-12 h-12 text-green-400/70 mx-auto mb-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                       d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.944-1.5a4.5 4.5 0 1 0-2.614-2.614zM21 12a9 9 0 1 0-2.639 6.36m-2.672-6.69c.677 0 1.25.573 1.25 1.25s-.573 1.25-1.25 1.25-1.25-.573-1.25-1.25.573-1.25 1.25-1.25z"/>
                             </svg>
@@ -175,8 +175,8 @@
                                                 <div class="h-10 w-10 flex-shrink-0">
                                                     <div class="h-10 w-10 flex-shrink-0">
                                                         {{-- Avatar Cercle --}}
-                                                        <div class="h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center
-                                                            text-indigo-600 dark:text-indigo-400 font-bold text-lg border border-indigo-300 dark:border-indigo-700"
+                                                        <div class="h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center
+                                                            text-green-600 dark:text-green-400 font-bold text-lg border border-green-300 dark:border-green-700"
                                                         >
                                                             {{ strtoupper(substr($user->prenom ?? '', 0, 1) . substr($user->nom ?? '', 0, 1)) }}
                                                         </div>
@@ -190,11 +190,11 @@
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-400">
                                                 <span class="inline-flex rounded-full px-2 text-xs font-semibold leading-5
-                                                      {{ $isSuspicious ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' : 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300' }}">
+                                                      {{ $isSuspicious ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' }}">
                                                     {{ ucfirst($morphAlias) }}
                                                 </span>
                                         </td>
-                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-right font-bold text-indigo-600 dark:text-indigo-400">
+                                        <td class="whitespace-nowrap px-3 py-4 text-sm text-right font-bold text-green-600 dark:text-green-400">
                                             {{ number_format($user->connections_count) }}
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-right font-semibold">
@@ -222,7 +222,7 @@
                                         </td>
                                         <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                             <a href="#"
-                                               class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">Détails<span
+                                               class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300">Détails<span
                                                         class="sr-only">, {{ $user->prenom }} {{ $user->nom }}</span></a>
                                         </td>
                                     </tr>

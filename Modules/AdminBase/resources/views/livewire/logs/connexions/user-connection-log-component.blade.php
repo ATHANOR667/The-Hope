@@ -22,8 +22,8 @@
                  x-transition:enter-start="opacity-0 transform translate-x-4"
                  x-transition:enter-end="opacity-100 transform translate-x-0">
                 <button wire:click="backToGlobal"
-                        class="flex items-center text-indigo-600 dark:text-indigo-400 font-semibold
-                                p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-indigo-50 dark:hover:bg-indigo-900/30
+                        class="flex items-center text-green-600 dark:text-green-400 font-semibold
+                                p-1.5 md:p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-green-50 dark:hover:bg-green-900/30
                                 transition-all duration-300 shadow-sm text-sm md:text-base">
                     <svg class="h-5 w-5 md:mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -40,8 +40,8 @@
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 {{-- Bouton des filtres --}}
                 <button @click="showFiltersModal = true"
-                        class="px-5 py-2 bg-indigo-600 text-white font-semibold rounded-xl
-                                hover:bg-indigo-700 active:bg-indigo-800 transition-all duration-200
+                        class="px-5 py-2 bg-green-600 text-white font-semibold rounded-xl
+                                hover:bg-green-700 active:bg-green-800 transition-all duration-200
                                 flex items-center shadow-md">
                     <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.293.707l-2 2A1 1 0 019 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
@@ -54,22 +54,22 @@
                     <span class="text-gray-500 dark:text-gray-400 font-medium">Filtres Actifs :</span>
 
                     @if (!empty($filters['search']))
-                        <span class="bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full flex items-center font-medium">
+                        <span class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-300 px-3 py-1 rounded-full flex items-center font-medium">
                             Recherche: <span class="ml-1 font-bold">{{ $filters['search'] }}</span>
-                            <button wire:click="removeFilter('search')" class="ml-2 text-indigo-500 hover:text-indigo-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
+                            <button wire:click="removeFilter('search')" class="ml-2 text-green-500 hover:text-green-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
                         </span>
                     @endif
                     @if (!empty($filters['user_type']))
-                        <span class="bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full flex items-center font-medium">
+                        <span class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-300 px-3 py-1 rounded-full flex items-center font-medium">
                             Type: <span class="ml-1 font-bold">{{ ucfirst($filters['user_type']) }}</span>
-                            <button wire:click="removeFilter('user_type')" class="ml-2 text-indigo-500 hover:text-indigo-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
+                            <button wire:click="removeFilter('user_type')" class="ml-2 text-green-500 hover:text-green-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
                         </span>
                     @endif
                     {{-- Affichage de la période seulement si ce n'est pas la valeur par défaut --}}
                     @if (!empty($filters['period']) && $filters['period'] !== 'last_7_days')
-                        <span class="bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full flex items-center font-medium">
+                        <span class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-300 px-3 py-1 rounded-full flex items-center font-medium">
                             Période: <span class="ml-1 font-bold">{{ $periodOptions[$filters['period']] ?? $filters['period'] }}</span>
-                            <button wire:click="removeFilter('period')" class="ml-2 text-indigo-500 hover:text-indigo-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
+                            <button wire:click="removeFilter('period')" class="ml-2 text-green-500 hover:text-green-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
                         </span>
                     @endif
                     @if (!empty($filters['activity_status']))
@@ -79,9 +79,9 @@
                         </span>
                     @endif
                     @if (!empty($filters['location_or_ip']))
-                        <span class="bg-indigo-100 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full flex items-center font-medium">
+                        <span class="bg-green-100 dark:bg-green-800 text-green-700 dark:text-green-300 px-3 py-1 rounded-full flex items-center font-medium">
                             Location/IP: <span class="ml-1 font-bold">{{ $filters['location_or_ip'] }}</span>
-                            <button wire:click="removeFilter('location_or_ip')" class="ml-2 text-indigo-500 hover:text-indigo-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
+                            <button wire:click="removeFilter('location_or_ip')" class="ml-2 text-green-500 hover:text-green-700 dark:hover:text-white transition font-bold text-lg leading-none">&times;</button>
                         </span>
                     @endif
 
@@ -114,7 +114,7 @@
                         <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Rechercher (Nom, Email)</label>
                         <div class="relative">
                             <input wire:model.live.debounce.300ms="filters.search" type="text" id="search" placeholder="Nom, Email, Matricule..."
-                                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300">
+                                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-green-500 focus:border-green-500 transition-colors duration-300">
                             <svg class="absolute inset-y-0 left-0 ml-3 h-5 w-5 text-gray-400 dark:text-gray-500 pointer-events-none top-1/2 transform -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         <label for="user_type" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Type d'utilisateur</label>
                         <div class="relative">
                             <select wire:model.live="filters.user_type" id="user_type"
-                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300 appearance-none">
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-green-500 focus:border-green-500 transition-colors duration-300 appearance-none">
                                 <option value="">Tous les types</option>
                                 @foreach ($userTypes as $type)
                                     <option value="{{ $type }}">{{ ucfirst($type) }}</option>
@@ -140,7 +140,7 @@
                         <label for="period" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Période d'Analyse</label>
                         <div class="relative">
                             <select wire:model.live="filters.period" id="period"
-                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300 appearance-none">
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-green-500 focus:border-green-500 transition-colors duration-300 appearance-none">
                                 @foreach ($periodOptions as $key => $label)
                                     <option value="{{ $key }}">{{ $label }}</option>
                                 @endforeach
@@ -155,7 +155,7 @@
                         <label for="activity_status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Statut d'Activité</label>
                         <div class="relative">
                             <select wire:model.live="filters.activity_status" id="activity_status"
-                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300 appearance-none">
+                                    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-green-500 focus:border-green-500 transition-colors duration-300 appearance-none">
                                 <option value="">Tous les statuts</option>
                                 <option value="active">Actifs récemment (5 min)</option>
                             </select>
@@ -169,7 +169,7 @@
                         <label for="location_or_ip" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Filtrer par Localisation / IP</label>
                         <div class="relative">
                             <input wire:model.live.debounce.300ms="filters.location_or_ip" type="text" id="location_or_ip" placeholder="Ville, Pays, 192.168.1.1..."
-                                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-300">
+                                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 focus:ring-green-500 focus:border-green-500 transition-colors duration-300">
                             <svg class="absolute inset-y-0 left-0 ml-3 h-5 w-5 text-gray-400 dark:text-gray-500 pointer-events-none top-1/2 transform -translate-y-1/2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
                     </div>
@@ -184,8 +184,8 @@
                         Annuler
                     </button>
                     <button wire:click="applyFilters" @click="showFiltersModal = false"
-                            class="px-5 py-2 bg-indigo-600 text-white rounded-lg
-                                   hover:bg-indigo-700 active:bg-indigo-800 transition shadow-md font-medium">
+                            class="px-5 py-2 bg-green-600 text-white rounded-lg
+                                   hover:bg-green-700 active:bg-green-800 transition shadow-md font-medium">
                         Appliquer les Filtres
                     </button>
                 </div>

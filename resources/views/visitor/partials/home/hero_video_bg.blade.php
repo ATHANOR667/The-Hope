@@ -20,7 +20,7 @@
 
     <div id="text-content-wrapper" class="relative z-20 max-w-3xl mx-auto px-4">
         <div id="text-content" class="text-center py-6 bg-white/10 dark:bg-gray-900/20 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg transition-opacity duration-300">
-            <p class="text-sm font-semibold uppercase tracking-widest text-indigo-400 drop-shadow-md mb-2">
+            <p class="text-sm font-semibold uppercase tracking-widest text-green-400 drop-shadow-md mb-2">
                 The Hope Charity
             </p>
             <h1 class="text-2xl font-black tracking-tight text-white drop-shadow-lg mb-4 leading-tight">
@@ -32,7 +32,7 @@
             <div class="mt-6">
                 <a
                     href="{{route("visitor.galerie")}}"
-                    class="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-indigo-600 rounded-full shadow-md transition-transform duration-200 hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400/50"
+                    class="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-green-600 rounded-full shadow-md transition-transform duration-200 hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400/50"
                     aria-label="Découvrez nos réalisations"
                 >
                     Nos Réalisations

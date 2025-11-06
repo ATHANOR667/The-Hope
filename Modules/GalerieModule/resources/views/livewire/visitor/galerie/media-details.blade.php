@@ -45,7 +45,7 @@
                 </div>
 
                 <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">{{ $media->title }}</h3>
-                <p class="text-sm text-indigo-400 mb-4">
+                <p class="text-sm text-green-400 mb-4">
                     {{ ucfirst($media->media_type) }} | Publié le {{ $media->created_at->format('d/m/Y')  }}
                 </p>
 

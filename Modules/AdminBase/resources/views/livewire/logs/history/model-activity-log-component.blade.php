@@ -23,12 +23,12 @@
                         </svg>
                     </div>
                     <input wire:model.live.debounce.300ms="search" type="search" placeholder="Rechercher dans l'historique..."
-                           class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 pl-10 pr-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200">
+                           class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 pl-10 pr-4 py-2.5 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200">
                 </div>
 
                 {{-- Bouton Filtres (Mobile) --}}
                 <div class="sm:col-span-2 md:hidden">
-                    <button @click="isFilterModalOpen = true" class="w-full flex items-center justify-center space-x-2 rounded-xl py-2.5 px-4 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200">
+                    <button @click="isFilterModalOpen = true" class="w-full flex items-center justify-center space-x-2 rounded-xl py-2.5 px-4 text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path d="M5.5 8c0 .552.448 1 1 1h8c.552 0 1-.448 1-1s-.448-1-1-1h-8c-.552 0-1 .448-1 1zM2 4.5c0-.276.224-.5.5-.5h15a.5.5 0 010 1h-15a.5.5 0 01-.5-.5zM8 11c0-.276.224-.5.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5z" clip-rule="evenodd" fill-rule="evenodd"></path>
                         </svg>
@@ -41,7 +41,7 @@
                     <div>
                         <label for="operationFilter" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Opération</label>
                         <div class="relative">
-                            <select wire:model.live="operationFilter" id="operationFilter" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200 appearance-none">
+                            <select wire:model.live="operationFilter" id="operationFilter" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200 appearance-none">
                                 <option value="">Toutes</option>
                                 <option value="created">Création</option>
                                 <option value="updated">Mise à jour</option>
@@ -58,7 +58,7 @@
                     <div>
                         <label for="logableTypeFilter" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Type de Modèle</label>
                         <div class="relative">
-                            <select wire:model.live="logableTypeFilter" id="logableTypeFilter" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200 appearance-none">
+                            <select wire:model.live="logableTypeFilter" id="logableTypeFilter" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200 appearance-none">
                                 <option value="">Tous les modèles</option>
                                 @foreach($logableModels as $model)
                                     <option value="{{ $model }}">{{ ucfirst(class_basename($model)) }}</option>
@@ -74,7 +74,7 @@
                     <div>
                         <label for="changedByTypeFilter" class="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">Auteur</label>
                         <div class="relative">
-                            <select wire:model.live="changedByTypeFilter" id="changedByTypeFilter" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200 appearance-none">
+                            <select wire:model.live="changedByTypeFilter" id="changedByTypeFilter" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200 appearance-none">
                                 <option value="">Tous les auteurs</option>
                                 @foreach($changedByModels as $model)
                                     <option value="{{ $model }}">{{ ucfirst(class_basename($model)) }}</option>
@@ -101,7 +101,7 @@
                     <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-sm border border-gray-200 dark:border-gray-600 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-200"
                          wire:click="showHistory('{{ $log->logable_id }}', '{{ $log->logable_type }}')">
                         <div class="flex items-center justify-between mb-3">
-                            <span class="text-sm font-semibold uppercase text-indigo-600 dark:text-indigo-400 tracking-wide truncate">
+                            <span class="text-sm font-semibold uppercase text-green-600 dark:text-green-400 tracking-wide truncate">
                                 {{ class_basename($log->logable_type) }}
                             </span>
                             @if ($log->operation === 'created')
@@ -217,7 +217,7 @@
                                 @if ($changeCount > 0)
                                     <span class="font-medium text-gray-700 dark:text-gray-300 truncate">{{ ucfirst($fieldName) }}</span>
                                     @if ($changeCount > 1)
-                                        <span class="text-xs text-indigo-500 dark:text-indigo-400"> (+{{ $changeCount - 1 }})</span>
+                                        <span class="text-xs text-green-500 dark:text-green-400"> (+{{ $changeCount - 1 }})</span>
                                     @endif
                                 @else
                                     N/A
@@ -230,7 +230,7 @@
                                 {{ Str::limit($firstChange->new ?? 'N/A', 15) }}
                             </td>
                             <td class="px-4 py-3 text-right">
-                                <button wire:click="showHistory('{{ $log->logable_id }}', '{{ $log->logable_type }}')" class="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 font-medium text-sm py-1.5 px-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
+                                <button wire:click="showHistory('{{ $log->logable_id }}', '{{ $log->logable_type }}')" class="text-green-600 hover:text-green-800 dark:text-green-400 dark:hover:text-green-300 font-medium text-sm py-1.5 px-3 rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
                                     Historique
                                 </button>
                             </td>
@@ -277,7 +277,7 @@
                     <div>
                         <label for="operationFilterMobile" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Opération</label>
                         <div class="relative">
-                            <select wire:model.live="operationFilter" id="operationFilterMobile" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200 appearance-none">
+                            <select wire:model.live="operationFilter" id="operationFilterMobile" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200 appearance-none">
                                 <option value="">Toutes</option>
                                 <option value="created">Création</option>
                                 <option value="updated">Mise à jour</option>
@@ -294,7 +294,7 @@
                     <div>
                         <label for="logableTypeFilterMobile" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Type de Modèle</label>
                         <div class="relative">
-                            <select wire:model.live="logableTypeFilter" id="logableTypeFilterMobile" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200 appearance-none">
+                            <select wire:model.live="logableTypeFilter" id="logableTypeFilterMobile" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200 appearance-none">
                                 <option value="">Tous les modèles</option>
                                 @foreach($logableModels as $model)
                                     <option value="{{ $model }}">{{ ucfirst(class_basename($model)) }}</option>
@@ -310,7 +310,7 @@
                     <div>
                         <label for="changedByTypeFilterMobile" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Auteur</label>
                         <div class="relative">
-                            <select wire:model.live="changedByTypeFilter" id="changedByTypeFilterMobile" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-500 shadow-sm transition-all duration-200 appearance-none">
+                            <select wire:model.live="changedByTypeFilter" id="changedByTypeFilterMobile" class="block w-full rounded-xl border-0 bg-gray-50 dark:bg-gray-700 py-2 pl-3 pr-10 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 dark:focus:ring-green-500 shadow-sm transition-all duration-200 appearance-none">
                                 <option value="">Tous les auteurs</option>
                                 @foreach($changedByModels as $model)
                                     <option value="{{ $model }}">{{ ucfirst(class_basename($model)) }}</option>
@@ -325,7 +325,7 @@
                     </div>
                     <div class="flex justify-end">
                         {{-- L'application du filtre se fait "live" via wire:model.live, mais un bouton est bon pour fermer la modale --}}
-                        <button @click="isFilterModalOpen = false" class="px-4 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200">
+                        <button @click="isFilterModalOpen = false" class="px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-200">
                             Appliquer
                         </button>
                     </div>

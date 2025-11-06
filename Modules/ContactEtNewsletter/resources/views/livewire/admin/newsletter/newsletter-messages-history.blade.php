@@ -5,7 +5,7 @@
 
             <button
                 wire:click="openCreate"
-                class="hidden lg:flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 transform hover:scale-[1.02]">
+                class="hidden lg:flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700 transition duration-150 transform hover:scale-[1.02]">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                 </svg>
@@ -33,15 +33,15 @@
                     class="w-full p-5 text-left bg-white dark:bg-gray-800 rounded-xl transition duration-200 ease-in-out
                        hover:bg-gray-50 dark:hover:bg-gray-700
                        border border-gray-200 dark:border-gray-800
-                       focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-0 dark:focus:ring-offset-0
-                       hover:shadow-lg dark:hover:shadow-xl dark:hover:shadow-indigo-950/20">
+                       focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-0 dark:focus:ring-offset-0
+                       hover:shadow-lg dark:hover:shadow-xl dark:hover:shadow-green-950/20">
 
                     <div class="flex justify-between items-start mb-2">
                         <h2 class="text-xl font-bold text-gray-900 dark:text-white line-clamp-2 truncate mr-4">
                             {{ $message->title }}
                         </h2>
                         <span class="text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 mt-0.5 uppercase tracking-wide
-                        {{ $message->sent_at ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/60 dark:text-indigo-300' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300' }}">
+                        {{ $message->sent_at ? 'bg-green-50 text-green-700 dark:bg-green-900/60 dark:text-green-300' : 'bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300' }}">
                         {{ $message->sent_at ? $message->sent_at->format('d M') : 'Brouillon' }}
                     </span>
                     </div>
@@ -51,7 +51,7 @@
                         @foreach($message->deliveries->unique('channel') as $d)
                             @php
                                 $class = match($d->channel) {
-                                    'mail' => 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300',
+                                    'mail' => 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
                                     'sms' => 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
                                     'whatsapp' => 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300',
                                     default => 'bg-gray-100 text-gray-600 dark:bg-gray-700/50 dark:text-gray-300',
@@ -69,7 +69,7 @@
                     <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800/50 grid grid-cols-2 gap-4">
 
                         <div class="flex items-center text-gray-500 dark:text-gray-400">
-                            <svg class="w-5 h-5 mr-2 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                            <svg class="w-5 h-5 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                             <div>
                                 <span class="text-xs font-normal">Envoyés</span>
                                 {{-- UTILISATION DE LA NOUVELLE VARIABLE --}}
@@ -103,9 +103,9 @@
 
     <button
         wire:click="openCreate"
-        class="lg:hidden fixed bottom-6 right-6 flex items-center gap-2 px-5 py-3 text-base font-semibold text-white bg-indigo-600 rounded-full shadow-2xl shadow-indigo-500/50 dark:shadow-indigo-900/50
-           hover:bg-indigo-700 transition duration-300 ease-in-out transform hover:scale-[1.05]
-           focus:outline-none focus:ring-4 focus:ring-indigo-500 focus:ring-opacity-70 z-50">
+        class="lg:hidden fixed bottom-6 right-6 flex items-center gap-2 px-5 py-3 text-base font-semibold text-white bg-green-600 rounded-full shadow-2xl shadow-green-500/50 dark:shadow-green-900/50
+           hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-[1.05]
+           focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-70 z-50">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
         </svg>

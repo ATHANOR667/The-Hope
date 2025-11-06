@@ -1,13 +1,13 @@
 <div class="space-y-10">
 
     {{-- 1. Section du Profil (Card principale) --}}
-    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-xl dark:shadow-indigo-900/10 p-8
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-xl dark:shadow-green-900/10 p-8
                 flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8 border border-gray-100 dark:border-gray-700/50">
 
         {{-- Avatar --}}
         <div class="flex-shrink-0 relative">
-            <div class="h-28 w-28 rounded-full bg-indigo-500/10 dark:bg-indigo-900/30 flex items-center justify-center
-                        text-indigo-600 dark:text-indigo-400 font-extrabold text-5xl shadow-inner dark:shadow-none
+            <div class="h-28 w-28 rounded-full bg-green-500/10 dark:bg-green-900/30 flex items-center justify-center
+                        text-green-600 dark:text-green-400 font-extrabold text-5xl shadow-inner dark:shadow-none
                         border-4 border-white dark:border-gray-800"
             >
                 {{ strtoupper(substr($user->prenom ?? '?', 0, 1) . substr($user->nom ?? '?', 0, 1)) }}
@@ -24,7 +24,7 @@
             <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white whitespace-break-spaces">
                 {{ $user->prenom }} {{ $user->nom }}
             </h2>
-            <p class="text-xl font-semibold text-indigo-700 dark:text-indigo-400 mt-1 mb-3">
+            <p class="text-xl font-semibold text-green-700 dark:text-green-400 mt-1 mb-3">
                 {{ ucfirst($user->user_type) }}
             </p>
 
@@ -53,11 +53,11 @@
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
 
         {{-- Card Stat Unique : Sessions totales --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 text-center transition duration-300 hover:shadow-indigo-500/20">
-            <div class="bg-indigo-500/10 rounded-full inline-block p-2 mb-3">
-                <svg class="h-6 w-6 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" /></svg>
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 text-center transition duration-300 hover:shadow-green-500/20">
+            <div class="bg-green-500/10 rounded-full inline-block p-2 mb-3">
+                <svg class="h-6 w-6 text-green-600 dark:text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" /></svg>
             </div>
-            <p class="text-3xl font-extrabold text-indigo-700 dark:text-indigo-300">{{ $stats['total_sessions'] }}</p>
+            <p class="text-3xl font-extrabold text-green-700 dark:text-green-300">{{ $stats['total_sessions'] }}</p>
             <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wide">Sessions totales</h3>
         </div>
 
@@ -137,7 +137,7 @@
         {{-- Tableau pour les grands écrans (Masqué sur mobile, affiché sur PC) --}}
         <div class="overflow-x-auto hidden md:block">
             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 rounded-xl overflow-hidden">
-                <thead class="bg-gray-50 dark:bg-gray-700 border-b-2 border-indigo-500">
+                <thead class="bg-gray-50 dark:bg-gray-700 border-b-2 border-green-500">
                 <tr>
                     <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
                         Adresse IP / Localisation
@@ -197,7 +197,7 @@
         {{-- Cartes pour les petits écrans (Affichées sur mobile, masquées sur PC) --}}
         <div class="block md:hidden space-y-4">
             @forelse ($connectionLogs as $log)
-                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl shadow-md border-l-4 border-indigo-500">
+                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-xl shadow-md border-l-4 border-green-500">
                     <div class="flex flex-col space-y-2 text-sm">
                         <div class="flex justify-between items-center border-b pb-1 dark:border-gray-600">
                             <span class="font-bold text-gray-900 dark:text-white">IP / Localisation</span>

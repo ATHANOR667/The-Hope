@@ -13,14 +13,14 @@
         <div class="flex flex-col md:flex-row justify-center items-stretch md:space-x-6 space-y-6 md:space-y-0">
 
             <div class="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:translate-y-[-2px] border border-gray-100 dark:border-gray-700/50 w-full md:w-1/2">
-                <svg class="w-10 h-10 text-indigo-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-17 4v6a2 2 0 002 2h12a2 2 0 002-2v-6"></path></svg>
+                <svg class="w-10 h-10 text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-17 4v6a2 2 0 002 2h12a2 2 0 002-2v-6"></path></svg>
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Formulaire de Contact
                 </h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm">
                     Pour toute question spécifique, partenariat ou support.
                 </p>
-                <a href="{{route('visitor.contact-us')}}" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-lg shadow-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-500/50">
+                <a href="{{route('visitor.contact-us')}}" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-lg shadow-md text-white bg-green-600 hover:bg-green-700 transition duration-300 focus:outline-none focus:ring-4 focus:ring-green-500/50">
                     Échanger Maintenant
                     <span aria-hidden="true" class="ml-2 text-xl">→</span>
                 </a>

@@ -8,14 +8,14 @@
                 </h1>
                 <div class="flex space-x-3">
                     <button x-on:click="$dispatch('open-create-modal')"
-                            class="w-full sm:w-auto px-6 py-2 bg-indigo-600 text-white font-medium rounded-full shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm">
+                            class="w-full sm:w-auto px-6 py-2 bg-green-600 text-white font-medium rounded-full shadow-lg shadow-green-500/30 hover:bg-green-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm">
                         <svg class="w-4 h-4 inline mr-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                         </svg>
                         Nouveau Post
                     </button>
                     <button wire:click="toggleFilterModal"
-                            class="w-full sm:w-auto px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm">
+                            class="w-full sm:w-auto px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm">
                         <svg class="w-4 h-4 inline mr-1 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1m-17 4h14m-10 4h6m-2 4h2"></path>
                         </svg>
@@ -26,53 +26,53 @@
 
             <div class="mb-8">
                 <input wire:model.live.debounce.300ms="search" type="search" placeholder="Rechercher par titre ou description..."
-                       class="w-full p-3 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-200 placeholder-gray-400">
+                       class="w-full p-3 text-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200 placeholder-gray-400">
             </div>
 
             @if ($search || $moderationStatus || $startDate || $endDate)
                 <div class="mb-6 flex flex-wrap gap-2 items-center">
                     <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Filtres actifs :</span>
                     @if ($search)
-                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                             Recherche: {{ $search }}
                             <button wire:click="clearFilter('search')" class="ml-1 focus:outline-none">
-                                <svg class="w-3 h-3 text-indigo-600 hover:text-indigo-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 text-green-600 hover:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         </span>
                     @endif
                     @if ($moderationStatus)
-                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                             Statut: {{ ucfirst($moderationStatus) }}
                             <button wire:click="clearFilter('moderationStatus')" class="ml-1 focus:outline-none">
-                                <svg class="w-3 h-3 text-indigo-600 hover:text-indigo-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 text-green-600 hover:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         </span>
                     @endif
                     @if ($startDate || $endDate)
-                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                             Date: {{ $startDate ? $startDate : '...' }} à {{ $endDate ? $endDate : '...' }}
                             <button wire:click="clearFilter('startDate'); clearFilter('endDate')" class="ml-1 focus:outline-none">
-                                <svg class="w-3 h-3 text-indigo-600 hover:text-indigo-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 text-green-600 hover:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         </span>
                     @endif
                     @if ($author_type)
-                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                             Auteurs: {{ $author_type }}
                             <button wire:click="clearFilter('author_type'); " class="ml-1 focus:outline-none">
-                                <svg class="w-3 h-3 text-indigo-600 hover:text-indigo-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 text-green-600 hover:text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         </span>
                     @endif
-                    <button wire:click="clearAllFilters" class="text-sm text-indigo-600 dark:text-indigo-400 hover:underline">
+                    <button wire:click="clearAllFilters" class="text-sm text-green-600 dark:text-green-400 hover:underline">
                         Tout effacer
                     </button>
                 </div>
@@ -86,7 +86,7 @@
                 </div>
             @elseif ($posts->isEmpty())
                 <div class="p-12 bg-gray-50 dark:bg-gray-800 rounded-2xl mt-10 flex flex-col items-center border border-gray-100 dark:border-gray-700">
-                    <svg class="w-12 h-12 text-indigo-400 dark:text-indigo-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-12 h-12 text-green-400 dark:text-green-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 13h6m-3-3v6m-9 1v-3a2 2 0 012-2h12a2 2 0 012 2v3m-3 3H7a2 2 0 01-2-2v-3a2 2 0 012-2h10a2 2 0 012 2v3a2 2 0 01-2 2z"></path>
                     </svg>
                     <h3 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-2">Liste de posts vide</h3>
@@ -98,7 +98,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     @foreach ($posts as $post)
                         <div wire:key="post-{{ $post->id }}"
-                             class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:border-indigo-300 transition duration-300 flex flex-col overflow-hidden">
+                             class="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:border-green-300 transition duration-300 flex flex-col overflow-hidden">
                             @php
                                 $firstMedia = $post->medias->first();
                                 $mediaPath = $firstMedia ? (
@@ -131,17 +131,17 @@
                                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white line-clamp-2 mb-2" title="{{ $post->title }}">{{ $post->title }}</h3>
                                 <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-4 space-x-3 pt-2 border-t border-gray-100 dark:border-gray-700">
                                     <span class="flex items-center">
-                                        <svg class="w-4 h-4 inline mr-1 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                                        <svg class="w-4 h-4 inline mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
                                         {{ $post->comments_count }} Comm.
                                     </span>
                                     <span class="flex items-center">
-                                        <svg class="w-4 h-4 inline mr-1 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <svg class="w-4 h-4 inline mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         {{ $post->published_at->diffForHumans() }}
                                     </span>
                                 </div>
                                 <div class="flex space-x-2 mt-auto pt-2">
                                     <button wire:click="openEdit('{{ $post->id }}')" title="Modifier"
-                                            class="p-2 text-indigo-600 dark:text-indigo-400 rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700 transition duration-150 flex-1 flex items-center justify-center">
+                                            class="p-2 text-green-600 dark:text-green-400 rounded-lg hover:bg-green-50 dark:hover:bg-gray-700 transition duration-150 flex-1 flex items-center justify-center">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-7-3L19 4.5 16.5 2 9 9.5M15 4l2 2"></path></svg>
                                     </button>
                                     <button wire:click="openModerate('{{ $post->id }}')" title="Modérer"
@@ -174,7 +174,7 @@
                     <div class="flex items-center justify-between p-5 border-b border-gray-100 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 z-10">
                         <h3 class="text-2xl font-light text-gray-900 dark:text-gray-100 tracking-wide">Filtres Avancés</h3>
                         <button type="button" wire:click="toggleFilterModal"
-                                class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 rounded-full p-1.5 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                class="text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 rounded-full p-1.5 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
@@ -185,7 +185,7 @@
                         <div>
                             <label for="moderationStatus" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Statut de modération</label>
                             <select wire:model.live="moderationStatus" id="moderationStatus"
-                                    class="w-full p-3 text-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
+                                    class="w-full p-3 text-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200">
                                 <option value="">Tous</option>
                                 <option value="approved">Approuvé</option>
                                 <option value="pending">En attente</option>
@@ -195,7 +195,7 @@
                         <div>
                             <label for="author_type" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Type d'auteur</label>
                             <select wire:model.live="author_type" id="author_type"
-                                    class="w-full p-3 text-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
+                                    class="w-full p-3 text-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200">
                                 <option value="">Tous</option>
                                 <option value="admin">Admin</option>
                                 <option value="user">User</option>
@@ -204,17 +204,17 @@
                         <div>
                             <label for="startDate" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Date de début</label>
                             <input wire:model.live.debounce.300ms="startDate" type="date" id="startDate"
-                                   class="w-full p-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
+                                   class="w-full p-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200">
                         </div>
                         <div>
                             <label for="endDate" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Date de fin</label>
                             <input wire:model.live.debounce.300ms="endDate" type="date" id="endDate"
-                                   class="w-full p-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-200">
+                                   class="w-full p-3 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200">
                         </div>
                     </div>
                     <div class="flex flex-col sm:flex-row items-center p-5 border-t border-gray-200 dark:border-gray-700 space-y-3 sm:space-y-0 sm:space-x-3 sticky bottom-0 bg-white dark:bg-gray-800 z-10">
                         <button wire:click="applyFilters" type="button"
-                                class="w-full sm:w-auto flex-1 px-6 py-3 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+                                class="w-full sm:w-auto flex-1 px-6 py-3 text-sm font-semibold text-white bg-green-600 hover:bg-green-700 rounded-lg shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
                             Appliquer les Filtres
                         </button>
                         <button wire:click="toggleFilterModal" type="button"

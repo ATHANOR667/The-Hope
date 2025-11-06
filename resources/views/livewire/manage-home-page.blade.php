@@ -3,10 +3,10 @@
         <div class="max-w-7xl mx-auto">
 
             @php
-                $input = 'w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm transition duration-150 ease-in-out focus:ring-2 focus:ring-indigo-500/50 p-3 text-sm';
+                $input = 'w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm transition duration-150 ease-in-out focus:ring-2 focus:ring-green-500/50 p-3 text-sm';
                 $label = 'block text-xs font-semibold mb-2 text-gray-500 dark:text-gray-400 uppercase tracking-widest';
                 $section = 'mb-8 rounded-3xl bg-white dark:bg-gray-800 shadow-2xl border border-gray-100 dark:border-gray-700/50 overflow-hidden transition-shadow duration-300';
-                $btnPrimary = 'w-full md:w-auto px-8 py-3 bg-indigo-600 text-white font-bold rounded-full hover:bg-indigo-700 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-indigo-500/50 uppercase tracking-widest flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl';
+                $btnPrimary = 'w-full md:w-auto px-8 py-3 bg-green-600 text-white font-bold rounded-full hover:bg-green-700 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-500/50 uppercase tracking-widest flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl';
                 $btnSecondary = 'px-5 py-2 text-sm font-medium rounded-full transition duration-300 ease-in-out flex items-center space-x-2';
                 $btnSuccess = 'bg-green-600 hover:bg-green-700';
                 $btnDanger = 'bg-red-600 hover:bg-red-700';
@@ -18,12 +18,12 @@
 
             {{-- SECTION 1: META --}}
             <section class="{{ $section }}" x-data="{ open: true }">
-                <div @click="open = !open" class="p-6 lg:p-8 cursor-pointer flex justify-between items-center border-l-8 border-indigo-500 bg-white dark:bg-gray-800">
-                    <h2 class="text-2xl font-bold text-indigo-700 dark:text-indigo-400 flex items-center space-x-3">
+                <div @click="open = !open" class="p-6 lg:p-8 cursor-pointer flex justify-between items-center border-l-8 border-green-500 bg-white dark:bg-gray-800">
+                    <h2 class="text-2xl font-bold text-green-700 dark:text-green-400 flex items-center space-x-3">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                         <span>Meta Information (SEO & OG)</span>
                     </h2>
-                    <svg :class="{'rotate-180': open}" class="w-5 h-5 text-indigo-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg :class="{'rotate-180': open}" class="w-5 h-5 text-green-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </div>
@@ -43,23 +43,23 @@
                             <div><label class="{{ $label }}">Page Title</label><input wire:model.blur="meta.title" type="text" class="{{ $input }}"></div>
 
                             <div class="md:col-span-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-                                <h3 class="text-xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Open Graph (Partage Social)</h3>
+                                <h3 class="text-xl font-bold mb-4 text-green-600 dark:text-green-400">Open Graph (Partage Social)</h3>
                             </div>
 
                             {{-- OG Image Upload --}}
                             <div class="md:col-span-2">
                                 <label class="{{ $label }}">OG Image</label>
                                 <input wire:model.blur="meta.og:image" type="text" class="{{ $input }} mb-3" placeholder="URL si non uploadé">
-                                <input wire:model="meta_og_image_file" type="file" accept="image/*" class="block w-full text-sm text-gray-600 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-700 cursor-pointer">
+                                <input wire:model="meta_og_image_file" type="file" accept="image/*" class="block w-full text-sm text-gray-600 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-green-600 file:text-white hover:file:bg-green-700 cursor-pointer">
                                 @error('meta_og_image_file') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                                 @error('meta.og:image') <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
 
 
                                 @if($meta['og:image'] || $meta_og_image_preview)
-                                    <div class="mt-4 p-4 border border-indigo-200 dark:border-indigo-700 rounded-xl bg-indigo-50 dark:bg-gray-800/50">
-                                        <p class="text-sm font-semibold mb-3 text-indigo-600 dark:text-indigo-400">Aperçu OG Image (Ratio 1.91:1)</p>
+                                    <div class="mt-4 p-4 border border-green-200 dark:border-green-700 rounded-xl bg-green-50 dark:bg-gray-800/50">
+                                        <p class="text-sm font-semibold mb-3 text-green-600 dark:text-green-400">Aperçu OG Image (Ratio 1.91:1)</p>
                                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            @if($meta['og:image'])<div><p class="text-xs text-gray-500 mb-1">Actuelle :</p><img src="{{ $meta['og:image'] }}" class="w-full h-auto aspect-[1.91/1] object-cover rounded-lg border-2 border-indigo-500"></div>@endif
+                                            @if($meta['og:image'])<div><p class="text-xs text-gray-500 mb-1">Actuelle :</p><img src="{{ $meta['og:image'] }}" class="w-full h-auto aspect-[1.91/1] object-cover rounded-lg border-2 border-green-500"></div>@endif
                                             @if($meta_og_image_preview)<div><p class="text-xs text-gray-500 mb-1">Upload :</p><img src="{{ $meta_og_image_preview }}" class="w-full h-auto aspect-[1.91/1] object-cover rounded-lg border-2 border-yellow-500"></div>@endif
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                     <div>
                                         <label class="{{ $label }}">{{ $config['label'] }}</label>
                                         <input wire:model.blur="meta.{{ $metaKey }}" type="text" class="{{ $input }} mb-2" placeholder="URL si non uploadé">
-                                        <input wire:model="{{ $config['prop'] }}" type="file" accept="{{ $config['accept'] }}" class="block w-full text-xs text-gray-600 dark:text-gray-400 file:mr-2 file:py-1 file:px-3 file:rounded-full file:bg-indigo-600 file:text-white hover:file:bg-indigo-700">
+                                        <input wire:model="{{ $config['prop'] }}" type="file" accept="{{ $config['accept'] }}" class="block w-full text-xs text-gray-600 dark:text-gray-400 file:mr-2 file:py-1 file:px-3 file:rounded-full file:bg-green-600 file:text-white hover:file:bg-green-700">
                                         @error($config['prop']) <span class="text-red-500 text-xs mt-1 block">{{ $message }}</span> @enderror
                                     </div>
                                 @endforeach

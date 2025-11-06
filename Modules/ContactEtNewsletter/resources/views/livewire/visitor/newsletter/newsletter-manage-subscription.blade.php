@@ -2,7 +2,7 @@
     <div class="bg-white dark:bg-gray-800 shadow-2xl rounded-3xl p-6 md:p-10 border border-gray-100 dark:border-gray-700">
 
         <div class="text-center mb-8">
-            <svg class="mx-auto h-12 w-12 text-indigo-600 dark:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <svg class="mx-auto h-12 w-12 text-green-600 dark:text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
             </svg>
             <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white mt-3 tracking-tight">
@@ -18,7 +18,7 @@
             'p-4 rounded-xl mb-6 font-medium text-sm transition-opacity duration-300',
             'bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300' => str_contains($statusMessage, 'Erreur'),
             'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300' => str_contains($statusMessage, 'succès') || str_contains($statusMessage, 'désinscrit'),
-            'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300' => str_contains($statusMessage, 'préférences') || str_contains($statusMessage, 'trouvé'),
+            'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300' => str_contains($statusMessage, 'préférences') || str_contains($statusMessage, 'trouvé'),
         ]) role="alert">
                 {{ $statusMessage }}
             </div>
@@ -38,15 +38,15 @@
                     @if($subscriberFound) disabled @endif
                     class="flex-1 block w-full rounded-xl border-gray-300 shadow-inner
                        dark:bg-gray-700 dark:border-gray-600 dark:text-white
-                       focus:ring-indigo-500 focus:border-indigo-500 disabled:opacity-70 disabled:cursor-not-allowed transition duration-150 p-3">
+                       focus:ring-green-500 focus:border-green-500 disabled:opacity-70 disabled:cursor-not-allowed transition duration-150 p-3">
 
                 <button
                     type="submit"
                     wire:loading.attr="disabled"
                     @if($subscriberFound) disabled @endif
                     class="px-5 py-3 text-sm font-semibold rounded-xl shadow-lg
-                       bg-indigo-600 text-white hover:bg-indigo-700 transition duration-200 ease-in-out
-                       disabled:bg-gray-400 dark:disabled:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                       bg-green-600 text-white hover:bg-green-700 transition duration-200 ease-in-out
+                       disabled:bg-gray-400 dark:disabled:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                 <span wire:loading.remove wire:target="loadSubscription">
                     {{ $subscriberFound ? 'Préférences Chargées' : 'Charger Mes Préférences' }}
                 </span>
@@ -85,7 +85,7 @@
                             <label
                                 for="{{ $channelKey }}"
                                 class="flex items-center p-4 rounded-xl shadow-md cursor-pointer transition duration-200 ease-in-out
-                                   {{ $selectedChannel === $channelKey ? 'bg-indigo-50 dark:bg-indigo-900/30 ring-2 ring-indigo-500' : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600' }}">
+                                   {{ $selectedChannel === $channelKey ? 'bg-green-50 dark:bg-green-900/30 ring-2 ring-green-500' : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600' }}">
                                 <input
                                     wire:model.live="selectedChannel"
                                     type="radio"
@@ -93,7 +93,7 @@
                                     value="{{ $channelKey }}"
                                     name="selectedChannelGroup"
                                     required
-                                    class="h-5 w-5 text-indigo-600 border-gray-300 rounded-full focus:ring-indigo-500 dark:bg-gray-900 dark:border-gray-500">
+                                    class="h-5 w-5 text-green-600 border-gray-300 rounded-full focus:ring-green-500 dark:bg-gray-900 dark:border-gray-500">
                                 <span class="ml-3 text-sm font-semibold text-gray-900 dark:text-gray-100">
                                 {{ $channelName }}
                             </span>
@@ -114,7 +114,7 @@
                             id="phone"
                             required
                             placeholder="Ex: +33612345678"
-                            class="mt-1 block w-full rounded-xl p-3 border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-indigo-500 focus:border-indigo-500">
+                            class="mt-1 block w-full rounded-xl p-3 border-gray-300 shadow-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-green-500 focus:border-green-500">
                         @error('phone') <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p> @enderror
                     </div>
                 @endif

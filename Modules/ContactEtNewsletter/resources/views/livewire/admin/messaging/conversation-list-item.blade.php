@@ -16,10 +16,10 @@
         class="p-4 border-b border-gray-100 dark:border-gray-700 cursor-pointer transition-all duration-200 ease-in-out
            {{-- STYLE SELECTIONNÉ : Ajout d'une ombre et d'un arrière-plan plus fort --}}
            @if($isSelected)
-               bg-indigo-100 dark:bg-indigo-700/60 shadow-inner
+               bg-green-100 dark:bg-green-700/60 shadow-inner
            {{-- STYLE NON LU : Plus d'accentuation --}}
            @elseif($isUnread)
-               bg-indigo-50 dark:bg-gray-700/50 hover:bg-indigo-100/70
+               bg-green-50 dark:bg-gray-700/50 hover:bg-green-100/70
            {{-- STYLE NORMAL : Hover subtil --}}
            @else
                hover:bg-gray-50 dark:hover:bg-gray-700
@@ -30,7 +30,7 @@
             <div class="flex items-center space-x-3 flex-1 min-w-0">
                 {{-- Avatar : Style modernisé (taille et fond plus neutre non sélectionné) --}}
                 <div class="w-11 h-11 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 text-lg
-                        {{ $isSelected ? 'bg-indigo-600 shadow-md' : 'bg-gray-300 dark:bg-gray-600' }}">
+                        {{ $isSelected ? 'bg-green-600 shadow-md' : 'bg-gray-300 dark:bg-gray-600' }}">
                     {{ substr($conversation->contact->name ?? 'A', 0, 1) }}
                 </div>
 
@@ -52,14 +52,14 @@
             <div class="flex flex-col items-end space-y-1 text-right ml-4 flex-shrink-0">
 
                 {{-- Date --}}
-                <span class="text-xs text-gray-500 dark:text-gray-400 {{ $isUnread ? 'font-bold text-indigo-600 dark:text-indigo-400' : '' }}">
+                <span class="text-xs text-gray-500 dark:text-gray-400 {{ $isUnread ? 'font-bold text-green-600 dark:text-green-400' : '' }}">
                     {{ $conversation->updated_at->shortRelativeDiffForHumans() }}
                 </span>
 
                 <div class="flex items-center space-x-2">
                     {{-- Indicateur de Non Lu (déplacé ici pour être à côté de l'icône) --}}
                     @if ($isUnread)
-                        <span class="w-2 h-2 rounded-full bg-indigo-500 block shadow-md flex-shrink-0" title="Nouveau message"></span>
+                        <span class="w-2 h-2 rounded-full bg-green-500 block shadow-md flex-shrink-0" title="Nouveau message"></span>
                     @endif
 
                     {{-- Icône de Canal --}}

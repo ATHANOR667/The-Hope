@@ -37,13 +37,13 @@
 
 <nav class="bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300 ease-in-out">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="{{route('admin.profileView')}}" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
+        <a href="{{route('admin.profileView')}}" class="text-2xl font-bold text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300">
             Admin
         </a>
 
         <div class="md:hidden">
             <button @click="sidebarOpen = !sidebarOpen"
-                    class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-indigo-500">
+                    class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-green-500">
                 <svg x-show="!sidebarOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -55,21 +55,21 @@
 
         <div class="hidden md:flex items-center space-x-6">
             @can("customs-logs")
-                <a href="{{route('admin.logsDashboardView')}}" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 {{ request()->routeIs('admin.logsDashboardView') ? 'border-b-2 border-indigo-500' : '' }}">Logs et Monitoring</a>
+                <a href="{{route('admin.logsDashboardView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('admin.logsDashboardView') ? 'border-b-2 border-green-500' : '' }}">Logs et Monitoring</a>
             @endcan
 
 
-            <a href="{{route('admin.finances')}}" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 {{ request()->routeIs('admin.finances') ? 'border-b-2 border-indigo-500' : '' }}">Finances</a>
+            <a href="{{route('admin.finances')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('admin.finances') ? 'border-b-2 border-green-500' : '' }}">Finances</a>
 
 
-            <a href="{{route('admin.galerieView')}}" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 {{ request()->routeIs('admin.galerieView') ? 'border-b-2 border-indigo-500' : '' }}">Gestion Galerie</a>
+            <a href="{{route('admin.galerieView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('admin.galerieView') ? 'border-b-2 border-green-500' : '' }}">Gestion Galerie</a>
 
 
-            <a href="{{route('admin.manageHomePageView')}}" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 {{ request()->routeIs('admin.manageHomePageView') ? 'border-b-2 border-indigo-500' : '' }}">Gestion Home Page</a>
+            <a href="{{route('admin.manageHomePageView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('admin.manageHomePageView') ? 'border-b-2 border-green-500' : '' }}">Gestion Home Page</a>
 
-                <a href="{{route('admin.messagesEtNewsletterView')}}" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 {{ request()->routeIs('admin.messagesEtNewsletterView') ? 'border-b-2 border-indigo-500' : '' }}">Messages et Newsletter</a>
+                <a href="{{route('admin.messagesEtNewsletterView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('admin.messagesEtNewsletterView') ? 'border-b-2 border-green-500' : '' }}">Messages et Newsletter</a>
 
-            <a href="{{route('admin.profileView')}}" class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 {{ request()->routeIs('admin.profileView') ? 'border-b-2 border-indigo-500' : '' }}">Profil</a>
+            <a href="{{route('admin.profileView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('admin.profileView') ? 'border-b-2 border-green-500' : '' }}">Profil</a>
 
 
             <form action="{{route('admin.auth.connected.logout')}}" method="POST">
@@ -81,7 +81,7 @@
             </form>
 
             <button @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
-                    class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-indigo-500 transition-colors duration-300 ease-in-out"
+                    class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-green-500 transition-colors duration-300 ease-in-out"
                     aria-label="Toggle dark mode">
                 <svg x-show="!darkMode" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -97,20 +97,20 @@
          class="md:hidden px-4 py-2 space-y-2 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
 
         @can("customs-logs")
-            <a href="{{route('admin.logsDashboardView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.logsDashboardView') ? 'border-l-4 border-indigo-500 font-bold pl-3 -ml-1' : '' }}">Logs et Monitoring</a>
+            <a href="{{route('admin.logsDashboardView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.logsDashboardView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Logs et Monitoring</a>
         @endcan
 
 
-        <a href="{{route('admin.finances')}}" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.finances') ? 'border-l-4 border-indigo-500 font-bold pl-3 -ml-1' : '' }}">Finances</a>
+        <a href="{{route('admin.finances')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.finances') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Finances</a>
 
 
-        <a href="{{route('admin.galerieView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.galerieView') ? 'border-l-4 border-indigo-500 font-bold pl-3 -ml-1' : '' }}">Gestion Galerie</a>
+        <a href="{{route('admin.galerieView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.galerieView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Gestion Galerie</a>
 
-        <a href="{{route('admin.manageHomePageView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.manageHomePageView') ? 'border-l-4 border-indigo-500 font-bold pl-3 -ml-1' : '' }}">Gestion Home page</a>
+        <a href="{{route('admin.manageHomePageView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.manageHomePageView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Gestion Home page</a>
 
-        <a href="{{route('admin.messagesEtNewsletterView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.messagesEtNewsletterView') ? 'border-l-4 border-indigo-500 font-bold pl-3 -ml-1' : '' }}">Messages et Newsletter</a>
+        <a href="{{route('admin.messagesEtNewsletterView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.messagesEtNewsletterView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Messages et Newsletter</a>
 
-        <a href="{{route('admin.profileView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.profileView') ? 'border-l-4 border-indigo-500 font-bold pl-3 -ml-1' : '' }}">Profil</a>
+        <a href="{{route('admin.profileView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('admin.profileView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Profil</a>
 
 
         <form action="{{route('admin.auth.connected.logout')}}" method="POST" class="pt-2">
@@ -122,7 +122,7 @@
         </form>
         <div class="pt-2 border-t border-gray-200 dark:border-gray-700">
             <button @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
-                    class="w-full flex items-center justify-center p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-indigo-500 transition-colors duration-300 ease-in-out">
+                    class="w-full flex items-center justify-center p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-green-500 transition-colors duration-300 ease-in-out">
                 <svg x-show="!darkMode" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" /></svg>
                 <svg x-show="darkMode" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                 <span x-text="darkMode ? 'Mode Clair' : 'Mode Sombre'"></span>

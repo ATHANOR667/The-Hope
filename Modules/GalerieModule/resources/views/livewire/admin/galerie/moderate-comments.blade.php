@@ -5,7 +5,7 @@
             <h1 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:font-light">
                 Modération des Commentaires
             </h1>
-            <button wire:click="cancel" class="p-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm sm:px-4 sm:py-2">
+            <button wire:click="cancel" class="p-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm sm:px-4 sm:py-2">
                 <span class="flex items-center justify-center">
                     <svg class="w-5 h-5 sm:mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                     <span class="hidden sm:inline">Retour au Post</span>

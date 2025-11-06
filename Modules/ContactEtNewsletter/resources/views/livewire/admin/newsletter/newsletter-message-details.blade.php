@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="flex justify-between items-center">
                                                 <div class="text-sm font-semibold text-gray-500 dark:text-gray-400">Taux de lecture</div>
-                                                <div class="text-4xl font-black text-indigo-600 dark:text-indigo-400 leading-none tracking-tight">{{ $readRate }}%</div>
+                                                <div class="text-4xl font-black text-green-600 dark:text-green-400 leading-none tracking-tight">{{ $readRate }}%</div>
                                             </div>
                                         </div>
 
@@ -219,7 +219,7 @@
                                         <button wire:click="retry('{{ $user['delivery_id'] }}')"
                                                 wire:loading.attr="disabled"
                                                 wire:loading.target="retry('{{ $user['delivery_id'] }}')"
-                                                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 inline-flex items-center justify-center text-sm disabled:opacity-50">
+                                                class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 inline-flex items-center justify-center text-sm disabled:opacity-50">
                                             <span wire:loading.remove wire:target="retry('{{ $user['delivery_id'] }}')" class="inline-flex items-center">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 0011.002 4zM20 20v-5h-.581m-15.356-2A8.001 8.001 0 0013.001 20z"></path>
@@ -296,7 +296,7 @@
                                                 <button wire:click="retry('{{ $user['delivery_id'] }}')"
                                                         wire:loading.attr="disabled"
                                                         wire:loading.target="retry('{{ $user['delivery_id'] }}')"
-                                                        class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-1.5 px-3 rounded-lg shadow-md transition duration-300 inline-flex items-center text-xs disabled:opacity-50">
+                                                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-1.5 px-3 rounded-lg shadow-md transition duration-300 inline-flex items-center text-xs disabled:opacity-50">
                                                         <span wire:loading.remove wire:target="retry('{{ $user['delivery_id'] }}')" class="inline-flex items-center">
                                                             <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 0011.002 4zM20 20v-5h-.581m-15.356-2A8.001 8.001 0 0013.001 20z"></path>

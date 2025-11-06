@@ -11,12 +11,12 @@
     <a href="#{{ $link['id'] }}"
        class="flex items-center w-full transition-all duration-300 ease-in-out relative
               {{-- Styles de base pour le clic et l'état inactif --}}
-              text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50
+              text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 focus:outline-none focus:ring-2 focus:ring-green-500/50
 
               @if(isset($mobile))
                 {{-- MOBILE-FIRST : maximise l'espace horizontal/vertical --}}
                 flex-col justify-center h-full text-center py-1 sm:py-2 px-1
-                border-t-2 border-transparent hover:border-indigo-400/50
+                border-t-2 border-transparent hover:border-green-400/50
               @else
                 {{-- DESKTOP (PC) : Style moderne SOFT et RECTANGULAIRE doux --}}
                 space-x-2 rounded-xl p-2.5
@@ -27,14 +27,14 @@
        :class="{
            // 🌟 ÉTAT ACTIF : COULEUR ET FOND ACCENTUÉS 🌟
            // Texte plus sombre/vif
-           'text-indigo-700 dark:text-indigo-300 font-semibold': activeSection === '{{ $link['id'] }}',
+           'text-green-700 dark:text-green-300 font-semibold': activeSection === '{{ $link['id'] }}',
 
            @if(isset($mobile))
                // Mobile : Barre de surlignage ÉPAISSE pour l'occupation
-               '!border-t-4 border-indigo-600 dark:border-indigo-500': activeSection === '{{ $link['id'] }}',
+               '!border-t-4 border-green-600 dark:border-green-500': activeSection === '{{ $link['id'] }}',
            @else
                // Desktop : Fond RECTANGULAIRE DOUX et ombre subtile
-               'bg-indigo-50 dark:bg-indigo-900/30 shadow-lg shadow-indigo-300/30 dark:shadow-indigo-900/50 border border-indigo-200 dark:border-indigo-800': activeSection === '{{ $link['id'] }}',
+               'bg-green-50 dark:bg-green-900/30 shadow-lg shadow-green-300/30 dark:shadow-green-900/50 border border-green-200 dark:border-green-800': activeSection === '{{ $link['id'] }}',
            @endif
        }"
        aria-label="Aller à la section {{ $link['long_title'] }}"

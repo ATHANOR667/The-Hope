@@ -18,7 +18,7 @@
             <div class="
             px-3 py-2 text-sm whitespace-normal break-words max-w-full
             {{ $isAdmin
-                ? 'bg-indigo-600 text-white rounded-t-xl rounded-bl-xl rounded-br-sm shadow-md'
+                ? 'bg-green-600 text-white rounded-t-xl rounded-bl-xl rounded-br-sm shadow-md'
                 : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-t-xl rounded-br-xl rounded-bl-sm shadow-sm'
             }}"
             >

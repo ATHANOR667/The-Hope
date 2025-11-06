@@ -4,7 +4,7 @@
             <h1 class="text-3xl font-light tracking-tight text-gray-900 dark:text-gray-100">
                 Répondre à un Commentaire
             </h1>
-            <button wire:click="cancel" class="px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm">
+            <button wire:click="cancel" class="px-6 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-full hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm">
                 Retour au Post
             </button>
         </header>
@@ -22,12 +22,12 @@
                 <div>
                     <label for="content" class="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Votre Réponse</label>
                     <textarea wire:model="content" id="content" rows="6"
-                              class="w-full p-3 text-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 transition duration-200"></textarea>
+                              class="w-full p-3 text-sm bg-white dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-green-500 focus:border-green-500 transition duration-200"></textarea>
                     @error('content') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
                 </div>
                 <div class="flex space-x-3">
                     <button wire:click="save" wire:loading.attr="disabled" wire:target="save"
-                            class="flex-1 px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm disabled:bg-indigo-400">
+                            class="flex-1 px-6 py-3 bg-green-600 text-white font-medium rounded-lg shadow-md hover:bg-green-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 text-sm disabled:bg-green-400">
                         <span wire:loading.remove wire:target="save">Enregistrer</span>
                         <span wire:loading wire:target="save">Enregistrement...</span>
                     </button>
