@@ -11,7 +11,7 @@
     @endphp
 
     <div
-        wire:click="select"
+        wire:click="select('{{ $conversation->id }}')"
         wire:key="item-{{ $conversation->id }}"
         class="p-4 border-b border-gray-100 dark:border-gray-700 cursor-pointer transition-all duration-200 ease-in-out
            {{-- STYLE SELECTIONNÉ : Ajout d'une ombre et d'un arrière-plan plus fort --}}
@@ -28,27 +28,23 @@
         <div class="flex items-center justify-between">
 
             <div class="flex items-center space-x-3 flex-1 min-w-0">
-                {{-- Avatar : Style modernisé (taille et fond plus neutre non sélectionné) --}}
                 <div class="w-11 h-11 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 text-lg
                         {{ $isSelected ? 'bg-green-600 shadow-md' : 'bg-gray-300 dark:bg-gray-600' }}">
                     {{ substr($conversation->contact->name ?? 'A', 0, 1) }}
                 </div>
 
                 <div class="flex-1 min-w-0">
-                    {{-- Nom du Contact --}}
                     <p class="text-base truncate text-gray-900 dark:text-white
                           {{ $isUnread ? 'font-extrabold' : 'font-semibold' }}">
                         {{ $conversation->contact->name ?? $conversation->contact->email }}
                     </p>
 
-                    {{-- Dernier message (plus petit et moins important) --}}
                     <p class="text-sm text-gray-500 dark:text-gray-400 truncate mt-0.5 {{ $isUnread ? 'font-semibold text-gray-700 dark:text-gray-300' : '' }}">
                         {{ Str::limit($lastMessage?->content ?? 'Pas de message', 45) }}
                     </p>
                 </div>
             </div>
 
-            {{-- Infos secondaires (Date et Canal) --}}
             <div class="flex flex-col items-end space-y-1 text-right ml-4 flex-shrink-0">
 
                 {{-- Date --}}

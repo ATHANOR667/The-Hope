@@ -4,92 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $newsletterMessage->title }}</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .wysiwyg-content h1, .wysiwyg-content h2, .wysiwyg-content h3 {
-            @apply text-xl font-bold mt-6 mb-3 text-gray-800;
-        }
-        .wysiwyg-content p {
-            @apply mb-4 leading-relaxed text-gray-700;
-        }
-        .wysiwyg-content ul, .wysiwyg-content ol {
-            @apply list-inside mb-4 pl-4 text-gray-700;
-        }
-        .wysiwyg-content ul {
-            @apply list-disc;
-        }
-        .wysiwyg-content ol {
-            @apply list-decimal;
-        }
-        .wysiwyg-content a {
-            @apply text-blue-600 hover:underline;
-        }
-        .wysiwyg-content img {
-            @apply max-w-full h-auto rounded-lg shadow-md my-4;
-        }
-    </style>
 </head>
-<body class="bg-gray-100 p-4 sm:p-8">
+<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333333; margin: 0; padding: 0; background-color: #f3f4f6;">
 
-<div class="max-w-3xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden border border-gray-200">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+    <tr>
+        <td align="center" style="padding: 30px 20px;">
 
-    <header class="bg-blue-700 p-6 text-white text-center">
-        {{-- Remplacez ceci par un logo si nécessaire --}}
-        <h1 class="text-3xl font-extrabold tracking-wider uppercase">
-            {{ config('app.name') }}
-        </h1>
-        <p class="text-sm mt-1 opacity-80">Votre source d'information exclusive.</p>
-    </header>
+            <table width="600" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px; border-collapse: collapse; background-color: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
 
-    <div class="p-6 sm:p-8 border-b border-gray-200">
-        <h2 class="text-2xl font-bold text-gray-900 leading-tight">
-            {{ $newsletterMessage->title }}
-        </h2>
-    </div>
+                <tr>
+                    <td align="center" style="padding: 24px 30px; background-color: #1D4ED8; color: #ffffff;">
+                        <h1 style="font-size: 28px; font-weight: 800; margin: 0; letter-spacing: 0.05em; text-transform: uppercase;">
+                            {{ config('app.name') }}
+                        </h1>
+                        <p style="font-size: 12px; margin-top: 4px; opacity: 0.9;">Votre source d'information exclusive.</p>
+                    </td>
+                </tr>
 
-    <section class="p-6 sm:p-8 text-base">
-        <div class="wysiwyg-content">
-            {!! $newsletterMessage->content !!}
-        </div>
-    </section>
+                <tr>
+                    <td style="padding: 20px 30px; border-bottom: 1px solid #e5e7eb;">
+                        <h2 style="font-size: 22px; font-weight: bold; color: #1f2937; margin: 0; line-height: 1.3;">
+                            {{ $newsletterMessage->title }}
+                        </h2>
+                    </td>
+                </tr>
 
-    <footer class="p-6 sm:p-8 bg-gray-50 border-t border-gray-200">
+                <tr>
+                    <td class="wysiwyg-content" style="padding: 30px; font-size: 15px; color: #4b5563;">
+                        <div style="font-size: 15px; color: #4b5563;">
+                            {!! $newsletterMessage->content !!}
+                        </div>
 
-        @if($newsletterMessage->type === 'goodbye')
-            <div class="text-center bg-yellow-100 p-4 rounded-lg border border-yellow-300">
-                <p class="text-gray-700 text-sm mb-2">
-                    Nous sommes tristes de vous voir partir ! Votre feedback est précieux.
-                </p>
-                <a href="{{ route('visitor.contact-us') }}" class="inline-block text-sm font-medium text-yellow-800 hover:text-yellow-900 underline">
-                    Nous Contacter (Feedback)
-                </a>
-            </div>
-        @endif
+                    </td>
+                </tr>
 
-        @if(in_array($newsletterMessage->type, ['welcome', 'message']))
-            <p class="text-sm text-gray-600 mb-3">
-                ✉️ Vous recevez ce contenu car vous êtes abonné(e) à nos notifications via : **{{ implode(', ', $subscriber->channels) }}**.
-            </p>
+                <tr>
+                    <td style="padding: 30px; background-color: #f9fafb; border-top: 1px solid #e5e7eb;">
 
-            <div class="text-center pt-2">
-                <a href="{{ route('visitor.newsletter.manage', ['token' => $subscriber->token]) }}"
-                   class="inline-block px-4 py-2 border border-blue-500 text-sm font-medium rounded-full text-blue-600 hover:bg-blue-50 transition duration-150">
-                    Gérer Mon Abonnement / Me Désabonner
-                </a>
-            </div>
-        @endif
+                        @if($newsletterMessage->type === 'goodbye')
+                            <div style="text-align: center; background-color: #FFFBEB; padding: 15px; border: 1px solid #FCD34D; border-radius: 8px; margin-bottom: 20px;">
+                                <p style="color: #78350F; font-size: 14px; margin: 0 0 8px 0;">
+                                    Nous sommes tristes de vous voir partir ! Votre feedback est précieux.
+                                </p>
+                                <a href="{{ route('visitor.contact-us') }}" style="display: inline-block; font-size: 14px; font-weight: 500; color: #F59E0B; text-decoration: underline;">
+                                    Nous Contacter (Feedback)
+                                </a>
+                            </div>
+                        @endif
 
-        <hr class="border-gray-200 my-6">
+                        @if(in_array($newsletterMessage->type, ['welcome', 'message']))
+                            <p style="font-size: 13px; color: #6B7280; margin-bottom: 15px;">
+                                ✉️ Vous recevez ce contenu car vous êtes abonné(e) à nos notifications via : **{{ implode(', ', $subscriber->channels) }}**.
+                            </p>
 
-        <div class="text-center text-xs text-gray-500 space-y-1">
-            <p>&copy; {{ date('Y') }} {{ config('app.name') }}. Tous droits réservés.</p>
-        </div>
-    </footer>
+                            <div style="text-align: center; padding-top: 8px;">
+                                <a href="{{ route('visitor.newsletter.manage', ['token' => $subscriber->token]) }}"
+                                   style="display: inline-block; padding: 8px 16px; border: 1px solid #3B82F6; font-size: 14px; font-weight: 500; border-radius: 9999px; color: #2563EB; text-decoration: none; transition: background-color 0.15s;">
+                                    Gérer Mon Abonnement / Me Désabonner
+                                </a>
+                            </div>
+                        @endif
 
-</div>
+                        <div style="border-top: 1px solid #e5e7eb; margin: 24px 0;"></div>
+
+                        <div style="text-align: center; font-size: 12px; color: #9CA3AF; line-height: 1.5;">
+                            <p style="margin: 0;">&copy; {{ date('Y') }} {{ config('app.name') }}. Tous droits réservés.</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+</table>
 
 @if($delivery)
-    <img src="{{ route('visitor.newsletter.track', ['d' => $delivery->id]) }}" width="1" height="1" alt="" class="hidden" />
+    <img src="{{ route('visitor.newsletter.track', ['d' => $delivery->id]) }}" width="1" height="1" alt="" style="display: none !important; mso-hide: all; opacity: 0;" />
 @endif
 </body>
 </html>

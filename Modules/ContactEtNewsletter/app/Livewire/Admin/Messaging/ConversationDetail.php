@@ -20,26 +20,13 @@ class ConversationDetail extends Component
     }
 
 
+    #[On('messageSent')]
     #[On('conversationSelected')]
     public function loadConversation(string $id): void
     {
         $this->conversationId = $id;
-
-        $this->refreshMessages();
-    }
-
-
-    #[On('messageSent')]
-    #[On('echo:messages.{conversationId},MessageSent')]
-    public function refreshMessages(?string $messageId = null): void
-    {
-        if (!$this->conversationId) return;
-
         $conversation = Conversation::with('messages.sender')->find($this->conversationId);
-
         $this->messages = $conversation?->messages ?? new Collection();
-
-        $this->dispatch('scroll-to-bottom');
     }
 
 

@@ -28,10 +28,14 @@ $        @if($conversation && $conversation->status)
 
         @if($conversationId)
             @forelse($messages as $message)
-                <livewire:contactetnewsletter::admin.messaging.message-component
-                    :message="$message"
-                    :key="$message->id"
-                />
+
+                <div class="flex {{ $message->sender_type === 'Admin' ? 'justify-end' : 'justify-start' }}">
+
+                    <livewire:contactetnewsletter::admin.messaging.message-component
+                        :message="$message"
+                        :key="$message->id"
+                    />
+                </div>
             @empty
                 <div class="flex flex-col items-center justify-center h-full min-h-[40vh] p-8 bg-white/50 dark:bg-gray-800/50 rounded-lg border border-dashed border-green-300 dark:border-green-700">
                     <svg class="w-10 h-10 mx-auto mb-3 text-green-500 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>

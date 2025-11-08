@@ -3,6 +3,7 @@
 namespace Modules\ContactEtNewsletter\Mail;
 
 
+use App\Models\HomeContent;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -33,6 +34,7 @@ class NewsletterMessageMail extends Mailable
                 'newsletterMessage' => $this->newsletterMessage,
                 'subscriber' => $this->subscriber,
                 'delivery' => $this->delivery,
+                'logo' => HomeContent::first()->meta['og:image']
             ]);
     }
 }

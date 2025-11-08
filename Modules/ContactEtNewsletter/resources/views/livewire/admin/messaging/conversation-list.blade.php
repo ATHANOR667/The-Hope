@@ -35,7 +35,7 @@
     <div class="flex-1 overflow-y-auto">
         @if($conversations->count())
             @foreach($conversations as $conversation)
-                {{-- L'amélioration de l'item sera gérée dans le composant suivant --}}
+
                 <livewire:contactetnewsletter::admin.messaging.conversation-list-item
                     :conversation="$conversation"
                     :key="'item-'.$conversation->id"

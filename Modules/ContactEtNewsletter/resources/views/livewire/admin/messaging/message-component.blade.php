@@ -1,6 +1,6 @@
 <div>
     @php
-        $isAdmin = $message->sender_type === 'admin';
+        $isAdmin = $message->sender_type === 'Admin'; // Assurez-vous que la casse correspond ('Admin' ou 'admin')
         // Utilisation de variables pour le SVG comme dans la correction ci-dessus
         $channelData = match($message->conversation->channel_type) {
             'whatsapp' => ['color' => 'text-green-500', 'svg' => '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.54 2 2.08 6.46 2.08 12s4.46 10 9.96 10z"/></svg>'],
@@ -9,12 +9,13 @@
         };
     @endphp
 
+    {{-- L'alignement principal est ici --}}
     <div class="flex {{ $isAdmin ? 'justify-end' : 'justify-start' }} w-full">
 
-        {{-- CONTENEUR GLOBAL : Limitation de la largeur maximale (plus petit sur mobile) --}}
+        {{-- CONTENEUR GLOBAL : Limitation de la largeur maximale --}}
         <div class="max-w-[90%] sm:max-w-[70%] md:max-w-[60%] lg:max-w-md flex flex-col {{ $isAdmin ? 'items-end' : 'items-start' }}">
 
-            {{-- BULLE DE MESSAGE : Retrait de whitespace-pre-wrap et usage d'un max-w-full pour la sécurité --}}
+            {{-- BULLE DE MESSAGE --}}
             <div class="
             px-3 py-2 text-sm whitespace-normal break-words max-w-full
             {{ $isAdmin
@@ -26,21 +27,30 @@
             </div>
 
             {{-- Méta-données (Heure/Statut/Nom) --}}
-            <div class="flex items-center mt-1 space-x-2 text-xs text-gray-400 dark:text-gray-500 {{ $isAdmin ? 'pr-1' : 'pl-1' }}">
+            <div class="flex items-center mt-1 space-x-2 text-xs text-gray-400 dark:text-gray-500 {{ $isAdmin ? 'flex-row-reverse space-x-reverse pr-1' : 'pl-1' }}">
 
-                @if(!$isAdmin)
-                    {{-- Ajout de flex-shrink-0 pour s'assurer que le nom n'écrase pas les autres éléments --}}
-                    <span class="font-medium text-gray-600 dark:text-gray-300 truncate max-w-[120px] flex-shrink-0">{{ $message->sender->nom ?? $message->conversation->contact->name ?? 'Contact' }}</span>
-                    <span class="text-xs flex-shrink-0">·</span>
-                @endif
+                {{-- Symbole du canal --}}
+                <span class="{{ $channelData['color'] }} flex-shrink-0">
+                    {!! $channelData['svg'] !!}
+                </span>
 
-
+                {{-- Heure --}}
                 <span class="flex-shrink-0">{{ $message->sent_at->format('H:i') }}</span>
 
-
-                <span class="{{ $channelData['color'] }} flex-shrink-0">
-                {!! $channelData['svg'] !!}
-            </span>
+                {{-- Nom de l'expéditeur --}}
+                @if(!$isAdmin)
+                    {{-- Afficher le nom du contact --}}
+                    <span class="text-xs flex-shrink-0">·</span>
+                    <span class="font-medium text-gray-600 dark:text-gray-300 truncate max-w-[120px] flex-shrink-0">
+                        {{ $message->sender->nom ?? $message->conversation->contact->name ?? 'Contact' }}
+                    </span>
+                @else
+                    {{-- Afficher Admin --}}
+                    <span class="text-xs flex-shrink-0">·</span>
+                    <span class="font-medium text-green-700 dark:text-green-300 flex-shrink-0">
+                        Moi (Admin)
+                    </span>
+                @endif
             </div>
 
         </div>

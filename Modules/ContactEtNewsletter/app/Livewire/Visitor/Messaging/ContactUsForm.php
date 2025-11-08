@@ -2,7 +2,9 @@
 
 namespace Modules\ContactEtNewsletter\Livewire\Visitor\Messaging;
 
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
+use Modules\ContactEtNewsletter\Mail\ContactConfirmationMail;
 use Modules\ContactEtNewsletter\Models\Messaging\Conversation;
 use Modules\ContactEtNewsletter\Services\Messaging\EmailInboundService;
 use Modules\ContactEtNewsletter\Services\Messaging\ConversationService;
@@ -64,6 +66,14 @@ class ContactUsForm extends Component
                 $contact,
                 $this->content
             );
+
+            Mail::to($this->email)->send(new ContactConfirmationMail(
+                $this->name,
+                $this->email,
+                $this->subject,
+                $this->content,
+                $conversation->id
+            ));
 
             $this->reset(['name', 'email', 'subject', 'content']);
 

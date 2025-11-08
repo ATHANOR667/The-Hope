@@ -13,15 +13,12 @@ class ConversationListItem extends Component
     public bool $isSelected = false;
 
 
-    #[On('conversationSelected')]
-    public function updateSelection(string $id): void
-    {
-        $this->isSelected = $id === $this->conversation->id;
-    }
 
 
-    public function select(): void
+    public function select($id): void
     {
+        $this->isSelected = $id ;
+
         $this->dispatch('conversationSelected', id: $this->conversation->id);
     }
 

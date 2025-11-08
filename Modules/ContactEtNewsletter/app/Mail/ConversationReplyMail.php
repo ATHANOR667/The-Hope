@@ -2,6 +2,7 @@
 
 namespace Modules\ContactEtNewsletter\Mail;
 
+use App\Models\HomeContent;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -48,6 +49,7 @@ class ConversationReplyMail extends Mailable implements ShouldQueue
             with: [
                 'content' => $this->content,
                 'conversation' => $this->conversation,
+                'logo' => HomeContent::first()->meta['og:image']
             ],
         );
     }
