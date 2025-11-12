@@ -1,7 +1,5 @@
 <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
 
-    <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.x/dist/typography.min.css" rel="stylesheet">
-
     <div class="max-w-4xl mx-auto">
 
         <header class="text-center mb-12 pb-4 border-b border-gray-200 dark:border-gray-700">
@@ -13,14 +11,17 @@
             </p>
         </header>
 
+        {{-- Barre de recherche optimisée --}}
         <div class="relative mb-10 group">
+            {{-- Effet de flou décoratif --}}
             <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-green-700 rounded-full blur-lg opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+
             <div class="relative">
                 <input
                     wire:model.live.debounce.300ms="search"
                     type="search"
                     placeholder="Rechercher une question ou un mot-clé..."
-                    class="w-full p-5 pl-14 pr-6 text-lg font-medium text-gray-900 dark:text-white border-2 border-green-200 dark:border-green-900 rounded-full shadow-md bg-white/70 dark:bg-gray-800/80 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-green-600 focus:border-green-600 transition-all duration-300 placeholder-gray-500 dark:placeholder-gray-400"
+                    class="w-full p-5 pl-14 pr-14 text-lg font-medium text-gray-900 dark:text-white border-2 border-green-200 dark:border-green-900 rounded-full shadow-md bg-white/70 dark:bg-gray-800/80 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-green-600 focus:border-green-600 transition-all duration-300 placeholder-gray-500 dark:placeholder-gray-400"
                     aria-label="Rechercher dans la FAQ"
                 />
                 <div class="absolute left-5 top-1/2 transform -translate-y-1/2 pointer-events-none">
@@ -28,11 +29,12 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
+
                 {{-- Bouton d'effacement conditionnel --}}
                 @if($search)
                     <button
                         wire:click="$set('search', '')"
-                        class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500 transition"
+                        class="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500 transition focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full p-1"
                         aria-label="Effacer la recherche"
                     >
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,7 +42,7 @@
                         </svg>
                     </button>
                     {{-- Message de recherche --}}
-                    <p class="mt-3 text-sm text-green-600 dark:text-green-400 font-medium pl-2 animate-pulse">
+                    <p class="mt-3 text-sm text-green-600 dark:text-green-400 font-medium pl-2 animate-pulse" aria-live="polite">
                         Résultats pour : <span class="font-bold">"{{ $search }}"</span>
                     </p>
                 @endif
@@ -48,26 +50,29 @@
         </div>
 
         <div class="space-y-4">
+            {{-- Boucle FAQ --}}
             @forelse($this->faqs as $faq)
+                {{-- **MODIFICATION CRITIQUE ICI :** Alpine.js gère l'état 'open' localement. --}}
                 <div
-                    wire:model="openFaq.{{ $faq->id }}"
-                    x-data="{ open: $wire.entangle('openFaq.{{ $faq->id }}').live }"
+                    x-data="{ open: false }"
                     wire:key="faq-{{ $faq->id }}"
                     class="group rounded-xl transition-all duration-500 overflow-hidden"
-                    :class="{ 'ring-2 ring-green-600 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-900': open }"
+                    x-bind:class="{ 'ring-2 ring-green-600 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-900': open }"
                 >
                     <h2 class="border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
                         <button
-                            wire:click.prevent="toggleFaq({{ $faq->id }})"
+                            {{-- **MODIFICATION CRITIQUE ICI :** Simple bascule Alpine.js --}}
+                            @click="open = !open"
                             type="button"
                             class="w-full p-5 text-left flex justify-between items-center focus:outline-none focus:ring-4 focus:ring-green-300 rounded-xl transition-all duration-300"
-                            :aria-expanded="open"
-                            :aria-controls="'faq-answer-{{ $faq->id }}'"
+                            x-bind:aria-expanded="open"
+                            aria-controls="faq-answer-{{ $faq->id }}"
+                            id="faq-question-{{ $faq->id }}"
                         >
                             <span class="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white pr-4 group-hover:text-green-600 dark:group-hover:text-green-400 transition">
                                 {{ $faq->question }}
                             </span>
-                            <div class="flex-shrink-0 transform transition-transform duration-500" :class="{ 'rotate-180': open }">
+                            <div class="flex-shrink-0 transform transition-transform duration-500" x-bind:class="{ 'rotate-180': open }">
                                 <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
                                 </svg>
@@ -75,19 +80,28 @@
                         </button>
                     </h2>
 
-                    @if($openFaq[$faq->id] ?? false)
-                        <div
-                            wire:transition.slide.duration.500ms
-                            id="faq-answer-{{ $faq->id }}"
-                            class="px-5 pb-5 pt-0 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed border-t border-green-200 dark:border-green-900 mt-2"
-                        >
-                            <div class="prose prose-green dark:prose-invert max-w-none pt-4">
-                                {!! Str::markdown($faq->answer) !!}
-                            </div>
+                    {{-- Section de la réponse gérée par Alpine.js --}}
+                    <div
+                        x-show="open"
+                        x-cloak
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform scale-y-0 origin-top"
+                        x-transition:enter-end="opacity-100 transform scale-y-100 origin-top"
+                        x-transition:leave="transition ease-in duration-200"
+                        x-transition:leave-start="opacity-100 transform scale-y-100 origin-top"
+                        x-transition:leave-end="opacity-0 transform scale-y-0 origin-top"
+                        id="faq-answer-{{ $faq->id }}"
+                        role="region"
+                        aria-labelledby="faq-question-{{ $faq->id }}"
+                        class="px-5 pb-5 pt-0 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed border-t border-green-200 dark:border-green-900 mt-2"
+                    >
+                        <div class="prose prose-green dark:prose-invert max-w-none pt-4">
+                            {!! Str::markdown($faq->answer) !!}
                         </div>
-                    @endif
+                    </div>
                 </div>
             @empty
+                {{-- Contenu pour l'état vide --}}
                 <div class="text-center py-20 rounded-xl border-2 border-dashed border-green-300 dark:border-green-700 bg-white/70 dark:bg-gray-800/70 shadow-xl backdrop-blur-sm">
                     <div class="mx-auto w-20 h-20 mb-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
                         <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +117,7 @@
                     </h3>
                     <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
                         @if($search)
-                            Essayez avec d'autres mots-clés ou explorez les catégories.
+                            Essayez avec d'autres mots-clés ou <button wire:click="$set('search', '')" class="text-green-600 hover:text-green-500 font-semibold underline focus:outline-none">réinitialisez votre recherche</button>.
                         @else
                             Revenez plus tard, de nouvelles questions seront bientôt ajoutées.
                         @endif
@@ -112,4 +126,9 @@
             @endforelse
         </div>
     </div>
+
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 </div>
+

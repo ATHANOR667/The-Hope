@@ -6,10 +6,11 @@ use Livewire\Component;
 use Modules\ContactEtNewsletter\Models\Faq;
 use Illuminate\Database\Eloquent\Collection;
 
+
 class FaqIndex extends Component
 {
+
     public string $search = '';
-    public array $openFaq = [];
 
 
     public function getFaqsProperty(): Collection
@@ -25,13 +26,9 @@ class FaqIndex extends Component
     }
 
 
-    public function toggleFaq(int $faqId): void
-    {
-        $this->openFaq[$faqId] = !($this->openFaq[$faqId] ?? false);
-    }
-
-    public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
+    public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         return view('contactetnewsletter::livewire.visitor.faq-index');
     }
+
 }

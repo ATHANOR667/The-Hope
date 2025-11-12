@@ -1,119 +1,106 @@
 @props([
-    'name',
-    'role',
-    'quote',
-    'bio',
-    'expertise',
-    'zone',
-    'realisation',
-    'mediaType',
-    'mediaSrc',
+    'name', 'role', 'quote', 'bio', 'mediaType', 'mediaSrc',
+    'expertise' => null, 'zone' => null, 'realisation' => null,
     'socials' => []
 ])
 
-<div class="flex-shrink-0 w-full sm:w-[380px] lg:w-[420px] p-4 snap-center">
+@php
+    $youtubeId = null;
+    if ($mediaType === 'iframe' && str_contains($mediaSrc, 'youtube.com/embed/')) {
+        $youtubeId = basename(parse_url($mediaSrc, PHP_URL_PATH));
+    }
+@endphp
+
+@push('styles')
+    <style>
+        .perspective-1000 { perspective: 1000px; }
+        .transform-gpu { transform: translateZ(0); }
+    </style>
+@endpush
+
+<div
+    class="flex-shrink-0 w-full sm:w-[380px] lg:w-[420px] p-4 snap-center perspective-1000"
+    x-data="teamMemberCard()"
+    x-init="init('{{ $youtubeId }}')"
+    @mousemove="tilt($event)"
+    @mouseleave="resetTilt()"
+>
     <div
-        class="bg-white dark:bg-gray-800 shadow-xl rounded-4xl overflow-hidden transform hover:scale-[1.02] hover:shadow-green-500/30 transition duration-500 ease-in-out border border-gray-100 dark:border-gray-700 h-full flex flex-col"
-        x-data="{
-            isVideoPlaying: false,
-            showDetail: false,
-        }"
+        class="relative bg-white dark:bg-gray-800 rounded-4xl overflow-hidden shadow-xl transition-all duration-500 border border-gray-100 dark:border-gray-700 h-full flex flex-col transform-gpu group"
+        :style="tiltStyle"
+        style="transform-style: preserve-3d;"
     >
-
-        {{-- Conteneur Média --}}
-        <div class="relative h-64 w-full bg-gray-200 dark:bg-gray-900 shadow-inner group overflow-hidden">
+        {{-- Média --}}
+        <div class="relative h-64 overflow-hidden bg-gray-100 dark:bg-gray-900">
             @if ($mediaType === 'image')
-                <img src="{{ $mediaSrc }}" alt="Portrait de {{ $name }}" class="object-cover w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-105">
-                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent"></div>
-            @elseif ($mediaType === 'iframe')
-                <iframe
-                    :src="isVideoPlaying ? '{{ $mediaSrc }}?controls=0&rel=0&loop=1&playlist={{ basename($mediaSrc) }}&autoplay=1&mute=0' : '{{ $mediaSrc }}?controls=0&rel=0&loop=1&playlist={{ basename($mediaSrc) }}&autoplay=0&mute=1'"
-                    title="Vidéo de présentation de {{ $name }}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    class="w-full h-full transition-opacity duration-500"
-                    :class="{ 'opacity-100': isVideoPlaying, 'opacity-80': !isVideoPlaying }"
-                ></iframe>
-
-                <div x-show="!isVideoPlaying"
-                     @click="isVideoPlaying = true"
-                     class="absolute inset-0 flex flex-col items-center justify-center bg-green-900/60 backdrop-blur-sm transition-opacity duration-500 group-hover:bg-green-900/40 cursor-pointer"
-                     x-cloak>
-                    <button aria-label="Lancer la vidéo"
-                            class="p-5 rounded-full bg-white/95 text-green-600 shadow-xl ring-4 ring-green-500/60 transition-all duration-300 transform hover:scale-110 hover:bg-white">
-                        <i class="fas fa-play text-xl"></i>
-                    </button>
-                    <span class="mt-3 text-sm font-semibold text-white/90 flex items-center">
-                        <i class="fas fa-volume-up mr-2 text-base"></i> Activer la lecture et le son
-                    </span>
+                <img
+                    src="{{ $mediaSrc }}"
+                    alt="Portrait de {{ $name }}"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            @elseif ($mediaType === 'iframe' && $youtubeId)
+                <div x-ref="videoContainer" class="w-full h-full"></div>
+                <div
+                    x-show="!isVideoPlaying"
+                    @click="isVideoPlaying = true; play()"
+                    class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-green-900/90 to-emerald-900/70 backdrop-blur-md cursor-pointer transition-all duration-500 group-hover:from-green-800/90"
+                >
+                    <div class="p-6 rounded-full bg-white/20 backdrop-blur-xl shadow-2xl ring-8 ring-white/30 animate-pulse">
+                        <i class="fas fa-play text-3xl text-white"></i>
+                    </div>
+                    <span class="mt-4 text-lg font-bold text-white drop-shadow-lg">Lancer la vidéo</span>
                 </div>
             @endif
+            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
         </div>
 
-        {{-- Contenu du Membre --}}
-        <div class="p-6 md:p-7 text-center flex-grow flex flex-col">
+        {{-- Contenu --}}
+        <div class="p-6 md:p-7 text-center flex-grow flex flex-col space-y-4">
+            <h3 class="text-3xl font-black text-gray-900 dark:text-white drop-shadow-sm">{{ $name }}</h3>
+            <p class="text-xl font-bold text-green-600 dark:text-green-400">{{ $role }}</p>
 
-            <h3 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-1">
-                {{ $name }}
-            </h3>
+            <blockquote class="italic text-gray-600 dark:text-gray-300 text-lg p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-800 rounded-xl border-l-4 border-green-500 shadow-inner">
+                "{{ $quote }}"
+            </blockquote>
 
-            <p class="text-xl text-green-700 dark:text-green-400 font-bold mb-4">
-                {{ $role }}
-            </p>
-
-            {{-- Citation --}}
-            <div class="relative mb-6 p-4 bg-gray-50 dark:bg-gray-700/30 rounded-xl border-l-4 border-green-500">
-                <blockquote class="italic text-gray-700 dark:text-gray-300 text-lg break-words">
-                    "{{ $quote }}"
-                </blockquote>
-            </div>
-
-            {{-- Biographie/Détails --}}
-            <div class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 flex-grow transition-all duration-500 ease-in-out overflow-hidden"
-                 :style="showDetail ? 'max-height: 800px;' : 'max-height: 72px;'">
-                <p x-show="!showDetail" class="line-clamp-3 break-words">
-                    {{ $bio }}
-                </p>
-
-                <div x-show="showDetail" class="text-left mt-0 space-y-3" x-cloak>
-                    <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4">{{ $bio }}</p>
-
-                    <div class="p-4 bg-green-50/50 dark:bg-green-900/20 rounded-lg">
-                        <p class="font-bold text-green-600 dark:text-green-400 mb-3 text-lg">Faits Clés :</p>
-                        <ul class="list-disc list-inside space-y-2 text-sm text-gray-700 dark:text-gray-300 pl-2">
-                            <li class="pl-2">
-                                <span class="font-semibold text-gray-800 dark:text-gray-200 break-words">Expertise</span> : {{ $expertise }}
-                            </li>
-                            <li class="pl-2">
-                                <span class="font-semibold text-gray-800 dark:text-gray-200 break-words">Zones clés d'intervention</span> : {{ $zone }}
-                            </li>
-                            <li class="pl-2">
-                                <span class="font-semibold text-gray-800 dark:text-gray-200 break-words">Réalisation</span> : {{ $realisation }}
-                            </li>
+            <div
+                class="text-sm text-gray-600 dark:text-gray-400 overflow-hidden transition-all duration-700"
+                :style="showDetail ? 'max-height: 600px' : 'max-height: 60px'"
+            >
+                <p x-show="!showDetail" class="line-clamp-3">{{ $bio }}</p>
+                <div x-show="showDetail" x-transition x-cloak class="space-y-4 text-left">
+                    <p>{{ $bio }}</p>
+                    <div class="p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-emerald-900/30 dark:to-green-900/20 rounded-xl">
+                        <p class="font-bold text-green-600 dark:text-green-400 mb-2">Faits Clés :</p>
+                        <ul class="space-y-1 text-sm">
+                            @if($expertise)<li><strong>Expertise :</strong> {{ $expertise }}</li>@endif
+                            @if($zone)<li><strong>Zone :</strong> {{ $zone }}</li>@endif
+                            @if($realisation)<li><strong>Réalisation :</strong> {{ $realisation }}</li>@endif
                         </ul>
                     </div>
                 </div>
             </div>
 
-            {{-- Bouton CTA --}}
             <button
                 @click="showDetail = !showDetail"
-                class="w-full py-3 mt-2 font-semibold rounded-xl transition duration-300 shadow-md focus:outline-none focus:ring-4 focus:ring-green-500/50 transform hover:scale-[1.01]"
-                :class="showDetail ? 'bg-gray-700 hover:bg-gray-800 text-white dark:bg-gray-600 dark:hover:bg-gray-500' : 'bg-green-600 hover:bg-green-700 text-white'"
+                class="w-full py-3 font-bold rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105"
+                :class="showDetail ? 'bg-gradient-to-r from-gray-700 to-gray-800 text-white' : 'bg-gradient-to-r from-green-600 to-emerald-600 text-white'"
             >
-                <i class="fas mr-2" :class="showDetail ? 'fa-arrow-up' : 'fa-info-circle'"></i>
-                <span x-text="showDetail ? 'Masquer les détails' : 'En savoir plus sur {{ $name }}'"></span>
+                <i class="fas mr-2" :class="showDetail ? 'fa-chevron-up' : 'fa-info-circle'"></i>
+                <span x-text="showDetail ? 'Masquer' : 'En savoir plus'"></span>
             </button>
 
-            {{-- RÉSEAUX SOCIAUX --}}
             @if (!empty($socials))
-                <div class="flex justify-center space-x-6 mt-6 border-t border-gray-200 dark:border-gray-700 pt-5">
+                <div class="flex justify-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                     @foreach ($socials as $social)
-                        <a href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer"
-                           aria-label="Lien {{ $name }} sur {{ ucfirst(explode('-', $social['icon'])[1] ?? 'Social') }}"
-                           class="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition duration-300 transform hover:scale-125 focus:outline-none focus:ring-2 focus:ring-green-500 rounded-full">
-                            <i class="{{ $social['icon'] }} text-2xl"></i>
+                        <a href="{{ $social['url'] }}" target="_blank" rel="noopener"
+                           class="group p-3 rounded-full bg-gray-100 dark:bg-gray-700 transition-all duration-300 hover:bg-green-600 hover:text-white hover:shadow-xl hover:-translate-y-1"
+                        >
+
+                            <i class="{{ $social['icon'] }} text-xl"></i>
                         </a>
                     @endforeach
                 </div>
@@ -121,3 +108,71 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+
+    function loadYTAPI() {
+        if (typeof YT === 'undefined' && !window.ytApiLoading) {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            window.ytApiLoading = true;
+        }
+    }
+
+    function teamMemberCard() {
+        return {
+            isVideoPlaying: false,
+            showDetail: false,
+            player: null,
+            youtubeId: null,
+            tiltStyle: '',
+
+            init(id) {
+                this.youtubeId = id;
+                if (this.youtubeId) {
+                    loadYTAPI();
+                }
+    },
+
+    tilt(e) {
+    const card = e.currentTarget.querySelector('div[style*="transform-style"]');
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateY = (x - centerX) / 15;
+    const rotateX = (centerY - y) / 15;
+
+    this.tiltStyle = `transform: rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.03); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.3);`;
+    },
+
+    resetTilt() {
+    this.tiltStyle = 'transform: rotateY(0deg) rotateX(0deg) scale(1); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);';
+    },
+
+    play() {
+
+    if (!this.youtubeId || this.player || typeof YT === 'undefined' || !YT.Player) return;
+
+    this.player = new YT.Player(this.$refs.videoContainer, {
+    videoId: this.youtubeId,
+    playerVars: { autoplay: 1, mute: 0, controls: 1, rel: 0, modestbranding: 1 },
+    events: {
+    onReady: () => this.isVideoPlaying = true,
+    // Optionnel: Gérer la fin de la vidéo
+    onStateChange: (event) => {
+    if (event.data === YT.PlayerState.ENDED) {
+    this.isVideoPlaying = false;
+    }
+    }
+    }
+    });
+    }
+    };
+    }
+    </script>
+@endpush
