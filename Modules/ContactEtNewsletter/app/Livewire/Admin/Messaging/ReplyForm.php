@@ -44,7 +44,7 @@ class ReplyForm extends Component
         $messagingOutboundService->sendReply($conversation, $admin, $this->message);
 
         $this->message = '';
-        $this->dispatch('messageSent');
+        $this->dispatch('messageSent', id: $conversation->id);
         $this->dispatch('flash-success', message: 'Message envoyé !');
     }
 
