@@ -19,8 +19,8 @@ class NewsletterManageSubscription extends Component
 
     public array $allChannels = [
         'mail' => 'Email',
-        'sms' => 'SMS',
-        'whatsapp' => 'WhatsApp',
+        //'sms' => 'SMS',
+        //'whatsapp' => 'WhatsApp',
     ];
 
     protected $rules = [

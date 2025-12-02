@@ -26,7 +26,7 @@ class NewsletterMessage extends Model
         'sent_at' => 'datetime',
     ];
 
-    public function deliveries()
+    public function deliveries(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(NewsletterDelivery::class, 'newsletter_message_id');
     }

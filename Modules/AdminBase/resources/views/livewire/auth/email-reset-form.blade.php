@@ -22,7 +22,7 @@
                 <div class="mb-6">
                     <label for="new_email_email_change" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Nouvel Email:</label>
                     <input type="email" id="new_email_email_change" name="new_email" wire:model.live="newEmail"
-                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                            required autocomplete="email">
                     @error('newEmail') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
                 </div>
@@ -30,14 +30,14 @@
                 <div class="mb-8">
                     <label for="current_password_email_change" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Mot de passe actuel (pour confirmer):</label>
                     <input type="password" id="current_password_email_change" name="current_password" wire:model.live="currentPassword"
-                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                            required autocomplete="current-password">
                     @error('currentPassword') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
                 </div>
 
                 <div class="flex justify-center">
                     <button type="submit"
-                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:scale-105">
+                            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-green-500 dark:bg-green-700 dark:hover:bg-green-600 dark:focus:ring-green-600 dark:focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:scale-105">
                         Envoyer l'OTP au Nouvel Email
                     </button>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="mb-6">
                     <label for="email_change_otp" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">OTP:</label>
                     <input type="text" id="email_change_otp" name="otp" wire:model.live="otp"
-                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                            required>
                     @error('otp') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
                 </div>

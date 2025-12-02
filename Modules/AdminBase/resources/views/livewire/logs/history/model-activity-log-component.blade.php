@@ -109,7 +109,7 @@
                                     Créé
                                 </span>
                             @elseif ($log->operation === 'updated')
-                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-700 dark:text-blue-100">
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-700 dark:text-green-100">
                                     Mise à jour
                                 </span>
                             @elseif ($log->operation === 'deleted')
@@ -203,7 +203,7 @@
                                 @if ($log->operation === 'created')
                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-700 dark:text-green-100">Créé</span>
                                 @elseif ($log->operation === 'updated')
-                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-700 dark:text-blue-100">Mise à jour</span>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-700 dark:text-green-100">Mise à jour</span>
                                 @elseif ($log->operation === 'deleted')
                                     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-700 dark:text-red-100">Supprimé</span>
                                 @elseif ($log->operation === 'restored')

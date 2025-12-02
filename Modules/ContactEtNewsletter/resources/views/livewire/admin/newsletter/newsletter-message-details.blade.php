@@ -68,7 +68,7 @@
                                         $sentRate = $stat['sent_rate'];
                                         $readRate = $stat['read_rate'];
                                         $accentClass = match($key) {
-                                            'mail' => 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-800',
+                                            'mail' => 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-800',
                                             'sms' => 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-800',
                                             'whatsapp' => 'text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-800',
                                             default => 'text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700',
@@ -109,7 +109,7 @@
                                             <div class="text-right">
                                                 <div class="text-xs font-medium text-gray-600 dark:text-gray-300">Envoyés / Lus</div>
                                                 <div class="text-lg font-bold text-gray-900 dark:text-gray-50 leading-tight">
-                                                    {{ number_format($sent) }} <span class="text-sm font-normal text-blue-600 dark:text-blue-400">/ {{ number_format($read) }}</span>
+                                                    {{ number_format($sent) }} <span class="text-sm font-normal text-green-600 dark:text-green-400">/ {{ number_format($read) }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,7 +159,7 @@
                                         type="text"
                                         wire:model.live.debounce.300ms="search"
                                         placeholder="Rechercher un contact..."
-                                        class="w-full sm:w-64 pl-10 pr-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition"
+                                        class="w-full sm:w-64 pl-10 pr-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-green-500 shadow-sm transition"
                                     />
                                     <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
@@ -170,7 +170,7 @@
                             {{-- Filtres Canal + Statut --}}
                             <div class="flex flex-col sm:flex-row gap-3">
                                 <select wire:model.live="filterChannel"
-                                        class="text-sm border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                                        class="text-sm border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-green-500 focus:border-green-500 shadow-sm">
                                     <option value="">Tous les canaux</option>
                                     <option value="mail">Email</option>
                                     <option value="sms">SMS</option>
@@ -178,7 +178,7 @@
                                 </select>
 
                                 <select wire:model.live="filterStatus"
-                                        class="text-sm border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-blue-500 focus:border-blue-500 shadow-sm">
+                                        class="text-sm border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-green-500 focus:border-green-500 shadow-sm">
                                     <option value="">Tous les statuts</option>
                                     <option value="success">Envoyé</option>
                                     <option value="failed">Échec</option>
@@ -192,7 +192,7 @@
                             @forelse($concernedUsers as $user)
                                 <div class="p-4 rounded-xl shadow-md border {{ $user['status'] === 'failed' ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-800' : 'bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600' }}">
                                     <div class="flex items-start justify-between mb-2">
-                                        <span class="inline-flex px-3 py-1 text-xs font-bold rounded-full {{ $user['channel'] === 'mail' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' : ($user['channel'] === 'sms' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200') }}">
+                                        <span class="inline-flex px-3 py-1 text-xs font-bold rounded-full {{ $user['channel'] === 'mail' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : ($user['channel'] === 'sms' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200') }}">
                                             {{ strtoupper($user['channel']) }}
                                         </span>
                                         <div class="flex items-center space-x-1 text-xs font-medium">
@@ -259,7 +259,7 @@
                                 @forelse($concernedUsers as $user)
                                     <tr class="{{ $user['status'] === 'failed' ? 'bg-red-50/50 dark:bg-red-900/20' : 'hover:bg-gray-50 dark:hover:bg-gray-700/50' }} transition">
                                         <td class="px-4 py-3">
-                                                <span class="inline-flex px-2.5 py-1 text-xs font-medium rounded-full {{ $user['channel'] === 'mail' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' : ($user['channel'] === 'sms' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200') }}">
+                                                <span class="inline-flex px-2.5 py-1 text-xs font-medium rounded-full {{ $user['channel'] === 'mail' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : ($user['channel'] === 'sms' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200') }}">
                                                     {{ strtoupper($user['channel']) }}
                                                 </span>
                                         </td>

@@ -28,6 +28,7 @@ class SuperAdmin extends Authenticatable
     protected $fillable = ['password', 'email'];
 
     protected $casts = [
+        'password_changed_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',

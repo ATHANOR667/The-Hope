@@ -31,12 +31,12 @@
             <div class="mb-6">
                 <label for="email" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Email:</label>
                 <input type="email" id="email" name="email" wire:model.live="email"
-                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                        required autocomplete="email">
                 @error('email') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
             </div>
             <div class="flex flex-col space-y-4">
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:scale-105">
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-green-500 dark:bg-green-700 dark:hover:bg-green-600 dark:focus:ring-green-600 dark:focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:scale-105">
                     Envoyer le Code
                 </button>
                 <button type="button" @click="$wire.cancelReset()" class="w-full text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-semibold transition-colors duration-300 px-4 py-2 rounded-xl">
@@ -59,21 +59,21 @@
             <div class="mb-6">
                 <label for="otp" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Code OTP:</label>
                 <input type="text" id="otp" name="otp" wire:model.live="otp"
-                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                        required>
                 @error('otp') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
             </div>
             <div class="mb-6">
                 <label for="password" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Nouveau Mot de passe:</label>
                 <input type="password" id="password" name="password" wire:model.live="password"
-                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                        required autocomplete="new-password">
                 @error('password') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
             </div>
             <div class="mb-8">
                 <label for="password_confirmation" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Confirmer le nouveau Mot de passe:</label>
                 <input type="password" id="password_confirmation" name="password_confirmation" wire:model.live="passwordConfirmation"
-                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                       class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                        required autocomplete="new-password">
                 @error('passwordConfirmation') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
             </div>

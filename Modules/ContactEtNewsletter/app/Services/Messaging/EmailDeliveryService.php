@@ -4,9 +4,8 @@ namespace Modules\ContactEtNewsletter\Services\Messaging;
 
 use Modules\ContactEtNewsletter\Models\Messaging\Conversation;
 use Modules\ContactEtNewsletter\Models\Messaging\Contact;
-use Modules\ContactEtNewsletter\Mail\ConversationReplyMail; // Importation du Mailable
+use Modules\ContactEtNewsletter\Mail\ConversationReplyMail;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Mail\Mailable;
 
 class EmailDeliveryService
 {
@@ -19,7 +18,6 @@ class EmailDeliveryService
      */
     public function sendReply(Conversation $conversation, Contact $contact, string $content): void
     {
-
         Mail::to($contact->email)->send(new ConversationReplyMail($conversation, $content));
     }
 }

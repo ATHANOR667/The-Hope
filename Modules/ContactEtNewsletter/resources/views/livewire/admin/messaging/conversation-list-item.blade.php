@@ -5,7 +5,7 @@
 
         $channelData = match($conversation->channel_type) {
             'whatsapp' => ['color' => 'text-green-500', 'bg' => 'bg-green-100 dark:bg-green-900/50', 'icon' => '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.54 2 2.08 6.46 2.08 12s4.46 10 9.96 10c1.78 0 3.51-.49 5.01-1.42l3.43 1.15-1.17-3.32c.98-1.74 1.54-3.69 1.54-5.61C22 6.46 17.54 2 12.04 2z"/></svg>'],
-            'sms' => ['color' => 'text-blue-500', 'bg' => 'bg-blue-100 dark:bg-blue-900/50', 'icon' => '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>'],
+            'sms' => ['color' => 'text-green-500', 'bg' => 'bg-green-100 dark:bg-green-900/50', 'icon' => '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>'],
             default => ['color' => 'text-purple-500', 'bg' => 'bg-purple-100 dark:bg-purple-900/50', 'icon' => '<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>'],
         };
     @endphp

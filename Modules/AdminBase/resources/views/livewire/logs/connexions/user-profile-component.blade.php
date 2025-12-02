@@ -62,11 +62,11 @@
         </div>
 
         {{-- Card Stat Unique : Sessions actives --}}
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 text-center transition duration-300 hover:shadow-blue-500/20">
-            <div class="bg-blue-500/10 rounded-full inline-block p-2 mb-3">
-                <svg class="h-6 w-6 text-blue-600 dark:text-blue-400 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5h-6m6 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 10.5a7.5 7.5 0 1 1 15 0 7.5 7.5 0 0 1-15 0Z" /></svg>
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-5 text-center transition duration-300 hover:shadow-green-500/20">
+            <div class="bg-green-500/10 rounded-full inline-block p-2 mb-3">
+                <svg class="h-6 w-6 text-green-600 dark:text-green-400 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5h-6m6 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 10.5a7.5 7.5 0 1 1 15 0 7.5 7.5 0 0 1-15 0Z" /></svg>
             </div>
-            <p class="text-3xl font-extrabold text-blue-700 dark:text-blue-300">{{ $stats['active_sessions'] }}</p>
+            <p class="text-3xl font-extrabold text-green-700 dark:text-green-300">{{ $stats['active_sessions'] }}</p>
             <h3 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mt-1 uppercase tracking-wide">Sessions Actives</h3>
         </div>
 

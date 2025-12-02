@@ -21,7 +21,7 @@
                 {{-- Modal Header --}}
                 <div class="sticky top-0 z-10 flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-700/50 bg-white dark:bg-gray-800 rounded-t-2xl">
                     <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 flex items-center">
-                        <svg class="h-6 w-6 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.973 9.973 0 0112 15c1.444 0 2.813.386 4.024 1.054M15 11a3 3 0 11-6 0 3 3 0 016 0zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <svg class="h-6 w-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A9.973 9.973 0 0112 15c1.444 0 2.813.386 4.024 1.054M15 11a3 3 0 11-6 0 3 3 0 016 0zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         {{ $admin ? 'Profil de ' . $admin->prenom . ' ' . $admin->nom : 'Chargement...' }}
                     </h3>
                     <button type="button" wire:click="closeModal" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -38,7 +38,7 @@
                         {{-- Section 1: Informations Générales & Contact (inchangée) --}}
                         <section class="border-b pb-6 border-gray-100 dark:border-gray-700/50">
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                                 Détails Personnels
                             </h4>
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -59,7 +59,7 @@
                                         </label>
                                         <input type="{{ $field['type'] ?? 'text' }}" id="{{ $field['model'] }}" wire:model.defer="{{ $field['model'] }}"
                                                class="w-full px-4 py-2 text-base rounded-xl shadow-inner border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100
-                                          focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out @error($field['model']) border-red-500 ring-red-500/50 @enderror">
+                                          focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out @error($field['model']) border-red-500 ring-red-500/50 @enderror">
                                         @error($field['model']) <p class="mt-1 text-xs text-red-500 dark:text-red-400 font-medium">{{ $message }}</p> @enderror
                                     </div>
                                 @endforeach
@@ -69,7 +69,7 @@
                         {{-- Section 2: Sécurité & Connexion (inchangée) --}}
                         <section class="border-b pb-6 border-gray-100 dark:border-gray-700/50">
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2v6a2 2 0 01-2 2h-4a2 2 0 01-2-2v-6a2 2 0 012-2h4z"></path></svg>
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2v6a2 2 0 01-2 2h-4a2 2 0 01-2-2v-6a2 2 0 012-2h4z"></path></svg>
                                 Détails de Sécurité
                             </h4>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm bg-gray-50 dark:bg-gray-700/50 p-4 rounded-xl">
@@ -100,7 +100,7 @@
                         {{-- Section 3: Images & Fichiers --}}
                         <section class="border-b pb-6 border-gray-100 dark:border-gray-700/50">
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L15 15m0 0l4.818-4.818a2 2 0 012.828 0M16 16l-3.5-3.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L15 15m0 0l4.818-4.818a2 2 0 012.828 0M16 16l-3.5-3.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 Fichiers et Identité
                             </h4>
                             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -111,11 +111,11 @@
                                     <div class="flex flex-col items-center space-y-4">
                                         <div class="relative">
                                             @if ($newPhotoProfil)
-                                                <img src="{{ $newPhotoProfil->temporaryUrl() }}" class="h-28 w-28 object-cover rounded-full shadow-lg border-4 border-blue-200 dark:border-blue-700" alt="Nouvelle Photo">
+                                                <img src="{{ $newPhotoProfil->temporaryUrl() }}" class="h-28 w-28 object-cover rounded-full shadow-lg border-4 border-green-200 dark:border-green-700" alt="Nouvelle Photo">
                                             @elseif ($admin->photoProfil)
                                                 <img src="{{ asset('storage/' . $admin->photoProfil) }}" class="h-28 w-28 object-cover rounded-full shadow-lg border-4 border-white dark:border-gray-700" alt="Photo Actuelle">
                                             @else
-                                                <div class="h-28 w-28 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-300 text-4xl font-light border-4 border-white dark:border-gray-700">
+                                                <div class="h-28 w-28 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center text-green-600 dark:text-green-300 text-4xl font-light border-4 border-white dark:border-gray-700">
                                                     {{ strtoupper(substr($prenom, 0, 1)) }}{{ strtoupper(substr($nom, 0, 1)) }}
                                                 </div>
                                             @endif
@@ -222,7 +222,7 @@
                         {{-- Section 4: Attribution des Rôles (Utilisation du sous-composant) --}}
                         <section>
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-6 0h6m-6 0v2"></path></svg>
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-6 0h6m-6 0v2"></path></svg>
                                 Attribution des Rôles
                             </h4>
 
@@ -245,8 +245,8 @@
                                 Générer PDF
                             </button>
                             <button type="submit"
-                                    class="order-1 sm:order-3 flex-1 sm:flex-none w-full sm:w-auto px-6 py-2 border border-transparent rounded-xl shadow-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors
-                               focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800"
+                                    class="order-1 sm:order-3 flex-1 sm:flex-none w-full sm:w-auto px-6 py-2 border border-transparent rounded-xl shadow-md text-sm font-medium text-white bg-green-600 hover:bg-green-700 transition-colors
+                               focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-800"
                                     wire:loading.attr="disabled" >
                                 <span wire:loading.remove wire:click="updateAdmin">Mettre à jour le Profil</span>
                                 <span wire:loading >Mise à jour...</span>
@@ -277,20 +277,20 @@
             border: 0;
             font-size: 0.875rem;
             font-weight: 600;
-            background-color: var(--tw-bg-blue-50, #eff6ff);
-            color: var(--tw-text-blue-700, #1d4ed8);
+            background-color: var(--tw-bg-green-50, #eff6ff);
+            color: var(--tw-text-green-700, #1d4ed8);
             cursor: pointer;
             transition: background-color 150ms;
         }
         .file-input-style:hover::-webkit-file-upload-button {
-            background-color: var(--tw-bg-blue-100, #dbeafe);
+            background-color: var(--tw-bg-green-100, #dbeafe);
         }
         .dark .file-input-style {
             color: var(--tw-text-gray-300, #d1d5db);
         }
         .dark .file-input-style::-webkit-file-upload-button {
             background-color: var(--tw-bg-gray-700, #374151);
-            color: var(--tw-text-blue-300, #93c5fd);
+            color: var(--tw-text-green-300, #93c5fd);
         }
         .dark .file-input-style:hover::-webkit-file-upload-button {
             background-color: var(--tw-bg-gray-600, #4b5563);

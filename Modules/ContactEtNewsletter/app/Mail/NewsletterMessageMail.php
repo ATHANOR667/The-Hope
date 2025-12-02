@@ -17,9 +17,9 @@ class NewsletterMessageMail extends Mailable
 
     public NewsletterMessage $newsletterMessage;
     public Subscriber $subscriber;
-    public ?NewsletterDelivery $delivery;
+    public NewsletterDelivery $delivery;
 
-    public function __construct(NewsletterMessage $newsletterMessage, Subscriber $subscriber, ?NewsletterDelivery $delivery)
+    public function __construct(NewsletterMessage $newsletterMessage, Subscriber $subscriber, NewsletterDelivery $delivery)
     {
         $this->newsletterMessage = $newsletterMessage;
         $this->subscriber = $subscriber;

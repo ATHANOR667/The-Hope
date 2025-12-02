@@ -50,7 +50,7 @@
         </h1>
         <p class="text-lg text-gray-600 dark:text-gray-400">
             Configurez les permissions pour le Guard :
-            <span class="font-medium text-blue-600 dark:text-blue-400">{{ $guardName }}</span>
+            <span class="font-medium text-green-600 dark:text-green-400">{{ $guardName }}</span>
         </p>
     </div>
 
@@ -64,7 +64,7 @@
             <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl border border-gray-100 dark:border-gray-700">
                 <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center justify-between">
                     Nouveau Rôle
-                    <button @click="createFormOpen = !createFormOpen" class="p-1 rounded-full text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                    <button @click="createFormOpen = !createFormOpen" class="p-1 rounded-full text-green-500 hover:text-green-700 dark:hover:text-green-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
                         <svg x-show="!createFormOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                         <svg x-show="createFormOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                     </button>
@@ -74,12 +74,12 @@
                     <div class="mt-4 space-y-4">
                         <input type="text" wire:model.live.debounce.300ms="newRoleName" wire:keydown.enter="createRole"
                                placeholder="Nom du rôle (ex: editeur)"
-                               class="block w-full px-4 py-2.5 rounded-xl border @error('newRoleName') border-red-400 ring-red-400 @else border-gray-300 dark:border-gray-600 @enderror dark:bg-gray-700 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out placeholder-gray-400 dark:placeholder-gray-500">
+                               class="block w-full px-4 py-2.5 rounded-xl border @error('newRoleName') border-red-400 ring-red-400 @else border-gray-300 dark:border-gray-600 @enderror dark:bg-gray-700 dark:text-gray-100 focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out placeholder-gray-400 dark:placeholder-gray-500">
                         @error('newRoleName')
                         <p class="text-sm text-red-500 dark:text-red-400 mt-1">{{ $message }}</p>
                         @enderror
                         <button wire:click="createRole" wire:loading.attr="disabled" wire:target="createRole"
-                                class="w-full px-6 py-2.5 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-xl shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2">
+                                class="w-full px-6 py-2.5 bg-green-500 hover:bg-green-600 text-white font-medium rounded-xl shadow-md transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2">
                             <span wire:loading.remove wire:target="createRole">Ajouter le Rôle</span>
                             <span wire:loading wire:target="createRole" class="flex items-center">
                                 <svg class="animate-spin h-5 w-5 mr-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
@@ -101,12 +101,12 @@
                         @endphp
                         <div class="p-4 flex items-center justify-between cursor-pointer rounded-xl transition-all duration-200 ease-in-out
                                     {{ $isSelected
-                                        ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30'
-                                        : 'hover:bg-blue-50 dark:hover:bg-gray-700/50 hover:shadow-md dark:text-gray-200' }}"
+                                        ? 'bg-green-500 text-white shadow-lg shadow-green-500/30'
+                                        : 'hover:bg-green-50 dark:hover:bg-gray-700/50 hover:shadow-md dark:text-gray-200' }}"
                              wire:click="selectRole({{ $role->id }})">
 
                             <span class="flex items-center space-x-3 {{ $isSelected ? 'font-medium' : 'text-gray-700 dark:text-gray-200' }}">
-                                <svg class="h-6 w-6 {{ $isSelected ? 'text-white' : 'text-blue-500 dark:text-blue-400' }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <svg class="h-6 w-6 {{ $isSelected ? 'text-white' : 'text-green-500 dark:text-green-400' }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                                 </svg>
                                 <span>{{ $role->name }}</span>
@@ -135,8 +135,8 @@
                 @if ($selectedRole)
                     <div class="p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
                         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center justify-between border-b dark:border-gray-700 pb-4">
-                            Permissions de : <span class="text-blue-600 dark:text-blue-400 font-bold">{{ $selectedRole->name }}</span>
-                            <button @click="$wire.selectRole({{ $selectedRole->id }})" class="md:hidden text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Permissions de : <span class="text-green-600 dark:text-green-400 font-bold">{{ $selectedRole->name }}</span>
+                            <button @click="$wire.selectRole({{ $selectedRole->id }})" class="md:hidden text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500">
                                 <span class="sr-only">Fermer les permissions</span>
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
@@ -150,7 +150,7 @@
                                             <span class="text-base font-semibold rounded-full px-3 py-1 leading-none transition-colors duration-200
                                                 {{ $categorie == 'super-admin' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' : '' }}
                                                 {{ $categorie == 'admin' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' : '' }}
-                                                @if (!in_array($categorie, ['super-admin', 'admin'])) bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 @endif">
+                                                @if (!in_array($categorie, ['super-admin', 'admin'])) bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 @endif">
                                                 {{ ucfirst(str_replace('_', ' ', $categorie ?: 'Autres')) }}
                                             </span>
                                             <span class="text-sm font-normal text-gray-500 dark:text-gray-400">({{ $permissionsOfCategory->count() }} permissions)</span>
@@ -162,13 +162,13 @@
                                         @foreach ($permissionsOfCategory as $permission)
                                             <label wire:key="perm-{{ $permission->id }}"
                                                    class="flex items-center space-x-3 text-gray-800 dark:text-gray-100 p-3 rounded-lg cursor-pointer transition-all duration-150 ease-in-out border border-transparent
-                                                           {{ in_array($permission->id, $rolePermissions) ? 'bg-blue-50 dark:bg-blue-900/50 border-blue-200 dark:border-blue-700 font-medium' : 'hover:bg-gray-100 dark:hover:bg-gray-700/50' }}">
+                                                           {{ in_array($permission->id, $rolePermissions) ? 'bg-green-50 dark:bg-green-900/50 border-green-200 dark:border-green-700 font-medium' : 'hover:bg-gray-100 dark:hover:bg-gray-700/50' }}">
 
                                                 {{-- CASE À COCHER AMÉLIORÉE --}}
                                                 <input type="checkbox" wire:model.live="rolePermissions" value="{{ $permission->id }}"
-                                                       class="form-checkbox h-6 w-6 text-blue-500 rounded-md border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700
-                                                              dark:checked:bg-blue-600 dark:checked:border-blue-600 focus:ring-blue-500 focus:ring-offset-white dark:focus:ring-offset-gray-800
-                                                              transition duration-200 ease-in-out cursor-pointer hover:border-blue-400 checked:bg-blue-500 checked:border-blue-500">
+                                                       class="form-checkbox h-6 w-6 text-green-500 rounded-md border-2 border-gray-300 dark:border-gray-600 dark:bg-gray-700
+                                                              dark:checked:bg-green-600 dark:checked:border-green-600 focus:ring-green-500 focus:ring-offset-white dark:focus:ring-offset-gray-800
+                                                              transition duration-200 ease-in-out cursor-pointer hover:border-green-400 checked:bg-green-500 checked:border-green-500">
 
                                                 <span class="text-sm select-none">{{ $permission->name }}</span>
                                             </label>
@@ -205,11 +205,11 @@
             {{-- Message d'attente (unchanged) --}}
             <div x-show="selectedRoleId === null"
                  class="h-full min-h-[400px] flex flex-col items-center justify-center text-center p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
-                <svg class="h-20 w-20 text-blue-300 dark:text-blue-700/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="h-20 w-20 text-green-300 dark:text-green-700/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.55 4.55L15 19m0-4.55h-4.55A6 6 0 1111.45 7H15v3.55z" />
                 </svg>
                 <p class="mt-4 text-gray-500 dark:text-gray-400 text-xl font-light">
-                    Commencez par <span class="font-medium text-blue-500 dark:text-blue-400">sélectionner un rôle</span> pour configurer ses accès.
+                    Commencez par <span class="font-medium text-green-500 dark:text-green-400">sélectionner un rôle</span> pour configurer ses accès.
                 </p>
             </div>
         </div>

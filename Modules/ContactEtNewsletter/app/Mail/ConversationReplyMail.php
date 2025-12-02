@@ -8,12 +8,13 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Modules\ContactEtNewsletter\Models\Messaging\Conversation;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ConversationReplyMail extends Mailable implements ShouldQueue
 {
-    use Queueable, SerializesModels;
+    use  SerializesModels;
 
     /**
      * L'objet Conversation et le contenu du message sont passés au Mailable.
@@ -30,27 +31,14 @@ class ConversationReplyMail extends Mailable implements ShouldQueue
         $this->content = $content;
     }
 
-
-    public function envelope(): Envelope
+    public function build(): ConversationReplyMail
     {
-        return new Envelope(
-            subject: 'Re: ' . $this->conversation->subject . ' [' . $this->conversation->id . ']',
-        );
-    }
-
-    /**
-     * Obtient le contenu du message.
-     */
-    public function content(): Content
-    {
-        return new Content(
-
-            view: 'contactetnewsletter::mail.conversation-reply',
-            with: [
+        return $this->subject('Re: ' . $this->conversation->subject . ' [' . $this->conversation->id . ']')
+            ->view('contactetnewsletter::mail.conversation-reply', [
                 'content' => $this->content,
                 'conversation' => $this->conversation,
-                'logo' => HomeContent::first()->meta['og:image']
-            ],
-        );
+                'logo' => HomeContent::first()->meta['og:image'] ?? null
+            ]);
     }
+
 }

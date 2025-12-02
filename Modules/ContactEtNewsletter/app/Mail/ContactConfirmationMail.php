@@ -12,18 +12,14 @@ class ContactConfirmationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name;
-    public $email;
-    public $subject;
-    public $content;
-    public $conversationId;
+    public string $name;
+    public string $email;
+    public  $subject;
+    public string $content;
+    public string $conversationId;
 
-    /**
-     * Crée une nouvelle instance de message.
-     *
-     * @return void
-     */
-    public function __construct(string $name, string $email, string $subject, string $content, int $conversationId)
+
+    public function __construct(string $name, string $email, string $subject, string $content, string $conversationId)
     {
         $this->name = $name;
         $this->email = $email;
@@ -32,15 +28,11 @@ class ContactConfirmationMail extends Mailable
         $this->conversationId = $conversationId;
     }
 
-    /**
-     * Construit le message.
-     *
-     * @return $this
-     */
-    public function build()
+
+    public function build(): static
     {
         return $this->subject('Confirmation de réception de votre message')
-            ->view('contactetnewsletter.mail.contact-confirmation',[
+            ->view('contactetnewsletter::mail.contact-confirmation',[
                 'logo' => HomeContent::first()->meta['og:image']
             ]);
     }

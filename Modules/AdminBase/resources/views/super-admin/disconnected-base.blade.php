@@ -13,11 +13,11 @@
 
 </head>
 <body class="h-full bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 ease-in-out flex flex-col min-h-screen font-sans antialiased">
-<header class="bg-blue-600 dark:bg-blue-800 text-white p-4 shadow-md transition-colors duration-300 ease-in-out">
+<header class="bg-green-600 dark:bg-green-800 text-white p-4 shadow-md transition-colors duration-300 ease-in-out">
     <div class="container mx-auto flex justify-between items-center">
         <h1 class="text-2xl md:text-3xl font-extrabold text-center flex-grow">Owner Panel Authentication</h1>
         <button @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
-                class="p-2 rounded-full bg-blue-700 dark:bg-blue-900 text-white hover:bg-blue-800 dark:hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-600 dark:focus:ring-offset-blue-800 focus:ring-white transition-colors duration-300 ease-in-out"
+                class="p-2 rounded-full bg-green-700 dark:bg-green-900 text-white hover:bg-green-800 dark:hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-600 dark:focus:ring-offset-green-800 focus:ring-white transition-colors duration-300 ease-in-out"
                 aria-label="Toggle dark mode">
             <svg x-show="!darkMode" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -57,9 +57,9 @@
 
         @if (session('message'))
             <div x-data="{ show: true }" x-show="show" x-transition:leave.opacity.duration.500ms
-                 class="bg-blue-100 dark:bg-blue-800 border border-blue-400 dark:border-blue-700 text-blue-700 dark:text-blue-100 px-4 py-3 rounded relative shadow-md flex items-center justify-between" role="alert">
+                 class="bg-green-100 dark:bg-green-800 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-100 px-4 py-3 rounded relative shadow-md flex items-center justify-between" role="alert">
                 <span class="block sm:inline">{{ session('message') }}</span>
-                <button @click="show = false" class="ml-4 text-blue-700 dark:text-blue-100 hover:text-blue-900 dark:hover:text-blue-300 focus:outline-none">
+                <button @click="show = false" class="ml-4 text-green-700 dark:text-green-100 hover:text-green-900 dark:hover:text-green-300 focus:outline-none">
                     <svg class="h-5 w-5" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>

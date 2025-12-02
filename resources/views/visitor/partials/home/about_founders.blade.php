@@ -32,7 +32,7 @@
                 Notre Gouvernance
             </span>
             <h2 class="text-6xl font-extrabold text-gray-900 dark:text-white sm:text-7xl lg:text-8xl mt-6 leading-none">
-                 Nos Leaders
+                Nos Leaders
             </h2>
             <p class="mt-8 text-xl text-gray-600 dark:text-gray-400 font-normal max-w-3xl mx-auto">
                 La transparence et l'intégrité sont au cœur de notre direction. Découvrez les visionnaires qui guident "The Hope Charity" et leur engagement sans faille.

@@ -137,11 +137,11 @@
 
         {{-- 5. Top des emplacements (Liste d'anomalie / focus) --}}
         {{-- Modifié: sm:col-span-2 pour tablette (inchangé) et xl:col-span-2 pour PC (prend 2 des 4 colonnes) --}}
-        <div class="col-span-1 sm:col-span-2 **xl:col-span-2** bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-lg dark:shadow-md dark:shadow-blue-900/10
-                    transition duration-300 hover:shadow-blue-500/30 hover:scale-[1.02] h-full flex flex-col">
+        <div class="col-span-1 sm:col-span-2 **xl:col-span-2** bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-lg dark:shadow-md dark:shadow-green-900/10
+                    transition duration-300 hover:shadow-green-500/30 hover:scale-[1.02] h-full flex flex-col">
 
             <h3 class="text-lg leading-6 font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                <svg class="h-5 w-5 text-blue-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <svg class="h-5 w-5 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                 </svg>
@@ -167,7 +167,7 @@
                     </div>
                 @empty
                     <p class="text-gray-500 dark:text-gray-400 text-sm italic py-4">
-                        <span class="text-blue-500 font-bold mr-1">•</span>Aucune donnée de localisation enregistrée pour la période.
+                        <span class="text-green-500 font-bold mr-1">•</span>Aucune donnée de localisation enregistrée pour la période.
                     </p>
                 @endforelse
             </div>

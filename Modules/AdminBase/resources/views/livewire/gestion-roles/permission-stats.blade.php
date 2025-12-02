@@ -1,11 +1,11 @@
 <div class="p-8 bg-white dark:bg-gray-800 shadow-xl rounded-3xl border border-gray-100 dark:border-gray-700">
 
     <h3 class="text-4xl font-light text-gray-900 dark:text-gray-100 mb-8 flex items-center border-b border-gray-200 dark:border-gray-700 pb-4">
-        <svg class="h-8 w-8 text-blue-500 mr-4" fill="currentColor" viewBox="0 0 24 24">
+        <svg class="h-8 w-8 text-green-500 mr-4" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v-6h-2v6zm0-8h2V7h-2v2z"/>
         </svg>
         Statistiques des Accès
-        <span class="ml-4 px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-700 dark:text-blue-200 text-sm font-medium rounded-full">
+        <span class="ml-4 px-3 py-1 bg-green-100 text-green-800 dark:bg-green-700 dark:text-green-200 text-sm font-medium rounded-full">
             Guard: {{ $guardName }}
         </span>
     </h3>
@@ -13,14 +13,14 @@
     {{-- Stats sur les Permissions: Regroupement par CATÉGORIE --}}
     <div class="mb-12 pt-4">
         <h4 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8 flex items-center">
-            <svg class="h-6 w-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="h-6 w-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.617 7.243a4.004 4.004 0 00-7.368-2.189l-.27-.47a8.008 8.008 0 00-6.103-12.008l-.208-.008A8.012 8.012 0 004 20h.01"></path>
             </svg>
             Permissions par Rôle (Regroupées par Catégorie)
         </h4>
 
         @if(empty($permissionRoleCounts))
-            <div class="bg-blue-50 dark:bg-blue-900/30 p-8 rounded-xl text-center text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-700 shadow-inner">
+            <div class="bg-green-50 dark:bg-green-900/30 p-8 rounded-xl text-center text-green-600 dark:text-green-400 border border-green-200 dark:border-green-700 shadow-inner">
                 <p class="mb-2 text-lg font-medium">Aucune statistique de permission n'est disponible.</p>
                 <p class="text-sm">Veuillez créer des permissions et les attacher à des rôles pour voir les données ici.</p>
             </div>
@@ -32,7 +32,7 @@
                 <div x-data="{ categoryOpen: false }" class="mb-8 p-6 bg-gray-50 dark:bg-gray-700/30 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md">
                     <h5 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center justify-between cursor-pointer border-b border-gray-200 dark:border-gray-700 pb-3" @click="categoryOpen = !categoryOpen">
                         <span>
-                            Catégorie: <span class="capitalize text-blue-600 dark:text-blue-400">{{ str_replace('_', ' ', $category ?: 'Général') }}</span>
+                            Catégorie: <span class="capitalize text-green-600 dark:text-green-400">{{ str_replace('_', ' ', $category ?: 'Général') }}</span>
                             <span class="text-sm font-normal text-gray-500 dark:text-gray-400 ml-2">({{ count($permissionsInGroup) }} permissions)</span>
                         </span>
                         {{-- Icône de flèche pour indiquer l'état fermé/ouvert --}}
@@ -54,10 +54,10 @@
                                     {{-- Progress Bar --}}
                                     <div class="mb-4">
                                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-1">
-                                            Attribuée à <span class="font-bold text-blue-600 dark:text-blue-400">{{ $permission['count'] }}</span> rôles ({{ $percentage }}%) :
+                                            Attribuée à <span class="font-bold text-green-600 dark:text-green-400">{{ $permission['count'] }}</span> rôles ({{ $percentage }}%) :
                                         </p>
-                                        <div class="w-full bg-blue-100 rounded-full h-3 dark:bg-gray-700/50">
-                                            <div class="h-3 rounded-full bg-blue-500 transition-all duration-500 ease-out" style="width: {{ $percentage }}%"></div>
+                                        <div class="w-full bg-green-100 rounded-full h-3 dark:bg-gray-700/50">
+                                            <div class="h-3 rounded-full bg-green-500 transition-all duration-500 ease-out" style="width: {{ $percentage }}%"></div>
                                         </div>
                                     </div>
 
@@ -92,7 +92,7 @@
     <div x-data="{ open: false }" class="pt-6">
         <h4 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8 flex items-center justify-between cursor-pointer" @click="open = !open">
             <div class="flex items-center">
-                <svg class="h-6 w-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="h-6 w-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20h-5.022m0-13-2.5 5.5m0 0a3.1 3.1 0 01-2.984 2.5H6.5a3.1 3.1 0 01-3.08-2.5m10.584 2.5a3.1 3.1 0 002.984-2.5H18.5a3.1 3.1 0 003.08-2.5H20M12 12a3 3 0 100-6 3 3 0 000 6z"></path>
                 </svg>
                 Rôles Attribués aux Utilisateurs
@@ -104,7 +104,7 @@
         </h4>
         <div x-show="open" x-collapse.duration.300ms>
             @if(empty($roleUserCounts))
-                <div class="bg-blue-50 dark:bg-blue-900/30 p-8 rounded-xl text-center text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-700 shadow-inner">
+                <div class="bg-green-50 dark:bg-green-900/30 p-8 rounded-xl text-center text-green-600 dark:text-green-400 border border-green-200 dark:border-green-700 shadow-inner">
                     <p class="mb-2 text-lg font-medium">Aucune statistique de rôle n'est disponible.</p>
                     <p class="text-sm">Veuillez créer des rôles et les attribuer à des utilisateurs pour voir les données ici.</p>
                 </div>
@@ -133,10 +133,10 @@
                                 $percentageUsers = $totalUsersWithRoles > 0 ? round(($data['count'] / $totalUsersWithRoles) * 100) : 0;
                             @endphp
                             <p class="text-gray-600 dark:text-gray-400 text-sm mb-1">
-                                Utilisateurs : <span class="font-bold text-blue-600 dark:text-blue-400">{{ $data['count'] }}</span> ({{ $percentageUsers }}% total)
+                                Utilisateurs : <span class="font-bold text-green-600 dark:text-green-400">{{ $data['count'] }}</span> ({{ $percentageUsers }}% total)
                             </p>
-                            <div class="w-full bg-blue-100 rounded-full h-3 dark:bg-gray-700/50 mb-4">
-                                <div class="h-3 rounded-full bg-blue-500 transition-all duration-500 ease-out" style="width: {{ $percentageUsers }}%"></div>
+                            <div class="w-full bg-green-100 rounded-full h-3 dark:bg-gray-700/50 mb-4">
+                                <div class="h-3 rounded-full bg-green-500 transition-all duration-500 ease-out" style="width: {{ $percentageUsers }}%"></div>
                             </div>
 
                             {{-- Détails (Users et Catégories associées) --}}

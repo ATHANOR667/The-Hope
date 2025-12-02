@@ -46,9 +46,9 @@
                         <button wire:click="prev" @if($currentIndex === 0) disabled @endif
                         class="p-3 rounded-full transition-all duration-300 ease-in-out
                            text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700
-                           hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white
+                           hover:bg-green-500 hover:text-white dark:hover:bg-green-600 dark:hover:text-white
                             disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-gray-600
-                            focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                            focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800"
                                 aria-label="Étape Précédente"
                         >
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -61,7 +61,7 @@
                                    Progression
                             </span>
                             <div class="flex items-baseline mt-1 space-x-1">
-                                <span class="text-4xl font-extrabold text-blue-600 dark:text-blue-400 leading-none">
+                                <span class="text-4xl font-extrabold text-green-600 dark:text-green-400 leading-none">
                                     {{ $currentIndex + 1 }}
                                 </span>
                                 <span class="text-lg font-semibold text-gray-700 dark:text-gray-300 leading-none">
@@ -70,7 +70,7 @@
                             </div>
                             <span class="text-sm font-semibold mt-1 text-gray-600 dark:text-gray-400">
                                 @if($currentIndex === 0)
-                                    <span class="text-blue-500 dark:text-blue-300 font-bold">Actuel</span>
+                                    <span class="text-green-500 dark:text-green-300 font-bold">Actuel</span>
                                 @elseif($currentIndex === count($versions) - 1)
                                     <span class="text-red-500 dark:text-red-400 font-bold">Initial</span>
                                 @else
@@ -82,9 +82,9 @@
                         <button wire:click="next" @if($currentIndex === count($versions) - 1) disabled @endif
                         class="p-3 rounded-full transition-all duration-300 ease-in-out
                            text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700
-                           hover:bg-blue-500 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white
+                           hover:bg-green-500 hover:text-white dark:hover:bg-green-600 dark:hover:text-white
                            disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-100 disabled:hover:text-gray-600
-                           focus:outline-none focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800"
+                           focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800"
                                 aria-label="Étape Suivante"
                         >
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -119,10 +119,10 @@
                                     </svg>
                                     <p class="text-sm font-semibold text-green-600 dark:text-green-400">Création</p>
                                 @elseif($version['operation'] === 'updated')
-                                    <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                     </svg>
-                                    <p class="text-sm font-semibold text-blue-600 dark:text-blue-400">Modification</p>
+                                    <p class="text-sm font-semibold text-green-600 dark:text-green-400">Modification</p>
                                 @elseif($version['operation'] === 'deleted')
                                     <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4M3 7h18"></path>
@@ -154,7 +154,7 @@
                                 <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">Champs Modifiés :</p>
                                 <ul class="space-y-2">
                                     @foreach($version['changed_fields'] as $field => $change)
-                                        <li x-data="{ expanded: false }" class="p-2 bg-blue-50 dark:bg-blue-900/50 rounded-md transition-colors"
+                                        <li x-data="{ expanded: false }" class="p-2 bg-green-50 dark:bg-green-900/50 rounded-md transition-colors"
                                             x-transition:enter="ease-out duration-300"
                                             x-transition:enter-start="opacity-0 translate-y-2"
                                             x-transition:enter-end="opacity-100 translate-y-0">
@@ -174,14 +174,14 @@
                         <!-- Affichage mobile -->
                         <div class="sm:hidden divide-y divide-gray-200 dark:divide-gray-700">
                             @foreach($version['state'] as $field => $value)
-                                <div x-data="{ fullText: false }" class="py-3 @if(is_array($version['changed_fields']) && array_key_exists($field, $version['changed_fields'])) bg-blue-50 dark:bg-blue-900/50 @endif">
+                                <div x-data="{ fullText: false }" class="py-3 @if(is_array($version['changed_fields']) && array_key_exists($field, $version['changed_fields'])) bg-green-50 dark:bg-green-900/50 @endif">
                                     <p class="text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ $field }}</p>
                                     <div class="mt-1 text-sm text-gray-900 dark:text-gray-100 break-words">
                                         @if($isFile($value))
                                             @php
                                                 $url = str_starts_with($value, 'http') ? $value : asset('storage/' . $value);
                                             @endphp
-                                            <a href="{{ $url }}" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                            <a href="{{ $url }}" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center">
                                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2M15 9l-3 3-3-3m3 3V3"></path>
                                                 </svg>
@@ -191,12 +191,12 @@
                                             <span x-show="!fullText" class="inline">
                                                 {{ Str::limit($value, 50, '...') }}
                                                 @if(strlen($value) > 50)
-                                                    <button @click="fullText = true" class="text-blue-600 dark:text-blue-400 hover:underline text-xs ml-1">Voir plus</button>
+                                                    <button @click="fullText = true" class="text-green-600 dark:text-green-400 hover:underline text-xs ml-1">Voir plus</button>
                                                 @endif
                                             </span>
                                             <span x-show="fullText" class="inline">
                                                 {{ $value ?? 'N/A' }}
-                                                <button @click="fullText = false" class="text-blue-600 dark:text-blue-400 hover:underline text-xs ml-1">Voir moins</button>
+                                                <button @click="fullText = false" class="text-green-600 dark:text-green-400 hover:underline text-xs ml-1">Voir moins</button>
                                             </span>
                                         @endif
                                     </div>
@@ -218,14 +218,14 @@
                                 </thead>
                                 <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                                 @foreach($version['state'] as $field => $value)
-                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors @if(is_array($version['changed_fields']) && array_key_exists($field, $version['changed_fields'])) bg-blue-50 dark:bg-blue-900/50 @endif">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors @if(is_array($version['changed_fields']) && array_key_exists($field, $version['changed_fields'])) bg-green-50 dark:bg-green-900/50 @endif">
                                         <td class="px-3 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">{{ $field }}</td>
                                         <td class="px-3 py-3 text-sm text-gray-500 dark:text-gray-400">
                                             @if($isFile($value))
                                                 @php
                                                     $url = str_starts_with($value, 'http') ? $value : asset('storage/' . $value);
                                                 @endphp
-                                                <a href="{{ $url }}" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline flex items-center">
+                                                <a href="{{ $url }}" target="_blank" class="text-green-600 dark:text-green-400 hover:underline flex items-center">
                                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2M15 9l-3 3-3-3m3 3V3"></path>
                                                     </svg>

@@ -169,13 +169,65 @@ class ManageHomePage extends Component
         $this->dispatch('flash-success', "Profil du fondateur sauvegardé !");
     }
 
+    // Assurez-vous que cette fonction d'aide est disponible dans la même classe
+// ou dans un trait qu'elle utilise.
+
+    /**
+     * Convertit une URL YouTube standard (watch, short, embed, etc.) en URL embed standard (iframe src).
+     * Retourne null si le format n'est pas reconnu.
+     */
+    private function convertYoutubeToEmbedUrl(string $url): ?string
+    {
+        // Regex pour extraire l'ID de la vidéo de différents formats d'URL YouTube
+        $patterns = [
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/', // watch?v=...
+            '/(?:https?:\/\/)?(?:www\.)?youtu\.be\/([a-zA-Z0-9_-]{11})/', // youtu.be/
+            '/(?:https?:\/\/)?(?:www\.)?youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/', // embed/
+        ];
+
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $matches)) {
+                $videoId = $matches[1];
+                // Format standard pour l'attribut src de l'iframe
+                return "https://www.youtube.com/embed/{$videoId}";
+            }
+        }
+
+        return null;
+    }
+
     protected function validateFounder($index): void
     {
+        // --- Prétraitement de l'URL media_src ---
+        $mediaSrc = $this->founders[$index]['media_src'] ?? null;
+        $mediaType = $this->founders[$index]['media_type'] ?? 'image';
+
+        if ($mediaType === 'iframe' && $mediaSrc) {
+            $embedUrl = $this->convertYoutubeToEmbedUrl($mediaSrc);
+
+            if ($embedUrl) {
+                // Mise à jour de la variable avec l'URL embed normalisée
+                $this->founders[$index]['media_src'] = $embedUrl;
+            } else {
+                // Si la conversion échoue, cela signifie que l'URL fournie n'est pas un lien YouTube valide.
+                $this->addError("founders.{$index}.media_src", "Si le type est 'iframe', l'URL doit être un lien YouTube valide (watch, share, etc.).");
+                return; // Arrêter la validation
+            }
+        }
+        // --- Fin du Prétraitement ---
+
+        // Règles de validation mises à jour
         $rules = [
             "founders.{$index}.name" => 'required|string|max:100',
             "founders.{$index}.role" => 'required|string|max:100',
             "founders.{$index}.media_type" => ['required', Rule::in(['image', 'iframe'])],
-            "founders.{$index}.media_src" => 'nullable|url',
+            // Si iframe, l'URL a été normalisée en "embed"
+            "founders.{$index}.media_src" => [
+                'nullable',
+                'url',
+                // Conditionnel : Si le type est 'iframe', exige le format embed normalisé
+                Rule::when($mediaType === 'iframe', ['required', 'starts_with:https://www.youtube.com/embed/']),
+            ],
             "founders.{$index}.quote" => 'required|string|max:255',
             "founders.{$index}.bio" => 'required|string|max:1000',
             "founders.{$index}.expertise" => 'required|string|max:80',
@@ -253,14 +305,32 @@ class ManageHomePage extends Component
         $this->dispatch('flash-success', 'Meta sauvegardée');
     }
 
+
+
     public function saveHero(): void
     {
-        $this->validate([
-            'hero.video_title' => 'required|string|max:100',
-            'hero.video_url' => 'required|url|regex:/^https:\/\/www\.youtube\.com\/embed\//',
-        ]);
-        $this->saveContent(['hero' => $this->hero]);
-        $this->dispatch('flash-success', 'Hero sauvegardée');
+        // 1. Convertir l'URL avant la validation
+        $embedUrl = $this->convertYoutubeToEmbedUrl($this->hero['video_url']);
+
+        // Si la conversion réussit, mettre à jour la variable pour la sauvegarde
+        if ($embedUrl) {
+            $this->hero['video_url'] = $embedUrl;
+
+            // La nouvelle règle de validation est plus simple, car l'URL est déjà dans le format 'embed'
+            $this->validate([
+                'hero.video_title' => 'required|string|max:100',
+                // Nous vérifions simplement que c'est une URL valide et qu'elle contient 'youtube.com/embed/'
+                'hero.video_url' => 'required|url|starts_with:https://www.youtube.com/embed/',
+            ]);
+
+            $this->saveContent(['hero' => $this->hero]);
+            $this->dispatch('flash-success', 'Hero sauvegardée');
+        } else {
+            // 2. Échec de la conversion : l'URL n'est pas un lien YouTube valide
+            // Cela remplace la validation par regex échouée
+            $this->addError('hero.video_url', "Le lien YouTube fourni est invalide ou son format n'est pas reconnu. Veuillez utiliser un lien standard (watch ou share).");
+            return;
+        }
     }
 
     public function saveSocialLinks(): void

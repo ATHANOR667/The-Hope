@@ -13,14 +13,21 @@
             <table width="600" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px; border-collapse: collapse; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);">
 
                 <tr>
-                    <td style="padding: 20px 30px; background-color: #4CAF50; text-align: center;">
-                        <img src="{{ $logo }}" alt="The Hope Charity Logo" style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+                    <td style="padding: 15px 30px; background-color: #FFFFFF; border-bottom: 3px solid #10B981;">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                            <tr>
+                                <td align="left" style="width: 50%; vertical-align: middle;">
+                                    <img src="{{ $logo }}" alt="The Hope Charity Logo" style="max-width: 150px; height: auto; display: block;">
+                                </td>
+                                <td align="right" style="width: 50%; vertical-align: middle;">
+                                    <p style="margin: 0; font-size: 20px; font-weight: bold; color: #10B981;">The Hope Charity</p>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
-
                 <tr>
                     <td style="padding: 30px;">
-
                         <p style="font-size: 16px; color: #333333; margin-bottom: 20px;">
                             Bonjour <strong style="color: #10B981;">{{ $name }}</strong> ({{ $email }}),
                         </p>

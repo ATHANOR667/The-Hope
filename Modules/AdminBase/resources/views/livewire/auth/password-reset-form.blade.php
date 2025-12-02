@@ -22,7 +22,7 @@
             <form wire:submit.prevent="sendPasswordOtp">
                 <div class="flex justify-center">
                     <button type="submit"
-                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-700 dark:hover:bg-blue-600 dark:focus:ring-blue-600 dark:focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:scale-105">
+                            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-green-500 dark:bg-green-700 dark:hover:bg-green-600 dark:focus:ring-green-600 dark:focus:ring-offset-gray-900 transition-all duration-300 ease-in-out transform hover:scale-105">
                         Envoyer l'OTP
                     </button>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="mb-6">
                     <label for="password_change_otp" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">OTP:</label>
                     <input type="text" id="password_change_otp" name="otp" wire:model.live="otp"
-                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                            required>
                     @error('otp') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
                 </div>
@@ -52,7 +52,7 @@
                 <div class="mb-6">
                     <label for="new_password_password_change" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Nouveau Mot de passe:</label>
                     <input type="password" id="new_password_password_change" name="new_password" wire:model.live="newPassword"
-                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                            required autocomplete="new-password">
                     @error('newPassword') <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p> @enderror
                 </div>
@@ -60,7 +60,7 @@
                 <div class="mb-8">
                     <label for="new_password_confirmation_password_change" class="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">Confirmer le nouveau Mot de passe:</label>
                     <input type="password" id="new_password_confirmation_password_change" name="new_password_confirmation" wire:model.live="newPasswordConfirmation"
-                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-blue-200 dark:bg-gray-700 dark:focus:ring-blue-800 transition-all duration-300 ease-in-out"
+                           class="shadow-sm appearance-none border border-gray-300 dark:border-gray-600 rounded-xl w-full py-3 px-4 text-gray-800 dark:text-white leading-tight focus:outline-none focus:ring-4 focus:ring-green-200 dark:bg-gray-700 dark:focus:ring-green-800 transition-all duration-300 ease-in-out"
                            required autocomplete="new-password">
                 </div>
 

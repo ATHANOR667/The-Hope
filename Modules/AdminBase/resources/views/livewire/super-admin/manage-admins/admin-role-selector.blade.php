@@ -19,8 +19,8 @@
                     // Détermine les classes de style pour l'état
                     $baseClass = 'inline-flex items-center cursor-pointer px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm whitespace-nowrap';
                     $styleClasses = $isSelected
-                        ? 'bg-blue-600 text-white hover:bg-blue-700 ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-gray-900'
-                        : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-blue-50 hover:border-blue-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600';
+                        ? 'bg-green-600 text-white hover:bg-green-700 ring-2 ring-green-500 ring-offset-2 dark:ring-offset-gray-900'
+                        : 'bg-gray-100 text-gray-700 border border-gray-300 hover:bg-green-50 hover:border-green-500 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600';
                 @endphp
 
                 <div wire:key="role-{{ $role->id }}"
@@ -61,7 +61,7 @@
                                 </p>
                                 <div class="flex flex-wrap gap-1 text-xs max-h-32 overflow-y-auto">
                                     @foreach ($permissions as $permissionName)
-                                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full dark:bg-blue-900 dark:text-blue-300 shadow-sm">
+                                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full dark:bg-green-900 dark:text-green-300 shadow-sm">
                                             {{ $permissionName }}
                                         </span>
                                     @endforeach

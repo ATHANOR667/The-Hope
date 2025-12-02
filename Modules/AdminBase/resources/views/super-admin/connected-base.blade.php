@@ -29,13 +29,13 @@
 
 <nav class="bg-white dark:bg-gray-800 shadow-sm transition-colors duration-300 ease-in-out">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-        <a href="{{route('super-admin.manageAdminsView')}}" class="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300">
+        <a href="{{route('super-admin.manageAdminsView')}}" class="text-2xl font-bold text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300">
             Owner
         </a>
 
         <div class="md:hidden">
             <button @click="sidebarOpen = !sidebarOpen"
-                    class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-blue-500">
+                    class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-green-500">
                 <svg x-show="!sidebarOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
@@ -46,8 +46,8 @@
         </div>
 
         <div class="hidden md:flex items-center space-x-6">
-            <a href="{{route('super-admin.manageAdminsView')}}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 {{ request()->routeIs('super-admin.manageAdminsView') ? 'border-b-2 border-blue-500' : '' }}">Admins</a>
-            <a href="{{route('super-admin.profileView')}}" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 {{ request()->routeIs('super-admin.profileView') ? 'border-b-2 border-blue-500' : '' }}">Profil</a>
+            <a href="{{route('super-admin.manageAdminsView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('super-admin.manageAdminsView') ? 'border-b-2 border-green-500' : '' }}">Admins</a>
+            <a href="{{route('super-admin.profileView')}}" class="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 {{ request()->routeIs('super-admin.profileView') ? 'border-b-2 border-green-500' : '' }}">Profil</a>
 
             <form action="{{route('super-admin.auth.connected.logout')}}" method="POST">
                 @csrf
@@ -58,7 +58,7 @@
             </form>
 
             <button @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
-                    class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-blue-500 transition-colors duration-300 ease-in-out"
+                    class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-green-500 transition-colors duration-300 ease-in-out"
                     aria-label="Toggle dark mode">
                 <svg x-show="!darkMode" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" />
@@ -72,8 +72,8 @@
     <div x-show="sidebarOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
          x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4"
          class="md:hidden px-4 py-2 space-y-2 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-        <a href="{{route('super-admin.manageAdminsView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 py-1 {{ request()->routeIs('super-admin.manageAdminsView') ? 'border-l-4 border-blue-500 font-bold pl-3 -ml-1' : '' }}">Admins</a>
-        <a href="{{route('super-admin.profileView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 py-1 {{ request()->routeIs('super-admin.profileView') ? 'border-l-4 border-blue-500 font-bold pl-3 -ml-1' : '' }}">Profil</a>
+        <a href="{{route('super-admin.manageAdminsView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('super-admin.manageAdminsView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Admins</a>
+        <a href="{{route('super-admin.profileView')}}" class="block text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 py-1 {{ request()->routeIs('super-admin.profileView') ? 'border-l-4 border-green-500 font-bold pl-3 -ml-1' : '' }}">Profil</a>
         <form action="{{route('super-admin.auth.connected.logout')}}" method="POST" class="pt-2">
             @csrf
             @method('DELETE')
@@ -83,7 +83,7 @@
         </form>
         <div class="pt-2 border-t border-gray-200 dark:border-gray-700">
             <button @click="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light')"
-                    class="w-full flex items-center justify-center p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-blue-500 transition-colors duration-300 ease-in-out">
+                    class="w-full flex items-center justify-center p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800 focus:ring-green-500 transition-colors duration-300 ease-in-out">
                 <svg x-show="!darkMode" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M4 12H3m15.325-7.757l-.707.707M6.343 17.657l-.707.707M16.95 7.05l.707-.707M7.05 16.95l-.707.707M12 15a3 3 0 100-6 3 3 0 000 6z" /></svg>
                 <svg x-show="darkMode" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                 <span x-text="darkMode ? 'Mode Clair' : 'Mode Sombre'"></span>

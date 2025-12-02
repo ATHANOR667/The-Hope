@@ -45,7 +45,7 @@
                         {{-- Section 1: Informations Générales --}}
                         <section class="border-b pb-6 border-gray-100 dark:border-gray-700/50">
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor"
                                      viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
@@ -76,7 +76,7 @@
                                                id="{{ $field['model'] }}"
                                                wire:model.defer="{{ $field['model'] }}"
                                                class="w-full px-4 py-2 text-base rounded-xl shadow-inner border border-gray-200 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100
-                                                      focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out @error($field['model']) border-red-500 ring-red-500/50 @enderror">
+                                                      focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out @error($field['model']) border-red-500 ring-red-500/50 @enderror">
                                         @error($field['model'])
                                         <p class="mt-1 text-xs text-red-500 dark:text-red-400 font-medium">{{ $message }}</p>
                                         @enderror
@@ -88,7 +88,7 @@
                         {{-- Section 2: Fichiers --}}
                         <section class="border-b pb-6 border-gray-100 dark:border-gray-700/50">
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor"
                                      viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M4 16l4.586-4.586a2 2 0 012.828 0L15 15m0 0l4.818-4.818a2 2 0 012.828 0M16 16l-3.5-3.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -110,7 +110,7 @@
                                     @if ($photoProfil)
                                         <div class="mt-4 flex items-center justify-center">
                                             <img src="{{ $photoProfil->temporaryUrl() }}"
-                                                 class="h-24 w-24 object-cover rounded-full shadow-lg border-4 border-blue-200 dark:border-blue-700"
+                                                 class="h-24 w-24 object-cover rounded-full shadow-lg border-4 border-green-200 dark:border-green-700"
                                                  alt="Prévisualisation Photo Profil">
                                         </div>
                                     @endif
@@ -159,7 +159,7 @@
                         {{-- Section 3: Attribution des Rôles --}}
                         <section>
                             <h4 class="text-xl font-medium text-gray-700 dark:text-gray-200 mb-6 flex items-center">
-                                <svg class="h-5 w-5 text-blue-500 mr-2" fill="none" stroke="currentColor"
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor"
                                      viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-6 0h6m-6 0v2"/>
@@ -178,7 +178,7 @@
                         </button>
 
                         <button type="submit"
-                                class="order-1 sm:order-2 min-w-0 px-6 py-2 border border-transparent rounded-xl shadow-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800"
+                                class="order-1 sm:order-2 min-w-0 px-6 py-2 border border-transparent rounded-xl shadow-md text-sm font-medium text-white bg-green-600 hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:focus:ring-offset-gray-800"
                                 wire:loading.attr="disabled">
                             <span wire:loading.remove>Créer l'Administrateur</span>
                             <span wire:loading>Création...</span>
@@ -203,20 +203,20 @@
             border: 0;
             font-size: 0.875rem;
             font-weight: 600;
-            background-color: var(--tw-bg-blue-50, #eff6ff);
-            color: var(--tw-text-blue-700, #1d4ed8);
+            background-color: var(--tw-bg-green-50, #eff6ff);
+            color: var(--tw-text-green-700, #1d4ed8);
             cursor: pointer;
             transition: background-color 150ms;
         }
         .file-input-style:hover::-webkit-file-upload-button {
-            background-color: var(--tw-bg-blue-100, #dbeafe);
+            background-color: var(--tw-bg-green-100, #dbeafe);
         }
         .dark .file-input-style {
             color: var(--tw-text-gray-300, #d1d5db);
         }
         .dark .file-input-style::-webkit-file-upload-button {
             background-color: var(--tw-bg-gray-700, #374151);
-            color: var(--tw-text-blue-300, #93c5fd);
+            color: var(--tw-text-green-300, #93c5fd);
         }
         .dark .file-input-style:hover::-webkit-file-upload-button {
             background-color: var(--tw-bg-gray-600, #4b5563);

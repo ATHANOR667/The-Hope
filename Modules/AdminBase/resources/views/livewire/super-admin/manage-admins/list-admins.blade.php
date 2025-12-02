@@ -9,12 +9,12 @@
                 <input type="text" wire:model.live.debounce.300ms="search" placeholder="Rechercher un admin..."
                        class="w-full md:w-auto px-4 py-2 text-base rounded-xl shadow-sm
                           border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100
-                          focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out">
+                          focus:ring-green-500 focus:border-green-500 transition duration-150 ease-in-out">
 
                 {{-- Bouton Ajouter Admin (Padding réduit et coins arrondis améliorés) --}}
                 <button wire:click="$dispatch('openCreateAdminModal')"
-                        class="w-full md:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl shadow-md
-                           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-white dark:focus:ring-offset-gray-800
+                        class="w-full md:w-auto px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow-md
+                           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-white dark:focus:ring-offset-gray-800
                            transition duration-150 ease-in-out flex items-center justify-center space-x-2">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                     <span>Ajouter Admin</span>
@@ -64,7 +64,7 @@
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
                                         {{ $role->name === 'super-admin' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' : '' }}
                                         {{ $role->name === 'admin' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' : '' }}
-                                        {{ $role->name !== 'super-admin' && $role->name !== 'admin' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' : '' }}
+                                        {{ $role->name !== 'super-admin' && $role->name !== 'admin' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : '' }}
                                         mb-1">
                                             {{ $role->name }}
                                         </span>
@@ -95,7 +95,7 @@
                             {{-- BOUTON ÉDITER (Conditionnel) --}}
                             @if (!$admin->trashed())
                                 <button wire:click="openAdminProfileCard('{{ $admin->id }}')"
-                                        class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-600 transition-colors duration-150 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                                        class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-600 transition-colors duration-150 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
                                         title="Modifier l'administrateur">
                                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L15.232 5.232z"></path></svg>
                                 </button>
@@ -179,7 +179,7 @@
                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full
                                         {{ $role->name === 'super-admin' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200' : '' }}
                                         {{ $role->name === 'admin' ? 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' : '' }}
-                                        {{ $role->name !== 'super-admin' && $role->name !== 'admin' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' : '' }}
+                                        {{ $role->name !== 'super-admin' && $role->name !== 'admin' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : '' }}
                                         mb-1">
                                         {{ $role->name }}
                                     </span>
@@ -205,7 +205,7 @@
                                     {{-- BOUTON ÉDITER (Conditionnel) --}}
                                     @if (!$admin->trashed())
                                         <button wire:click="openAdminProfileCard('{{ $admin->id }}')"
-                                                class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-600 transition-colors duration-150 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                                                class="text-green-600 hover:text-green-900 dark:text-green-400 dark:hover:text-green-600 transition-colors duration-150 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
                                                 title="Modifier l'administrateur">
                                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L15.232 5.232z"></path></svg>
                                         </button>

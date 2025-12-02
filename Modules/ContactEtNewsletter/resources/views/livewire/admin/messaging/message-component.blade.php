@@ -4,7 +4,7 @@
         // Utilisation de variables pour le SVG comme dans la correction ci-dessus
         $channelData = match($message->conversation->channel_type) {
             'whatsapp' => ['color' => 'text-green-500', 'svg' => '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2C6.54 2 2.08 6.46 2.08 12s4.46 10 9.96 10z"/></svg>'],
-            'sms' => ['color' => 'text-blue-500', 'svg' => '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1z"/></svg>'],
+            'sms' => ['color' => 'text-green-500', 'svg' => '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1z"/></svg>'],
             default => ['color' => 'text-purple-500', 'svg' => '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1z"/></svg>'],
         };
     @endphp

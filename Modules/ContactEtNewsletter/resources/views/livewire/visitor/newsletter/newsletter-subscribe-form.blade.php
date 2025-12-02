@@ -62,7 +62,6 @@
                               @else
                                   bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 hover:border-green-400 dark:hover:border-green-500
                               @endif">
-                        {{-- CORRECTION: Remplacement du checkbox par radio --}}
                         <input id="{{ $channelKey }}-channel"
                                name="selectedChannel"
                                type="radio"
@@ -74,7 +73,6 @@
                         </svg>
                         <span class="text-xs font-medium">{{ $channelData['name'] }}</span>
                         @if($selectedChannel === $channelKey)
-                            {{-- Affichage du cercle de sélection pour le canal radio --}}
                             <svg class="h-3 w-3 text-green-600 dark:text-green-400 absolute top-1 right-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L10 10.586 8.707 9.293z" clip-rule="evenodd" />
                             </svg>

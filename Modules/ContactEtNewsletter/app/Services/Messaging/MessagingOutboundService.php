@@ -111,7 +111,6 @@ class MessagingOutboundService
         if (empty($contact->email)) {
             throw new Exception("Le contact n'a pas d'adresse e-mail enregistrée.");
         }
-        // Délégation à l'EmailDeliveryService pour l'envoi par SMTP
         $this->emailDeliveryService->sendReply($conversation, $contact, $content);
     }
 }

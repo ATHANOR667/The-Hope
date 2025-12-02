@@ -110,7 +110,7 @@
                     {{-- Lien SMS --}}
                     @if ($smsNumber)
                         <a href="sms:{{ $smsNumber }}?body=Bonjour%2C%20j'ai%20une%20question%20concernant..."
-                           class="flex items-center justify-center space-x-2 py-3 px-8 rounded-full font-bold text-white bg-blue-600 hover:bg-blue-700 transition duration-300 shadow-xl transform hover:scale-105">
+                           class="flex items-center justify-center space-x-2 py-3 px-8 rounded-full font-bold text-white bg-green-600 hover:bg-green-700 transition duration-300 shadow-xl transform hover:scale-105">
                             <i class="fas fa-sms text-xl"></i>
                             <span>SMS</span>
                         </a>

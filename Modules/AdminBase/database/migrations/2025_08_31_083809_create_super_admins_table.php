@@ -12,6 +12,7 @@ class CreateSuperAdminsTable extends Migration
             $table->uuid('id')->primary();
             $table->string('password');
             $table->string('email')->nullable();
+            $table->string('password_changed_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

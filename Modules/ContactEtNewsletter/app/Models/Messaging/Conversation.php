@@ -42,7 +42,7 @@ class Conversation extends Model
     }
 
 
-    public function messages()
+    public function messages(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Message::class)->latest();
     }
