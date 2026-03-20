@@ -1,0 +1,12 @@
+{
+    "CoreUI": true,
+    "AdminBase": true,
+    "Logs": true,
+    "Shared": true,
+    "WMS": true,
+    "WmsAdminPanel": true,
+    "WmsOwnerPanel": true,
+    "GalerieModule": true,
+    "ContactEtNewsletter": true,
+    "Donation": true
+}

@@ -1,0 +1,137 @@
+<div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+
+    <div class="max-w-4xl mx-auto">
+
+        <header class="text-center mb-12 pb-4 border-b border-gray-200 dark:border-gray-700">
+            <h2 class="text-4xl sm:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800 leading-tight">
+                Centre d'Aide & FAQ
+            </h2>
+            <p class="mt-4 text-lg sm:text-xl text-gray-600 dark:text-gray-400 font-medium">
+                Trouvez instantanément la réponse à vos questions.
+            </p>
+        </header>
+
+        
+        <div class="relative mb-10 group">
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-green-700 rounded-full blur-lg opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+
+            <div class="relative">
+                <input
+                    wire:model.live.debounce.300ms="search"
+                    type="search"
+                    placeholder="Rechercher une question ou un mot-clé..."
+                    class="w-full p-5 pl-14 pr-14 text-lg font-medium text-gray-900 dark:text-white border-2 border-green-200 dark:border-green-900 rounded-full shadow-md bg-white/70 dark:bg-gray-800/80 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-green-600 focus:border-green-600 transition-all duration-300 placeholder-gray-500 dark:placeholder-gray-400"
+                    aria-label="Rechercher dans la FAQ"
+                />
+                <div class="absolute left-5 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                    <svg class="w-7 h-7 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+
+                
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($search): ?>
+                    <button
+                        wire:click="$set('search', '')"
+                        class="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500 transition focus:outline-none focus:ring-2 focus:ring-red-500 rounded-full p-1"
+                        aria-label="Effacer la recherche"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                    
+                    <p class="mt-3 text-sm text-green-600 dark:text-green-400 font-medium pl-2 animate-pulse" aria-live="polite">
+                        Résultats pour : <span class="font-bold">"<?php echo e($search); ?>"</span>
+                    </p>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $this->faqs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $faq): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                
+                <div
+                    x-data="{ open: false }"
+                    wire:key="faq-<?php echo e($faq->id); ?>"
+                    class="group rounded-xl transition-all duration-500 overflow-hidden"
+                    x-bind:class="{ 'ring-2 ring-green-600 ring-offset-2 ring-offset-gray-50 dark:ring-offset-gray-900': open }"
+                >
+                    <h2 class="border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <button
+                            
+                            @click="open = !open"
+                            type="button"
+                            class="w-full p-5 text-left flex justify-between items-center focus:outline-none focus:ring-4 focus:ring-green-300 rounded-xl transition-all duration-300"
+                            x-bind:aria-expanded="open"
+                            aria-controls="faq-answer-<?php echo e($faq->id); ?>"
+                            id="faq-question-<?php echo e($faq->id); ?>"
+                        >
+                            <span class="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white pr-4 group-hover:text-green-600 dark:group-hover:text-green-400 transition">
+                                <?php echo e($faq->question); ?>
+
+                            </span>
+                            <div class="flex-shrink-0 transform transition-transform duration-500" x-bind:class="{ 'rotate-180': open }">
+                                <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </h2>
+
+                    
+                    <div
+                        x-show="open"
+                        x-cloak
+                        x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 transform scale-y-0 origin-top"
+                        x-transition:enter-end="opacity-100 transform scale-y-100 origin-top"
+                        x-transition:leave="transition ease-in duration-200"
+                        x-transition:leave-start="opacity-100 transform scale-y-100 origin-top"
+                        x-transition:leave-end="opacity-0 transform scale-y-0 origin-top"
+                        id="faq-answer-<?php echo e($faq->id); ?>"
+                        role="region"
+                        aria-labelledby="faq-question-<?php echo e($faq->id); ?>"
+                        class="px-5 pb-5 pt-0 text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed border-t border-green-200 dark:border-green-900 mt-2"
+                    >
+                        <div class="prose prose-green dark:prose-invert max-w-none pt-4">
+                            <?php echo Str::markdown($faq->answer); ?>
+
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                
+                <div class="text-center py-20 rounded-xl border-2 border-dashed border-green-300 dark:border-green-700 bg-white/70 dark:bg-gray-800/70 shadow-xl backdrop-blur-sm">
+                    <div class="mx-auto w-20 h-20 mb-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 1.261-2.256 1.997-3.228C12.22 4.227 14.827 3 17.5 3c2.673 0 5.28 1.227 7.273 3.772M12 15l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($search): ?>
+                            Aucun résultat trouvé
+                        <?php else: ?>
+                            Aucune question disponible
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($search): ?>
+                            Essayez avec d'autres mots-clés ou <button wire:click="$set('search', '')" class="text-green-600 hover:text-green-500 font-semibold underline focus:outline-none">réinitialisez votre recherche</button>.
+                        <?php else: ?>
+                            Revenez plus tard, de nouvelles questions seront bientôt ajoutées.
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    </p>
+                </div>
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+        </div>
+    </div>
+
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</div>
+
+<?php /**PATH /home/athanor/Documents/PhpstormProjects/Hope/Modules/ContactEtNewsletter/resources/views/livewire/visitor/faq-index.blade.php ENDPATH**/ ?>
